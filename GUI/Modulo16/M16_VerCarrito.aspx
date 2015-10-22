@@ -184,7 +184,10 @@
 
         <div id="alertlocal" runat="server">
         </div>
+
     <form runat="server" class="form-horizontal" method="POST">
+        <h4 class="modal-title">Total: 26096</h4>
+        <br />
         <div class="form-group">
             <div class="col-sm-10 col-md-10 col-lg-10">
                  <div class="dropdown" runat="server" id="div1">
@@ -258,12 +261,14 @@
 			</div>
 		</div>
 
-        <div class="form-group">
-		    <div class="col-sm-5 col-md-5 col-lg-5">
-				<button id="Boton1" runat="server" Disabled="disabled" class="btn btn-primary" type="submit" >Registrar</button>
+         <div class="form-group">
+		    <div class="box-footer">
+				<button id="Boton1" style="align-content:flex-end" runat="server" Disabled="disabled" class="btn btn-primary" type="submit" >Registrar</button>
                 <a class="btn btn-default" href="ListarUsuarios.aspx">Cancelar</a>
 			</div>
 	    </div>
+
+
     </form>
         </div>
 
@@ -291,33 +296,56 @@
                     $('#<%=Text2.ClientID %>').attr("disabled", false);
                     $('#<%=Text3.ClientID %>').attr("disabled", false);
                     $('#<%=Text4.ClientID %>').attr("disabled", false);
+
+                    //Deshabilitamos los campos y limpiamos
                     $('#<%=Text5.ClientID %>').attr("disabled", "disabled");
                     $('#<%=Text6.ClientID %>').attr("disabled", "disabled");
                     $('#<%=Text7.ClientID %>').attr("disabled", "disabled");
                     $('#<%=Text8.ClientID %>').attr("disabled", "disabled");
                     $('#<%=Text9.ClientID %>').attr("disabled", "disabled");
                     $('#<%=Text10.ClientID %>').attr("disabled", "disabled");
+                    $('#<%=Text10.ClientID %>').val('');
+                    $('#<%=Text5.ClientID %>').val('');
+                    $('#<%=Text6.ClientID %>').val('');
+                    $('#<%=Text7.ClientID %>').val('');
+                    $('#<%=Text8.ClientID %>').val('');
+                    $('#<%=Text9.ClientID %>').val('');
+                    $('#<%=Text10.ClientID %>').val('');
+
                     $('#<%=Boton1.ClientID %>').attr("disabled", false);
                 }
 
                 else
                     if ($('#<%=DropDownList1.ClientID %>').val() == 2) {
 
+                        //Deshabilitamos los campos y limpiamos
                         $('#<%=Text1.ClientID %>').attr("disabled", "disabled");
                         $('#<%=Text2.ClientID %>').attr("disabled", "disabled");
                         $('#<%=Text3.ClientID %>').attr("disabled", "disabled");
                         $('#<%=Text4.ClientID %>').attr("disabled", "disabled");
+                        $('#<%=Text1.ClientID %>').val('');
+                        $('#<%=Text2.ClientID %>').val('');
+                        $('#<%=Text3.ClientID %>').val('');
+                        $('#<%=Text4.ClientID %>').val('');
+
                         $('#<%=Text5.ClientID %>').attr("disabled", false);
                         $('#<%=Text6.ClientID %>').attr("disabled", false);
                         $('#<%=Text7.ClientID %>').attr("disabled", false);
+
+                        //Deshabilitamos los campos y limpiamos
                         $('#<%=Text8.ClientID %>').attr("disabled", "disabled");
                         $('#<%=Text9.ClientID %>').attr("disabled", "disabled");
                         $('#<%=Text10.ClientID %>').attr("disabled", "disabled");
+                        $('#<%=Text8.ClientID %>').val('');
+                        $('#<%=Text9.ClientID %>').val('');
+                        $('#<%=Text10.ClientID %>').val('');
+                       
                         $('#<%=Boton1.ClientID %>').attr("disabled", false);
                     }
                     else
                         if ($('#<%=DropDownList1.ClientID %>').val() == 3) {
 
+                            //Deshabilitamos los campos y limpiamos
                             $('#<%=Text1.ClientID %>').attr("disabled", "disabled");
                             $('#<%=Text2.ClientID %>').attr("disabled", "disabled");
                             $('#<%=Text3.ClientID %>').attr("disabled", "disabled");
@@ -325,6 +353,14 @@
                             $('#<%=Text5.ClientID %>').attr("disabled", "disabled");
                             $('#<%=Text6.ClientID %>').attr("disabled", "disabled");
                             $('#<%=Text7.ClientID %>').attr("disabled", "disabled");
+                            $('#<%=Text1.ClientID %>').val('');
+                            $('#<%=Text2.ClientID %>').val('');
+                            $('#<%=Text3.ClientID %>').val('');
+                            $('#<%=Text4.ClientID %>').val('');
+                            $('#<%=Text5.ClientID %>').val('');
+                            $('#<%=Text6.ClientID %>').val('');
+                            $('#<%=Text7.ClientID %>').val('');
+
                             $('#<%=Text8.ClientID %>').attr("disabled", false);
                             $('#<%=Text9.ClientID %>').attr("disabled", false);
                             $('#<%=Text10.ClientID %>').attr("disabled", false);
