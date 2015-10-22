@@ -1,0 +1,252 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SKD.master.cs" Inherits="templateApp.SKD" %>
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SAKARATEDO | Home Page</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+     <!-- DATA TABLES -->
+     <link href="../../plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+    folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+
+     <!-- jQuery 2.1.4 -->
+     <script src="../../plugins/jQuery/jQuery-2.1.4.min.js"></script>
+      
+    <!-- Bootstrap 3.3.5 -->
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <!-- SlimScroll -->
+    <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="../../plugins/fastclick/fastclick.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/app.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script> 
+
+    <!-- DATA TABES SCRIPT -->
+    <script src="../../plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <script src="../../plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->  
+      <asp:ContentPlaceHolder ID="head" runat="server">
+      </asp:ContentPlaceHolder>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+
+       
+    <!-- Site wrapper -->
+    <div class="wrapper">
+
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="Inicio.aspx" class="logo" style="background-color:#080B0C">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><b>SKD</b></span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg" style="font-size:15px;font-family:Helvetica"><img src="/dist/img/logofinal.png" style="max-width:80px;margin-top:3px;margin-left:0px" class="pull-left" />SA-KARATEDO</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation" style="background-color:#080B0C">
+          <!-- Sidebar toggle button-->
+   
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                            <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Organizaciones<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Organizaciones Mundiales</a></li>
+                                <li><a href="#">Cintas por Organización</a></li>
+                                <li><a href="#">Restricciones de Cintas y Eventos</a></li>
+                            </ul>
+					    </li>
+
+                <li class="dropdown">
+                            <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dojo<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Administración de Dojo</a></li>
+                                <li><a href="#">Reportes de Dojo</a></li>
+                            </ul>
+					    </li>
+                 <li class="dropdown">
+                            <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Usuarios<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Atletas</a></li>
+                                <li><a href="#">Consulta Atletas</a></li>
+                                <li><a href="#">Representantes</a></li>
+                                <li><a href="#">Contactos</a></li>
+                            </ul>
+					    </li>
+                
+                <li class="dropdown">
+                            <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Eventos<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Eventos y Competencias</a></li>
+                                <li><a href="#">Asistencia a Eventos</a></li>
+                                <li><a href="#">Resultados de Competencias</a></li>
+                             
+                            </ul>
+					    </li>
+
+                 <li class="dropdown">
+                            <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mercancía<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Inventario</a></li>
+                            </ul>
+					    </li>
+
+                 <li class="dropdown">
+                            <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Planillas<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Gestión De Planillas</a></li>
+                            </ul>
+					    </li>
+
+                <li class="dropdown">
+                            <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Compras<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Carrito de Compras</a></li>
+                            </ul>
+					    </li>
+
+              
+              <!-- Notifications: style can be found in dropdown.less -->
+              <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell-o"></i>
+                  <span class="label label-warning"><!-- CONTADOR DE NOTIFICACIONES --></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header"><!-- MENSAJE DE NOTIFICACIONES --></li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li>
+                        <a href="#"><!--ICONO DE NOTIFICACION INTERNA Y MENSAJE EN LISTA-->
+                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="#">View all</a></li><!--VER TODAS LAS NOTIFICACIONES-->
+                </ul>
+              </li>
+             
+              <!-- User Account: style can be found in dropdown.less -->
+              <li class="dropdown user user-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                  <span class="hidden-xs">Alexander Pierce</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- User image -->
+                  <li class="user-header">
+                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <p>
+                      Alexander Pierce - Web Developer
+                      <small>Member since Nov. 2012</small>
+                    </p>
+                  </li>
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <!-- Control Sidebar Toggle Button -->
+              <%--<li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li>--%>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+
+      <!-- Left side column. contains the sidebar -->
+      <aside class="main-sidebar control-sidebar-dark" style="background-color:Disabled;">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar" style="background-color:Disabled;">
+                  <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <li><a href="#" class="fa fa-home"></></a></li> 
+
+          </ul>
+          <ul class="sidebar-menu">
+
+
+           <%-- <li class="header">MAIN NAVIGATION</li>--%>           
+
+            <% foreach (KeyValuePair<string, string> opcion in OpcionesDelMenu) %>
+						<% { %>
+							<li><a href="<%= Page.ResolveUrl(opcion.Value) %>"><%= opcion.Key%></a></li>
+						<% } %>  
+          </ul>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+        <div class="control-sidebar-bg"></div>
+     
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+
+            <h1 class="page-header">
+               <asp:ContentPlaceHolder runat="server" ID="titulo">Título</asp:ContentPlaceHolder>
+                <br />
+                  <small> 
+                  <asp:ContentPlaceHolder runat="server" ID="subtitulo">Subtítulo</asp:ContentPlaceHolder>
+                  </small>
+			</h1>
+
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+                    <asp:ContentPlaceHolder runat="server" ID="contenidoCentral"></asp:ContentPlaceHolder>	
+
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <strong>Copyright &copy; 2015-2016 <a href="#">SA-Karatedo</a>.</strong> All rights reserved.
+        </div>
+          <br/>
+      </footer>
+
+      <div class="control-sidebar-bg"></div>
+    </div><!-- ./wrapper -->
+
+
+  </body>
+</html>
+
+   

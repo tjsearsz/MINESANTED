@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menuLateral>
+  <!-- OPCIONES DE CADA MODULO -->
+
+  <!--OPCIONES DE PANTALLA EJEMPLO-->
+  
+  <opcion nombre="Funcionalidad 0" link="~/GUI/Master/Inicio.aspx">
+    <modulo id="0"></modulo>
+  </opcion>
+  
+    <opcion nombre="Funcionalidad 1" link="~/GUI/Master/Inicio.aspx">
+    <modulo id="0"></modulo>
+  </opcion>
+
+  <!--FIN OPCIONES DE PANTALLA EJEMPLO-->
+  
+  
+  <!--OPCIONES DE MODULO 1-->
+  
+  <opcion nombre="" link="~/GUI/Modulo1/">
+    <modulo id="1"></modulo>
+  </opcion>
+  
+  <!--FIN OPCIONES MODULO 1-->
+  
+  
+  <!--OPCIONES DE MODULO 2-->
+  
+  <opcion nombre="" link="~/GUI/Modulo2/">
+    <modulo id="2"></modulo>
+  </opcion>
+  
+  <!--FIN OPCIONES MODULO 2-->
+
+  
+  <!--OPCIONES DE MODULO 3-->
+  
+  <opcion nombre="" link="~/GUI/Modulo3/">
+    <modulo id="3"></modulo>
+  </opcion>
+  
+  <!--FIN OPCIONES MODULO 3-->
+
+
+  <!--OPCIONES DE MODULO 4-->
+  
+  <opcion nombre="" link="~/GUI/Modulo4/">
+    <modulo id="4"></modulo>
+  </opcion>
+  
+  <!--FIN OPCIONES MODULO 4-->
+
+
+  <!--OPCIONES DE MODULO 5-->
+  
+  <opcion nombre="" link="~/GUI/Modulo5/">
+    <modulo id="5"></modulo>
+  </opcion>
+  
+  <!--FIN OPCIONES MODULO 5-->
+
+
+  <!--OPCIONES DE MODULO 6-->
+  
+  <opcion nombre="" link="~/GUI/Modulo6/">
+    <modulo id="6"></modulo>
+  </opcion>
+  
+  <!--FIN OPCIONES MODULO 6-->
+
+
+  <!--OPCIONES DE MODULO 7-->
+  
+  <opcion nombre="" link="~/GUI/Modulo7/">
+    <modulo id="7"></modulo>
+  </opcion>
+  
+  <!--FIN OPCIONES MODULO 7-->
+
+
+  <!--OPCIONES DE MODULO 8-->
+  
+  <opcion nombre="" link="~/GUI/Modulo8/">
+    <modulo id="8"></modulo>
+  </opcion>
+  
+  <!--FIN OPCIONES MODULO 8-->
+
+
+  <!--OPCIONES DE MODULO 9-->
+  
+  <opcion nombre="" link="~/GUI/Modulo9/">
+    <modulo id="9"></modulo>
+  </opcion>
+  
+  <!--FIN OPCIONES MODULO 9-->
+
+
+  <!--OPCIONES DE MODULO 10-->
+  
+  <opcion nombre="" link="~/GUI/Modulo10/">
+    <modulo id="10"></modulo>
+  </opcion>
+  
+  <!--FIN OPCIONES MODULO 10-->
+
+
+  <!--OPCIONES DE MODULO 11-->
+  
+  <opcion nombre="" link="~/GUI/Modulo11/">
+    <modulo id="11"></modulo>
+  </opcion>
+  
+  <!--FIN OPCIONES MODULO 11-->
+
+
+  <!--OPCIONES DE MODULO 12-->
+  
+  <opcion nombre="Crear Competencia" link="~/GUI/Modulo12/">
+    <modulo id="12"> </modulo>
+  </opcion>
+  
+  <!--FIN OPCIONES MODULO 12-->
+
+
+  <!--OPCIONES DE MODULO 13-->
+  
+  <opcion nombre="" link="~/GUI/Modulo13/">
+    <modulo id="13"></modulo>
+  </opcion>
+  
+  <!--FIN OPCIONES MODULO 13-->
+
+
+  <!--OPCIONES DE MODULO 14-->
+  
+  <opcion nombre="" link="~/GUI/Modulo14/">
+    <modulo id="14"></modulo>
+  </opcion>
+  
+  <!--FIN OPCIONES MODULO 14-->
+
+
+  <!--OPCIONES DE MODULO 15-->
+  
+  <opcion nombre="" link="~/GUI/Modulo15/">
+    <modulo id="15"></modulo>
+  </opcion>
+  
+  <!--FIN OPCIONES MODULO 15-->
+
+
+  <!--OPCIONES DE MODULO 16-->
+  
+  <opcion nombre="" link="~/GUI/Modulo16/">
+    <modulo id="16"></modulo>
+  </opcion>
+  
+  <!--FIN OPCIONES MODULO 16-->
+</menuLateral>
