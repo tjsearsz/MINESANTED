@@ -157,6 +157,7 @@
     <Content Include="GUI\Modulo15\M15_Prueba.aspx" />
     <Content Include="GUI\Modulo15\WebForm1.aspx" />
     <Content Include="GUI\Modulo16\M16_Prueba.aspx" />
+    <Content Include="GUI\Modulo16\M16_VerCarrito.aspx" />
     <Content Include="GUI\Modulo1\M1_Prueba.aspx" />
     <Content Include="GUI\Modulo2\M2_Prueba.aspx" />
     <Content Include="GUI\Modulo3\M3_Prueba.aspx" />
@@ -1080,6 +1081,13 @@
     </Compile>
     <Compile Include="GUI\Modulo16\M16_Prueba.aspx.designer.cs">
       <DependentUpon>M16_Prueba.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Modulo16\M16_VerCarrito.aspx.cs">
+      <DependentUpon>M16_VerCarrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Modulo16\M16_VerCarrito.aspx.designer.cs">
+      <DependentUpon>M16_VerCarrito.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\Modulo1\M1_Prueba.aspx.cs">
       <DependentUpon>M1_Prueba.aspx</DependentUpon>

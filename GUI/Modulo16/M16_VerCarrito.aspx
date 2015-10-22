@@ -10,6 +10,7 @@
      <div id="alert" runat="server">
     </div>
 
+<!--MODAL PARA EL DETALLE-->
     <div class="box-body table-responsive">
         <h1>Total en el carrito: 23300</h1>
         <table id="example" class="table table-bordered table-striped dataTable">
@@ -32,6 +33,7 @@
                 <th>Acciones</th>
             </tr>
         </tfoot>
+<!--INFORMACION DEL MODAL PARA EL DETALLE-->
         <tbody>
             <tr>
                 <td><img src="Imagenes/CintaBlanca.jpg" alt="" style="width:50px; height:auto;"></td>
@@ -39,7 +41,7 @@
                 <td>1</td>
                 <td>400</td>
                 <td>
-                    <a class="btn btn-primary glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#modal-info" href="#"></a>
+                    <a class="btn btn-primary glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#modal-info1" href="#"></a>
                     <a class="btn btn-danger glyphicon glyphicon-remove-sign" data-toggle="modal" data-target="#modal-delete" href="#"></a>
                 </td>
             </tr>
@@ -49,7 +51,7 @@
                 <td>1</td>
                 <td>14000</td>
                  <td>
-                     <a class="btn btn-primary glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#modal-info" href="#"></a>
+                     <a class="btn btn-primary glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#modal-info1" href="#"></a>
                      <a class="btn btn-danger glyphicon glyphicon-remove-sign" data-toggle="modal" data-target="#modal-delete" href="#"></a>
                 </td>
             </tr>
@@ -59,7 +61,7 @@
                 <td>2</td>
                 <td>350</td>
                 <td> 
-                    <a class="btn btn-primary glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#modal-info" href="#"></a>
+                    <a class="btn btn-primary glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#modal-info1" href="#"></a>
                     <a class="btn btn-danger glyphicon glyphicon-remove-sign" data-toggle="modal" data-target="#modal-delete" href="#"></a>
                 </td>
             </tr>
@@ -69,7 +71,7 @@
                 <td>1</td>
                 <td>3200</td>
                 <td>
-                    <a class="btn btn-primary glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#modal-info" href="#"></a>
+                    <a class="btn btn-primary glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#modal-info1" href="#"></a>
                     <a class="btn btn-danger glyphicon glyphicon-remove-sign" data-toggle="modal" data-target="#modal-delete" href="#"></a>
                 </td>
             </tr>
@@ -79,7 +81,7 @@
                 <td>1</td>
                 <td>5000</td>
                 <td>
-                    <a class="btn btn-primary glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#modal-info" href="#"> </a>
+                    <a class="btn btn-primary glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#modal-info1" href="#"> </a>
                     <a class="btn btn-danger glyphicon glyphicon-remove-sign" data-toggle="modal" data-target="#modal-delete" href="#"></a>
                 </td>
             </tr>
@@ -109,7 +111,7 @@
         </div><!-- /.modal-delete-dialog -->
       </div><!-- /.modal-delete -->
 
-    		<div id="modal-info" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true">
+    		<div id="modal-info1" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -117,7 +119,7 @@
 						<h2 class="modal-title">Información detallada del Producto</h2>
 					</div>
 					<div class="modal-body">
-						<div class="container-fluid" id="info">
+						<div class="container-fluid" id="info1">
 							<div class="row">
                                 <img src="Imagenes/GuanteRojo.jpg" alt="">
 								<h3>Nombre</h3>
@@ -141,10 +143,202 @@
 				</div>
 			</div>
 		</div>
-
-
-
     </div>
+
+
+
+<!--MODAL DE PAGO-->
+    <div class="box-footer">
+         &nbsp;&nbsp;&nbsp;&nbsp
+         <button id="btn-agregarComp" style="align-content:flex-end" class="btn btn-primary" type="submit" data-toggle="modal" data-target="#modal-info"">Pagar</button>
+          &nbsp;&nbsp
+         <a class="btn btn-default" href="M12_ListarCompetencias.aspx">Cancelar</a>
+    </div>
+
+   <div id="modal-info" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Registrar Pago</h4>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid" id="info">
+							
+<!--INFORMACION DEL MODAL PARA EL PAGO-->
+    <div class="col-sm-10 col-md-10 col-lg-10 col-md-offset-1">
+          <div id="alert_nombre" runat="server">
+         </div>
+         <div id="alert_apellido" runat="server">
+          </div>
+          <div id="alert_username" runat="server">
+          </div>
+          <div id="alert_correo" runat="server">
+          </div>
+          <div id="alert_pregunta" runat="server">
+          </div>
+          <div id="alert_respuesta" runat="server">
+           </div>
+           <div id="alert_password" runat="server">
+           </div>
+
+        <div id="alertlocal" runat="server">
+        </div>
+    <form runat="server" class="form-horizontal" method="POST">
+        <div class="form-group">
+            <div class="col-sm-10 col-md-10 col-lg-10">
+                 <div class="dropdown" runat="server" id="div1">
+                 <asp:DropDownList ID="DropDownList1"   class="btn btn-default dropdown-toggle"   onchange="example()"  runat="server" >
+                     <asp:ListItem Enabled="true" Text="Seleccione" Value="-1"></asp:ListItem>
+                     <asp:ListItem Text="Tarjeta" Value="1"></asp:ListItem>
+                     <asp:ListItem Text="Deposito" Value="2"></asp:ListItem>
+                     <asp:ListItem Text="Transferencia" Value="3"></asp:ListItem>
+               </asp:DropDownList>
+             </div> 
+            </div>
+        </div>
+        <h4 class="modal-title">Tarjeta Credito/Debito</h4>
+        <div class="form-group">
+	        <div id="div_usuao" class="col-sm-10 col-md-10 col-lg-10">
+		        <input id="Text1" Disabled="disabled" type="text" placeholder="Numero de la Tarjeta" class="form-control" name="Text1" runat="server"/>
+		    </div>
+	    </div>
+        <div class="form-group">
+	        <div id="div_uario" class="col-sm-10 col-md-10 col-lg-10">
+		        <input id="Text2" Disabled="disabled" type="text" placeholder="Nombre del Tarjeta Habiente" class="form-control" name="Text2" runat="server"/>
+		    </div>
+	    </div>
+        <div class="form-group">
+	        <div id="div_usuario" class="col-sm-10 col-md-10 col-lg-10">
+		        <input id="Text3" Disabled="disabled" type="text" placeholder="Fecha de Vencimiento" class="form-control" name="Text3" runat="server"/>
+		    </div>
+	    </div>
+        <div class="form-group">
+	        <div id="div_email" class="col-sm-5 col-md-5 col-lg-5">
+		        <input id="Text4" Disabled="disabled" type="password" placeholder="Codigo de Seguridad" class="form-control" name="Text4" runat="server"/>
+		    </div>
+	    </div>
+        
+        <h4 class="modal-title">Deposito Bancario</h4>
+
+        <div class="form-group">
+			<div id="div_confirm_pswd" class="col-sm-10 col-md-10 col-lg-10">
+				    <input id="Text5" Disabled="disabled" type="text" placeholder="Numero del Deposito" class="form-control" name="Text5" runat="server"/>
+            </div>
+		</div>
+       
+        <div class="form-group">
+			<div id="div_pregunta" class="col-sm-10 col-md-10 col-lg-10">
+				<input id="Text6" Disabled="disabled" type="text" placeholder="Banco Emisor" class="form-control" name="Text6"  runat="server"/>
+			</div>
+		</div>
+
+        <div class="form-group">
+			<div id="div_preg" class="col-sm-5 col-md-5 col-lg-5">
+				<input id="Text7" Disabled="disabled" type="text" placeholder="Monto" class="form-control" name="Text7"  runat="server"/>
+			</div>
+		</div>
+
+        <h4 class="modal-title">Transferencia</h4>
+
+        <div class="form-group">
+			<div id="div_respuesta" class="col-sm-10 col-md-10 col-lg-10">
+				<input id="Text8" Disabled="disabled" type="text" placeholder="Codigo de Confirmacion" class="form-control" name="Text8"  runat="server"/>
+			</div>
+		</div>
+
+        <div class="form-group">
+			<div id="div_respuestas" class="col-sm-10 col-md-10 col-lg-10">
+				<input id="Text9" Disabled="disabled" type="text" placeholder="Banco Emisor" class="form-control" name="Text9"  runat="server"/>
+			</div>
+		</div>
+        <div class="form-group">
+			<div id="div_respuess" class="col-sm-5 col-md-5 col-lg-5">
+				<input id="Text10" Disabled="disabled" type="text" placeholder="Monto" class="form-control" name="Text10"  runat="server"/>
+			</div>
+		</div>
+
+        <div class="form-group">
+		    <div class="col-sm-5 col-md-5 col-lg-5">
+				<button id="Boton1" runat="server" Disabled="disabled" class="btn btn-primary" type="submit" >Registrar</button>
+                <a class="btn btn-default" href="ListarUsuarios.aspx">Cancelar</a>
+			</div>
+	    </div>
+    </form>
+        </div>
+
+<!--VALIDACION PARA EL MODAL DE PAGO-->
+    <script src="js/Validacion.js"></script>
+    <script>
+
+        function example() {
+            if ($('#<%=DropDownList1.ClientID %>').val() == -1) {
+
+                $('#<%=Text1.ClientID %>').attr("disabled", "disabled");
+                $('#<%=Text2.ClientID %>').attr("disabled", "disabled");
+                $('#<%=Text3.ClientID %>').attr("disabled", "disabled");
+                $('#<%=Text4.ClientID %>').attr("disabled", "disabled");
+                $('#<%=Text5.ClientID %>').attr("disabled", "disabled");
+                $('#<%=Text6.ClientID %>').attr("disabled", "disabled");
+                $('#<%=Text7.ClientID %>').attr("disabled", "disabled");
+                $('#<%=Text8.ClientID %>').attr("disabled", "disabled");
+                $('#<%=Text9.ClientID %>').attr("disabled", "disabled");
+                $('#<%=Text10.ClientID %>').attr("disabled", "disabled");
+            }
+            else
+                if ($('#<%=DropDownList1.ClientID %>').val() == 1) {
+                    $('#<%=Text1.ClientID %>').attr("disabled", false);
+                    $('#<%=Text2.ClientID %>').attr("disabled", false);
+                    $('#<%=Text3.ClientID %>').attr("disabled", false);
+                    $('#<%=Text4.ClientID %>').attr("disabled", false);
+                    $('#<%=Text5.ClientID %>').attr("disabled", "disabled");
+                    $('#<%=Text6.ClientID %>').attr("disabled", "disabled");
+                    $('#<%=Text7.ClientID %>').attr("disabled", "disabled");
+                    $('#<%=Text8.ClientID %>').attr("disabled", "disabled");
+                    $('#<%=Text9.ClientID %>').attr("disabled", "disabled");
+                    $('#<%=Text10.ClientID %>').attr("disabled", "disabled");
+                    $('#<%=Boton1.ClientID %>').attr("disabled", false);
+                }
+
+                else
+                    if ($('#<%=DropDownList1.ClientID %>').val() == 2) {
+
+                        $('#<%=Text1.ClientID %>').attr("disabled", "disabled");
+                        $('#<%=Text2.ClientID %>').attr("disabled", "disabled");
+                        $('#<%=Text3.ClientID %>').attr("disabled", "disabled");
+                        $('#<%=Text4.ClientID %>').attr("disabled", "disabled");
+                        $('#<%=Text5.ClientID %>').attr("disabled", false);
+                        $('#<%=Text6.ClientID %>').attr("disabled", false);
+                        $('#<%=Text7.ClientID %>').attr("disabled", false);
+                        $('#<%=Text8.ClientID %>').attr("disabled", "disabled");
+                        $('#<%=Text9.ClientID %>').attr("disabled", "disabled");
+                        $('#<%=Text10.ClientID %>').attr("disabled", "disabled");
+                        $('#<%=Boton1.ClientID %>').attr("disabled", false);
+                    }
+                    else
+                        if ($('#<%=DropDownList1.ClientID %>').val() == 3) {
+
+                            $('#<%=Text1.ClientID %>').attr("disabled", "disabled");
+                            $('#<%=Text2.ClientID %>').attr("disabled", "disabled");
+                            $('#<%=Text3.ClientID %>').attr("disabled", "disabled");
+                            $('#<%=Text4.ClientID %>').attr("disabled", "disabled");
+                            $('#<%=Text5.ClientID %>').attr("disabled", "disabled");
+                            $('#<%=Text6.ClientID %>').attr("disabled", "disabled");
+                            $('#<%=Text7.ClientID %>').attr("disabled", "disabled");
+                            $('#<%=Text8.ClientID %>').attr("disabled", false);
+                            $('#<%=Text9.ClientID %>').attr("disabled", false);
+                            $('#<%=Text10.ClientID %>').attr("disabled", false);
+                            $('#<%=Boton1.ClientID %>').attr("disabled", false);
+                        }
+        }
+    </script>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
 
         <script type="text/javascript">
             $(document).ready(function () {
@@ -169,8 +363,6 @@
                     }
                     
                 });
-
-
 
                 $('#modal-delete').on('show.bs.modal', function (event) {
                     var modal = $(this)
