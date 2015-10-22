@@ -1,0 +1,6 @@
+C:\Users\Teddy J Sears\Desktop\sakaratedo\bin\templateApp.dll.config
+C:\Users\Teddy J Sears\Desktop\sakaratedo\bin\templateApp.dll
+C:\Users\Teddy J Sears\Desktop\sakaratedo\bin\templateApp.pdb
+C:\Users\Teddy J Sears\Desktop\sakaratedo\obj\Debug\templateApp.csprojResolveAssemblyReference.cache
+C:\Users\Teddy J Sears\Desktop\sakaratedo\obj\Debug\templateApp.dll
+C:\Users\Teddy J Sears\Desktop\sakaratedo\obj\Debug\templateApp.pdb
