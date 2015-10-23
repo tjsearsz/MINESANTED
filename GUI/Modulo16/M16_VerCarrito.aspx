@@ -236,7 +236,8 @@
 					</div>
 					<div class="modal-body">
 						<div class="container-fluid" id="info">
-							
+
+<!-- Hasta aqui -->							
 <!--INFORMACION DEL MODAL PARA EL PAGO-->
     <div class="col-sm-10 col-md-10 col-lg-10 col-md-offset-1">
           <div id="alert_nombre" runat="server">
@@ -264,7 +265,7 @@
          <div class="form-group">
         <!-- El form iba aqui -->
         
-              <!-- Hasta aqui -->
+              
         <br />
         
             <div class="col-sm-10 col-md-10 col-lg-10">

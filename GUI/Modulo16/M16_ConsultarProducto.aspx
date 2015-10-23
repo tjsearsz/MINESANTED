@@ -73,6 +73,7 @@
         </tbody>
     </table>
 
+<!-- Hasta Aqui -->
 <!--MODAL PARA EL DETALLE -->
 <div id="modal-info1" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -102,7 +103,7 @@
                                          <asp:ListItem Text="5" Value="5"></asp:ListItem>
                                      </asp:DropDownList>
                                      </div> 
-                                <!-- Hasta Aqui -->
+                               
             
 								    <h3>Detalles</h3>
 								    <p>
