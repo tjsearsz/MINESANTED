@@ -10,9 +10,13 @@
      <div id="alert" runat="server">
     </div>
 
+
 <!--MODAL PARA EL DETALLE-->
-    <div class="box-body table-responsive">
-        <h1>Total en el carrito: 23300</h1>
+     <!-- general form elements -->
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Subtotal 23.300 Bs.</h3>
+                </div><!-- /.box-header -->
         <table id="example" class="table table-bordered table-striped dataTable">
         <thead>
             <tr>
