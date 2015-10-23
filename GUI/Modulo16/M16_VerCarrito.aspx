@@ -293,6 +293,16 @@
                 $('#<%=Text8.ClientID %>').attr("disabled", "disabled");
                 $('#<%=Text9.ClientID %>').attr("disabled", "disabled");
                 $('#<%=Text10.ClientID %>').attr("disabled", "disabled");
+                $('#<%=Text1.ClientID %>').val('');
+                $('#<%=Text2.ClientID %>').val('');
+                $('#<%=Text3.ClientID %>').val('');
+                $('#<%=Text4.ClientID %>').val('');
+                $('#<%=Text5.ClientID %>').val('');
+                $('#<%=Text6.ClientID %>').val('');
+                $('#<%=Text7.ClientID %>').val('');
+                $('#<%=Text8.ClientID %>').val('');
+                $('#<%=Text9.ClientID %>').val('');
+                $('#<%=Text10.ClientID %>').val('');
             }
             else
                 if ($('#<%=DropDownList1.ClientID %>').val() == 1) {
@@ -308,7 +318,6 @@
                     $('#<%=Text8.ClientID %>').attr("disabled", "disabled");
                     $('#<%=Text9.ClientID %>').attr("disabled", "disabled");
                     $('#<%=Text10.ClientID %>').attr("disabled", "disabled");
-                    $('#<%=Text10.ClientID %>').val('');
                     $('#<%=Text5.ClientID %>').val('');
                     $('#<%=Text6.ClientID %>').val('');
                     $('#<%=Text7.ClientID %>').val('');
