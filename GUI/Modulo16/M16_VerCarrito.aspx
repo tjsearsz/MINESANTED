@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GUI/Master/SKD.Master" AutoEventWireup="true" CodeBehind="M16_VerCarrito.aspx.cs" Inherits="templateApp.GUI.Modulo16.M16_VerCarrito" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">Carrito
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="titulo" runat="server"> Productos que hasta contienes:
+<asp:Content ID="Content2" ContentPlaceHolderID="titulo" runat="server"> Carrito de Compra
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="subtitulo" runat="server"> 
 </asp:Content>
@@ -10,8 +10,12 @@
      <div id="alert" runat="server">
     </div>
 
-    <div class="box-body table-responsive">
-        <h1>Total en el carrito: 23300</h1>
+     <!-- general form elements -->
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Subtotal 23.300 Bs.</h3>
+                </div><!-- /.box-header -->
+
         <table id="example" class="table table-bordered table-striped dataTable">
         <thead>
             <tr>
