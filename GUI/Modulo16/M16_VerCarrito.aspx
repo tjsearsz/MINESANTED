@@ -387,14 +387,16 @@
 		</div>
 
 
+    <script type="text/javascript">
+        $(document).ready(function () {
 
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#example').DataTable();
-
-                var table = $('#example').DataTable();
-                var req;
-                var tr;
+            var table = $('#example').DataTable({
+                "language": {
+                    "url": "http://cdn.datatables.net/plug-ins/1.10.9/i18n/Spanish.json"
+                }
+            });
+            var req;
+            var tr;
 
                 $('#example tbody').on('click', 'a', function () {
                     if ($(this).parent().hasClass('selected')) {
