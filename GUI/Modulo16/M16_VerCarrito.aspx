@@ -189,7 +189,7 @@
         </div>
 
     <form runat="server" class="form-horizontal" method="POST">
-        <h4 class="modal-title">Total: 26096</h4>
+        <h4 class="modal-title">Total: 26.096 Bs</h4>
         <br />
         <div class="form-group">
             <div class="col-sm-10 col-md-10 col-lg-10">

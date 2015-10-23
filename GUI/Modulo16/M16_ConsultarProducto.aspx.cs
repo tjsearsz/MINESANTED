@@ -11,7 +11,7 @@ namespace templateApp.GUI.Modulo16
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ((SKD)Page.Master).IdModulo = "16";
         }
     }
 }

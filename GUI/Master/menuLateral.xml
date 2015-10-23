@@ -152,7 +152,10 @@
 
   <!--OPCIONES DE MODULO 16-->
   
-  <opcion nombre="" link="~/GUI/Modulo16/">
+  <opcion nombre="Ver Carrito" link="~/GUI/Modulo16/M16_VerCarrito.aspx">
+    <modulo id="16"></modulo>
+  </opcion>
+  <opcion nombre="Consultar Producto" link="~/GUI/Modulo16/M16_ConsultarProducto.aspx">
     <modulo id="16"></modulo>
   </opcion>
   
