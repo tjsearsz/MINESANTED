@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GUI/Master/SKD.Master" AutoEventWireup="true" CodeBehind="M16_VerCarrito.aspx.cs" Inherits="templateApp.GUI.Modulo16.M16_VerCarrito" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="titulo" runat="server"> Carrito
+<asp:Content ID="Content2" ContentPlaceHolderID="titulo" runat="server"> Carrito 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="subtitulo" runat="server"> Productos que hasta contienes:
 </asp:Content>
@@ -9,7 +9,6 @@
 
      <div id="alert" runat="server">
     </div>
-
 
 <!--MODAL PARA EL DETALLE-->
      <!-- general form elements -->
@@ -421,10 +420,12 @@
                 $('#btn-eliminar').on('click', function () {
                     table.row(tr).remove().draw();//se elimina la fila de la tabla
                     $('#modal-delete').modal('hide');//se esconde el modal
+                    $(".btn btn-primary").append("<div><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>Requerimiento agregado exitosamente</div>");
+                   
                 });
+              
 
-
-            });
+           });
 
         </script>
 
