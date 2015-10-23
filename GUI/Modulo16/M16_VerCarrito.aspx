@@ -9,7 +9,7 @@
 
      <div id="alert" runat="server">
     </div>
-
+    
 <!--MODAL PARA EL DETALLE-->
      <!-- general form elements -->
               <div class="box box-primary">
@@ -106,9 +106,9 @@
                 </div>
               </div>
             </div>
-            <div class="modal-footer">  
-                <a id="btn-eliminar" type="button" class="btn btn-primary" href="#">Eliminar</a>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            <div class="modal-footer">
+                    <a id="btn-eliminar" type="button" class="btn btn-primary" href="#">Eliminar</a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
            </div>
           </div><!-- /.modal-delete-content -->
         </div><!-- /.modal-delete-dialog -->
@@ -420,8 +420,7 @@
                 $('#btn-eliminar').on('click', function () {
                     table.row(tr).remove().draw();//se elimina la fila de la tabla
                     $('#modal-delete').modal('hide');//se esconde el modal
-                    $(".btn btn-primary").append("<div><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>Requerimiento agregado exitosamente</div>");
-                   
+                    
                 });
               
 
