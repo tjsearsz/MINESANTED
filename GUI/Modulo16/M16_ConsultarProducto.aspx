@@ -102,7 +102,7 @@
                                          <asp:ListItem Text="5" Value="5"></asp:ListItem>
                                      </asp:DropDownList>
                                      </div> 
-                                
+                                <!-- Hasta Aqui -->
             
 								    <h3>Detalles</h3>
 								    <p>

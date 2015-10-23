@@ -264,7 +264,7 @@
          <div class="form-group">
         <!-- El form iba aqui -->
         
-
+              <!-- Hasta aqui -->
         <br />
         
             <div class="col-sm-10 col-md-10 col-lg-10">
