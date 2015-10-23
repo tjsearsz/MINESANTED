@@ -224,7 +224,7 @@
          &nbsp;&nbsp;&nbsp;&nbsp
          <button id="btn-agregarComp" style="align-content:flex-end" class="btn btn-primary" type="submit" data-toggle="modal" data-target="#modal-info"">Pagar</button>
           &nbsp;&nbsp
-         <a class="btn btn-default" href="M12_ListarCompetencias.aspx">Cancelar</a>
+         
     </div>
 
    <div id="modal-info" class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true">
