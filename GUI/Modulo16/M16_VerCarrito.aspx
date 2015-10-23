@@ -12,6 +12,8 @@
     
 <!--MODAL PARA EL DETALLE-->
      <!-- general form elements -->
+    <form runat="server" class="form-horizontal" method="POST">
+              
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <h3 class="box-title">Subtotal 23.300 Bs.</h3>
@@ -38,10 +40,24 @@
         </tfoot>
 <!--INFORMACION DEL MODAL PARA EL DETALLE-->
         <tbody>
+           
             <tr>
                 <td><img src="Imagenes/CintaBlanca.jpg" alt="" style="width:50px; height:auto;"></td>
                 <td>Cinta Blanca</td>
-                <td>1</td>
+                <td>
+                     
+                                 <div class="dropdown" runat="server" id="div3">
+                                 <asp:DropDownList ID="DropDownList3"   class="btn btn-default dropdown-toggle"  runat="server" >
+                                     
+                                     <asp:ListItem Text="1" Value="1"></asp:ListItem>
+                                     <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                     <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                                     <asp:ListItem Text="4" Value="4"></asp:ListItem>
+                                     <asp:ListItem Text="5" Value="5"></asp:ListItem>
+                                 </asp:DropDownList>
+                                 </div> 
+                                
+                </td>
                 <td>400</td>
                 <td>
                     <a class="btn btn-primary glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#modal-info1" href="#"></a>
@@ -51,7 +67,21 @@
             <tr>
                 <td><img src="Imagenes/Karategi.jpg" alt="" style="width:50px; height:auto;"></td>
                 <td>Karategi</td>
-                <td>1</td>
+                <td>
+                     
+                                 <div class="dropdown" runat="server" id="div4">
+                                 <asp:DropDownList ID="DropDownList4"   class="btn btn-default dropdown-toggle"  runat="server" >
+                                     
+                                     <asp:ListItem Text="1" Value="1"></asp:ListItem>
+                                     <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                     <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                                     <asp:ListItem Text="4" Value="4"></asp:ListItem>
+                                     <asp:ListItem Text="5" Value="5"></asp:ListItem>
+                                 </asp:DropDownList>
+                                 </div> 
+                                
+
+                </td>
                 <td>14000</td>
                  <td>
                      <a class="btn btn-primary glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#modal-info1" href="#"></a>
@@ -61,7 +91,21 @@
             <tr>
                 <td><img src="Imagenes/Suspensorio.jpg" alt="" style="width:50px; height:auto;"></td>
                 <td>Suspensorio</td>
-                <td>2</td>
+                <td>
+                    
+                                 <div class="dropdown" runat="server" id="div5">
+                                 <asp:DropDownList ID="DropDownList5"   class="btn btn-default dropdown-toggle"  runat="server" >
+                                    
+                                     <asp:ListItem Text="1" Value="1"></asp:ListItem>
+                                     <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                     <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                                     <asp:ListItem Text="4" Value="4"></asp:ListItem>
+                                     <asp:ListItem Text="5" Value="5"></asp:ListItem>
+                                 </asp:DropDownList>
+                                 </div> 
+                        
+
+                </td>
                 <td>350</td>
                 <td> 
                     <a class="btn btn-primary glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#modal-info1" href="#"></a>
@@ -71,7 +115,19 @@
              <tr>
                 <td><img src="Imagenes/ProtectorBucal.jpg" alt="" style="width:50px; height:auto;"></td>
                 <td>Proteccion bucal</td>
-                <td>1</td>
+                <td>
+                     <div class="dropdown" runat="server" id="div6">
+                                 <asp:DropDownList ID="DropDownList6"   class="btn btn-default dropdown-toggle"  runat="server" >
+                                     
+                                     <asp:ListItem Text="1" Value="1"></asp:ListItem>
+                                     <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                     <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                                     <asp:ListItem Text="4" Value="4"></asp:ListItem>
+                                     <asp:ListItem Text="5" Value="5"></asp:ListItem>
+                                 </asp:DropDownList>
+                                 </div> 
+
+                </td>
                 <td>3200</td>
                 <td>
                     <a class="btn btn-primary glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#modal-info1" href="#"></a>
@@ -81,13 +137,26 @@
             <tr>
                 <td><img src="Imagenes/GuanteRojo.jpg" alt="" style="width:50px; height:auto;"></td>
                 <td>Guantes rojos</td>
-                <td>1</td>
+                <td>
+                     <div class="dropdown" runat="server" id="div7">
+                                 <asp:DropDownList ID="DropDownList7"   class="btn btn-default dropdown-toggle"  runat="server" >
+                                    
+                                     <asp:ListItem Text="1" Value="1"></asp:ListItem>
+                                     <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                     <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                                     <asp:ListItem Text="4" Value="4"></asp:ListItem>
+                                     <asp:ListItem Text="5" Value="5"></asp:ListItem>
+                                 </asp:DropDownList>
+                                 </div> 
+
+                </td>
                 <td>5000</td>
                 <td>
                     <a class="btn btn-primary glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#modal-info1" href="#"> </a>
                     <a class="btn btn-danger glyphicon glyphicon-remove-sign" data-toggle="modal" data-target="#modal-delete" href="#"></a>
                 </td>
             </tr>
+            
         </tbody>
     </table>
 
@@ -188,10 +257,16 @@
         <div id="alertlocal" runat="server">
         </div>
 
-    <form runat="server" class="form-horizontal" method="POST">
+
         <h4 class="modal-title">Total: 26.096 Bs</h4>
+
+    
+         <div class="form-group">
+        <!-- El form iba aqui -->
+        
+
         <br />
-        <div class="form-group">
+        
             <div class="col-sm-10 col-md-10 col-lg-10">
                  <div class="dropdown" runat="server" id="div1">
                  <asp:DropDownList ID="DropDownList1"   class="btn btn-default dropdown-toggle"   onchange="example()"  runat="server" >
