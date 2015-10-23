@@ -1,13 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GUI/Master/SKD.Master" AutoEventWireup="true" CodeBehind="M16_ConsultarProducto.aspx.cs" Inherits="templateApp.GUI.Modulo16.M16_ConsultarProducto" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="titulo" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="titulo" runat="server"> Consulta de Productos
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="subtitulo" runat="server">
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="contenidoCentral" runat="server">
 
      <div class="box-body table-responsive">
+
+         <!--MODAL PARA EL DETALLE-->
+     <!-- general form elements -->
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Productos Actuales</h3>
+                </div><!-- /.box-header -->
 
        <table id="example" class="table table-bordered table-striped dataTable">
         <thead>
@@ -69,6 +76,17 @@
 
 
     </div>
+
+       <script type="text/javascript">
+           $(document).ready(function () {
+
+               var table = $('#example').DataTable({
+                   "language": {
+                       "url": "http://cdn.datatables.net/plug-ins/1.10.9/i18n/Spanish.json"
+                   }
+               });
+               var req;
+               var tr;
 
         <script type="text/javascript">
             $(document).ready(function () {
