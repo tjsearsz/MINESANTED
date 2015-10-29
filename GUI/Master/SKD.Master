@@ -123,10 +123,14 @@
 					    </li>
 
                 <li class="dropdown">
-                            <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Compras<span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Carrito de Compras</a></li>
-                            </ul>
+                            
+                <a href="M16_VerCarrito.aspx" class="logo" style="background-color:#080B0C">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><b>SKD</b></span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg" style="font-size:15px;font-family:Helvetica"><img src="/dist/img/carrito3.png" style="max-width:40px;margin-top:3px;margin-left:0px" class="pull-left" /> </span>
+        </a>
+                           
 					    </li>
 
               
