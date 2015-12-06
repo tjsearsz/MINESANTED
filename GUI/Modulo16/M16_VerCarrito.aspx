@@ -22,6 +22,7 @@
         <thead>
             <tr>
                 <th>Foto</th>
+
                 <th>Producto</th>
                 <th>Cantidad</th>
                 <th>Precio (Bs.)</th>
