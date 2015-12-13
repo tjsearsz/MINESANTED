@@ -71,7 +71,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AppData\" />
+    <Folder Include="App_Data\" />
     <Folder Include="Modulo16\" />
   </ItemGroup>
   <PropertyGroup>
