@@ -65,13 +65,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppData\BaseDeDatosSKD.mdf" />
+    <Content Include="AppData\BaseDeDatosSKD_log.ldf">
+      <DependentUpon>BaseDeDatosSKD.mdf</DependentUpon>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AppData\" />
     <Folder Include="Modulo16\" />
   </ItemGroup>
   <PropertyGroup>
