@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menuLateral>
+  <!-- OPCIONES DE CADA MODULO -->
+
+  <!--FIN OPCIONES DE PANTALLA EJEMPLO-->
+
+  <!--OPCIONES DE MODULO 1-->
+
+  <opcion nombre="" link="~/GUI/Modulo1/">
+    <modulo id="1"></modulo>
+  </opcion>
+
+  <!--FIN OPCIONES MODULO 1-->
+
+
+  <!--OPCIONES DE MODULO 2-->
+
+  <opcion nombre="" link="~/GUI/Modulo2/">
+    <modulo id="2"></modulo>
+  </opcion>
+
+  <!--FIN OPCIONES MODULO 2-->
+
+
+  <!--OPCIONES DE MODULO 3-->
+  
+  <opcion nombre="Agregar Organizacion" link="~/GUI/Modulo3/M3_AgregarOrganizacion.aspx">
+    <modulo id="3"></modulo>
+  </opcion>
+  
+  <opcion nombre="Consultar Organizacion" link="~/GUI/Modulo3/M3_ConsultarOrganizacion.aspx">
+    <modulo id="3"></modulo>
+  </opcion>
+  
+  <opcion nombre="Eliminar Organizacion" link="~/GUI/Modulo3/M3_EliminarOrganizacion.aspx">
+    <modulo id="3"></modulo>
+  </opcion>
+    
+  <opcion nombre="Modificar Organizacion" link="~/GUI/Modulo3/M3_ModificarOrganizacion.aspx">
+  </opcion>
+
+  <!--FIN OPCIONES MODULO 3-->
+
+
+  <!--OPCIONES DE MODULO 4-->
+
+  <opcion nombre="Listar Dojos" link="~/GUI/Modulo4/M4_ListarDojos.aspx">
+    <modulo id="4"></modulo>
+  </opcion>
+  <opcion nombre="Agregar Dojo" link="~/GUI/Modulo4/M4_AgregarDojo.aspx">
+    <modulo id="4"></modulo>
+  </opcion>
+  <!--FIN OPCIONES MODULO 4-->
+
+
+  <!--OPCIONES DE MODULO 5-->
+
+  <opcion nombre="Listar Cintas por Organizacion" link="~/GUI/Modulo5/M5_ListarCintas.aspx">
+    <modulo id="5"></modulo>
+  </opcion>
+
+  <opcion nombre="Modificar Cintas por Organizacion" link="~/GUI/Modulo5/M5_ModificarCintas.aspx">
+    <modulo id="5"></modulo>
+  </opcion>
+
+  <opcion nombre="Crear Cintas por Organizacion" link="~/GUI/Modulo5/M5_CrearCintas.aspx">
+    <modulo id="5"></modulo>
+  </opcion>
+
+
+  <!--FIN OPCIONES MODULO 5-->
+
+
+  <!--OPCIONES DE MODULO 6-->
+
+  <opcion nombre="Gestion de Usuarios" link="~/GUI/Modulo6/M6_ListaUsuarios.aspx">
+    <modulo id="6"></modulo>
+  </opcion>
+  <opcion nombre="Solicitudes de Inscripcion" link="~/GUI/Modulo6/M6_procesarSolicitud.aspx">
+    <modulo id="6"></modulo>
+  </opcion>
+
+  <!--FIN OPCIONES MODULO 6-->
+
+
+  <!--OPCIONES DE MODULO 7-->
+
+<opcion nombre="Consultar Organización y Dojo" link="~/GUI/Modulo7/M7_ListarOrganizacionYDojo.aspx">
+    <modulo id="7"></modulo>
+  </opcion>
+  
+  <opcion nombre="Consultar Cintas" link="~/GUI/Modulo7/M7_ListarCintas.aspx">
+    <modulo id="7"></modulo>
+  </opcion>
+
+  <opcion nombre="Consultar Eventos Asistidos" link="~/GUI/Modulo7/M7_ListarAsistenciaAEventos.aspx">
+    <modulo id="7"></modulo>
+  </opcion>
+
+  <opcion nombre="Consultar Eventos Inscritos" link="~/GUI/Modulo7/M7_ListarEventosInscritos.aspx">
+    <modulo id="7"></modulo>
+  </opcion>
+
+  <opcion nombre="Consultar Horario de Práctica" link="~/GUI/Modulo7/M7_ListarHorarioDePractica.aspx">
+    <modulo id="7"></modulo>
+  </opcion>
+
+  <opcion nombre="Consultar Pagos de Eventos" link="~/GUI/Modulo7/M7_ListarPagosAEventos.aspx">
+    <modulo id="7"></modulo>
+  </opcion>
+
+  <opcion nombre="Consultar Pagos de Matrícula" link="~/GUI/Modulo7/M7_ListarPagosDeMatricula.aspx">
+    <modulo id="7"></modulo>
+  </opcion>
+
+  <!--FIN OPCIONES MODULO 7-->
+
+
+  <!--OPCIONES DE MODULO 8-->
+
+  <opcion nombre="Gestión de Rest. de Horarios" link="~/GUI/Modulo8/interfazRestriccionesHorario.aspx">
+    <modulo id="8.0"></modulo>
+  </opcion>
+
+  <opcion nombre="Gestión de Rest. de Eventos" link="~/GUI/Modulo8/interfazRestriccionesEventos.aspx">
+    <modulo id="8.0"></modulo>
+  </opcion>
+
+  <opcion nombre="Gestión de Rest. de Cintas" link="~/GUI/Modulo8/interfazRestriccionesAvanceCinta.aspx">
+    <modulo id="8.0"></modulo>
+  </opcion>
+
+  <opcion nombre="Agregar Rest. de Horario" link="~/GUI/Modulo8/interfazCrearRestriccionHorario.aspx">
+    <modulo id="8.1"></modulo>
+  </opcion>
+
+  <opcion nombre="Agregar Rest. de Evento" link="~/GUI/Modulo8/interfazCrearRestriccionEvento.aspx">
+    <modulo id="8.2"></modulo>
+  </opcion>
+
+  <opcion nombre="Agregar Rest. de Avance de Cinta" link="~/GUI/Modulo8/interfazCrearRestriccionAvanceCinta.aspx">
+    <modulo id="8.3"></modulo>
+  </opcion>
+
+  <!--FIN OPCIONES MODULO 8-->
+
+
+  <!--OPCIONES DE MODULO 9-->
+
+
+  <opcion nombre="Gestionar Eventos" link="~/GUI/Modulo9/M9_ListarEventos.aspx">
+    <modulo id="9"></modulo>
+  </opcion>
+  <opcion nombre="Agregar Eventos" link="~/GUI/Modulo9/M9_AgregarEventos.aspx">
+    <modulo id="9"></modulo>
+  </opcion>
+  <opcion nombre="Gestión de Competencias" link="~/GUI/Modulo12/M12_ListarCompetencias.aspx">
+    <modulo id="9"> </modulo>
+  </opcion>
+
+
+
+  <!--FIN OPCIONES MODULO 9-->
+
+
+  <!--OPCIONES DE MODULO 10-->
+
+  <opcion nombre="Listar Asistencia a Eventos" link="~/GUI/Modulo10/M10_ListarAsistenciaEventos.aspx">
+    <modulo id="10"></modulo>
+  </opcion>
+  <opcion nombre="Agregar Asistencia a Eventos" link="~/GUI/Modulo10/M10_AgregarAsistenciaEventos.aspx">
+    <modulo id="10"></modulo>
+  </opcion>
+
+  <!--FIN OPCIONES MODULO 10-->
+
+
+  <!--OPCIONES DE MODULO 11-->
+
+  <opcion nombre="Listar Resultados de Competencia" link="~/GUI/Modulo11/M11_ListarResultadoCompetencia.aspx">
+    <modulo id="11"></modulo>
+  </opcion>
+  <opcion nombre="Agregar Resultados de Competencia" link="~/GUI/Modulo11/M11_AgregarResultadoCompetencia.aspx">
+    <modulo id="11"></modulo>
+  </opcion>
+
+  <!--FIN OPCIONES MODULO 11-->
+
+
+  <!--OPCIONES DE MODULO 12-->
+
+  <opcion nombre="Listar Competencias" link="~/GUI/Modulo12/M12_ListarCompetencias.aspx">
+    <modulo id="12"> </modulo>
+  </opcion>
+
+  <opcion nombre="Agregar Competencia" link="~/GUI/Modulo12/M12_AgregarCompetencias.aspx">
+    <modulo id="12"> </modulo>
+  </opcion>
+
+  <opcion nombre="Listar Competencias" link="~/GUI/Modulo12/M12_ListarCompetencias.aspx">
+    <modulo id="12.1"> </modulo>
+  </opcion>
+
+  <!--FIN OPCIONES MODULO 12-->
+
+
+  <!--OPCIONES DE MODULO 13-->
+
+  <opcion nombre="Kyu Atleta" link="~/GUI/Modulo13/M13_Kyu.aspx">
+    <modulo id="13"></modulo>
+  </opcion>
+
+  <opcion nombre="Listar Morosos" link="~/GUI/Modulo13/M13_ListarMorosos.aspx">
+    <modulo id="13"></modulo>
+  </opcion>
+
+  <opcion nombre="Dojos Asociados" link="~/GUI/Modulo13/M13_Inicio.aspx">
+    <modulo id="13"></modulo>
+  </opcion>
+
+  <opcion nombre="Asistencia a Evento" link="~/GUI/Modulo13/M13_Asistencia_Evento.aspx">
+    <modulo id="13"></modulo>
+  </opcion>
+
+  <opcion nombre="Información de Producto" link="~/GUI/Modulo13/M13_Inicio.aspx">
+    <modulo id="13"></modulo>
+  </opcion>
+
+  <opcion nombre="Programa técnico del Kyu" link="~/GUI/Modulo13/M13_KyuPrograma.aspx">
+    <modulo id="13"></modulo>
+  </opcion>
+
+  <opcion nombre="Asistencia a las Practicas" link="~/GUI/Modulo13/M13_Inicio.aspx">
+    <modulo id="13"></modulo>
+  </opcion>
+
+  <opcion nombre="Estadísticas de Enfrentamiento" link="~/GUI/Modulo13/M13_EstadisticaEntrenamiento.aspx">
+    <modulo id="13"></modulo>
+  </opcion>
+  <opcion nombre="Planilla de Evaluación para Kyu" link="~/GUI/Modulo13/M13_Inicio.aspx">
+    <modulo id="13"></modulo>
+  </opcion>
+
+  <opcion nombre="Inventario Accesorios y Vestimenta" link="~/GUI/Modulo13/M13_Inicio.aspx">
+    <modulo id="13"></modulo>
+  </opcion>
+
+
+  <!--FIN OPCIONES MODULO 13-->
+
+
+  <!--OPCIONES DE MODULO 14-->
+
+  <opcion nombre="Solicitar Planilla" link="~/GUI/Modulo14/M14_SolicitarPlanilla.aspx">
+    <modulo id="14.1"></modulo>
+  </opcion>
+
+  <opcion nombre="Planillas Solicitadas" link="~/GUI/Modulo14/M14_ConsultarPlanillasSolicitadas.aspx">
+    <modulo id="14.1"></modulo>
+  </opcion>
+
+  <opcion nombre="Registrar Planilla" link="~/GUI/Modulo14/M14_RegistrarPlanilla.aspx">
+    <modulo id="14"></modulo>
+  </opcion>
+
+  <!--FIN OPCIONES MODULO 14-->
+
+
+  <!--OPCIONES DE MODULO 15-->
+
+  <opcion nombre="Agregar Implemento" link="~/GUI/Modulo15/M15_AgregarImplemento.aspx">
+    <modulo id="15"></modulo>
+  </opcion>
+  <opcion nombre="Consultar Implemento" link="~/GUI/Modulo15/M15_ConsultarImplemento.aspx">
+    <modulo id="15"></modulo>
+  </opcion>
+
+  <!--FIN OPCIONES MODULO 15-->
+
+
+  <!--OPCIONES DE MODULO 16-->
+  
+  <opcion nombre="Ver Carrito" link="~/GUI/Modulo16/M16_VerCarrito.aspx">
+    <modulo id="16"></modulo>
+  </opcion>
+
+  <opcion nombre="Consultar Productos" link="~/GUI/Modulo16/M16_ConsultarProducto.aspx">
+    <modulo id="16"></modulo>
+  </opcion>
+
+  <opcion nombre="Consultar Eventos" link="~/GUI/Modulo16/M16_ConsultarEvento.aspx">
+    <modulo id="16"></modulo>
+  </opcion>
+
+  <opcion nombre="Consultar Mensualidad" link="~/GUI/Modulo16/M16_ConsultarMensualidad.aspx">
+    <modulo id="16"></modulo>
+  </opcion>
+  
+  <opcion nombre="Consultar Facturas" link="~/GUI/Modulo16/M16_ListarFacturas.aspx">
+    <modulo id="16"></modulo>
+  </opcion>
+
+  <!--FIN OPCIONES MODULO 16-->
+</menuLateral>
