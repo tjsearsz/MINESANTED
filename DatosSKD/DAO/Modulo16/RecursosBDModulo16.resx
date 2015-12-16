@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="aliasCostomatricula" xml:space="preserve">
+    <value>costoMatricula</value>
+  </data>
+  <data name="aliasFechainicio" xml:space="preserve">
+    <value>fechaInicio</value>
+  </data>
+  <data name="aliasFechatope" xml:space="preserve">
+    <value>fechaTope</value>
+  </data>
+  <data name="aliasIdentificadorMatricula" xml:space="preserve">
+    <value>idIdentificadorMatricla</value>
+  </data>
+  <data name="AliasIdEvento" xml:space="preserve">
+    <value>idEvento</value>
+  </data>
+  <data name="aliasIdmodalidad" xml:space="preserve">
+    <value>idModalidad</value>
+  </data>
+  <data name="AliasidOrganizacion" xml:space="preserve">
+    <value>idOrganizacion</value>
+  </data>
+  <data name="AliasNombreEvento" xml:space="preserve">
+    <value>nombreEvento</value>
+  </data>
+  <data name="aliasNombremodalidad" xml:space="preserve">
+    <value>nombreModaliad</value>
+  </data>
+  <data name="Codigo_ExcepcionAtributo" xml:space="preserve">
+    <value>S_16_05</value>
+  </data>
+  <data name="Codigo_ExcepcionGeneral" xml:space="preserve">
+    <value>S_16_03</value>
+  </data>
+  <data name="Codigo_ExcepcionNullReference" xml:space="preserve">
+    <value>S_16_05</value>
+  </data>
+  <data name="Codigo_ExcepcionParametro" xml:space="preserve">
+    <value>S_16_04</value>
+  </data>
+  <data name="Codigo_ExcepcionSql" xml:space="preserve">
+    <value>S_16_02</value>
+  </data>
+  <data name="CONSULTAR_EVENTOS" xml:space="preserve">
+    <value>M16_CONSULTAREVENTOS</value>
+    <comment>Store procedure que lista todos los eventos existentes</comment>
+  </data>
+  <data name="CONSULTAR_IMPLEMENTOS" xml:space="preserve">
+    <value>M16_CONSULTARINVENTARIO</value>
+    <comment>Store procedure que lista todos los productos del inventario</comment>
+  </data>
+  <data name="DETALLAR_IMPLEMENTO" xml:space="preserve">
+    <value>M16_DETALLARIMPLEMENTO</value>
+    <comment>Store procedure que muestra los detalles de un implemento del inventario en especifico</comment>
+  </data>
+  <data name="Mensaje_ExcepcionAtributo" xml:space="preserve">
+    <value>Error uno de los atributos no existe en el procedimiento ejecutado</value>
+  </data>
+  <data name="Mensaje_ExcepcionGeneral" xml:space="preserve">
+    <value>Error se ha producido una excepcion</value>
+  </data>
+  <data name="Mensaje_ExcepcionNullReference" xml:space="preserve">
+    <value>Error existe una referencia nula</value>
+  </data>
+  <data name="Mensaje_ExcepcionSql" xml:space="preserve">
+    <value>Error existe un conflicto con la conexión a la base de datos</value>
+  </data>
+  <data name="Mensaje__ExcepcionParametro" xml:space="preserve">
+    <value>Error uno de los parametros no existe en el procedimiento ejecutado</value>
+  </data>
+  <data name="PARAMETRO_COLOR" xml:space="preserve">
+    <value>impColor</value>
+  </data>
+  <data name="PARAMETRO_DESCRIPCION" xml:space="preserve">
+    <value>impDescripcion</value>
+  </data>
+  <data name="PARAMETRO_ESTATUS" xml:space="preserve">
+    <value>impEstatus</value>
+  </data>
+  <data name="PARAMETRO_IDEVENTO" xml:space="preserve">
+    <value>idEvento</value>
+  </data>
+  <data name="PARAMETRO_IDIMPLEMENTO2" xml:space="preserve">
+    <value>@idImplemento</value>
+  </data>
+  <data name="PARAMETRO_IMAGEN" xml:space="preserve">
+    <value>impImagen</value>
+  </data>
+  <data name="PARAMETRO_ITEM" xml:space="preserve">
+    <value>@iditem</value>
+    <comment>Parametro que simboliza el id del item</comment>
+  </data>
+  <data name="PARAMETRO_MARCA" xml:space="preserve">
+    <value>impMarca</value>
+  </data>
+  <data name="PARAMETRO_NOMBRE" xml:space="preserve">
+    <value>impNombre</value>
+  </data>
+  <data name="PARAMETRO_PRECIO" xml:space="preserve">
+    <value>impPrecio</value>
+  </data>
+  <data name="PARAMETRO_TALLA" xml:space="preserve">
+    <value>impTalla</value>
+  </data>
+  <data name="PARAMETRO_TIPO" xml:space="preserve">
+    <value>impTipo</value>
+  </data>
+  <data name="PARAMETRO_TIPO_ITEM" xml:space="preserve">
+    <value>@tipoitem</value>
+    <comment>Parametro que simboliza el tipo de item con el que se trabajara</comment>
+  </data>
+  <data name="PARAMETRO_USUARIO" xml:space="preserve">
+    <value>@idusuario</value>
+    <comment>Parametro que simboliza el id del usuario</comment>
+  </data>
+  <data name="ParamIdEvento" xml:space="preserve">
+    <value>@eve_id</value>
+    <comment>Codigo de evento para el stored agregar evento a carrito</comment>
+  </data>
+  <data name="ParamIdMatricula" xml:space="preserve">
+    <value>@mat_id</value>
+    <comment>Codigo de matricula para el stored consultarMatriculas</comment>
+  </data>
+  <data name="ParamIdPersona" xml:space="preserve">
+    <value>@mat_persona</value>
+    <comment>Codigo de persona para el stored consultarMatriculas</comment>
+  </data>
+  <data name="PROCEDIMIENTO_CONSULTAR_EVENTO_ID" xml:space="preserve">
+    <value>M16_CONSULTAR_EVENTO_ID</value>
+    <comment>Stored procedure que obtiene la informacion del evento dado su id</comment>
+  </data>
+  <data name="PROCEDIMIENTO_CONSULTAR_INVENTARIO_ID" xml:space="preserve">
+    <value>M16_CONSULTAR_INVENTARIO_ID</value>
+    <comment>Stored procedure que obtiene la informacion de la inventario dado su id</comment>
+  </data>
+  <data name="PROCEDIMIENTO_ELIMINAR_ITEM" xml:space="preserve">
+    <value>M16_ELIMINAR_ITEM</value>
+    <comment>Stored procedure que elimina un item de un usuario de su carrito en la BD</comment>
+  </data>
+  <data name="PROCEDIMIENTO_REGISTRAR_PAGO" xml:space="preserve">
+    <value>M16_REGISTRAR_PAGO</value>
+    <comment>Stored procedure que registra el pago de una compra de un usuario en BD</comment>
+  </data>
+  <data name="PROCEDIMIENTO_SELECCIONAR_ID_EVENTO" xml:space="preserve">
+    <value>M16_SELECCIONAR_ID_EVENTO</value>
+    <comment>Stored procedure que selecciona el id de todos los eventos que esten en carrito</comment>
+  </data>
+  <data name="PROCEDIMIENTO_SELECCIONAR_ID_INVENTARIO" xml:space="preserve">
+    <value>M16_SELECCIONAR_ID_INVENTARIO</value>
+    <comment>Stored procedure que selecciona el id de todos los inventarios que esten en carrito</comment>
+  </data>
+  <data name="PROCEDIMIENTO_SELECCIONAR_ID_MATRICULA" xml:space="preserve">
+    <value>M16_SELECCIONAR_ID_MATRICULA</value>
+    <comment>Stored procedure que selecciona el id de todas las matriculas que esten en carrito</comment>
+  </data>
+  <data name="StoreProcedureAgregareventoaCarrito" xml:space="preserve">
+    <value>M16_agregarEventoaCarrito</value>
+    <comment>Nombre del procedimiento que agrega evento al carrito</comment>
+  </data>
+  <data name="StoreProcedureAgregarinventarioaCarrito" xml:space="preserve">
+    <value>M16_AGREGAR_IMPLEMENTO_CARRITO</value>
+    <comment>Nombre del procedimiento que agrega inventario al carrito</comment>
+  </data>
+  <data name="StoreProcedureAgregarmatriculaaCarrito" xml:space="preserve">
+    <value>M16_agregarMatriculaaCarrito</value>
+    <comment>Nombre del procedimiento que agrega matricula al carrito</comment>
+  </data>
+  <data name="StoreProcedureConsultarEventosXId" xml:space="preserve">
+    <value>M16_detallarEvento</value>
+    <comment>Nombre del procedimiento para detallar evento</comment>
+  </data>
+  <data name="StoreProcedureConsultarMatriculas" xml:space="preserve">
+    <value>M16_consultarMatriculas</value>
+    <comment>Nombre del procedimiento que consulta matriculas por un cliente a consultar</comment>
+  </data>
+  <data name="PARAMETRO_IDMATRICULA" xml:space="preserve">
+    <value>idMatricula</value>
+  </data>
+  <data name="PROCEDIMIENTO_CONSULTAR_MATRICULA_ID" xml:space="preserve">
+    <value>M16_CONSULTAR_MATRICULA_ID</value>
+    <comment>Stored procedure que obtiene la informacion de la matricula dado su id</comment>
+  </data>
+  <data name="DETALLAR_EVENTO" xml:space="preserve">
+    <value>M16_DETALLAREVENTO</value>
+    <comment>Store procedure que muestra los detalles de un evento en especifico</comment>
+  </data>
+  <data name="CONSULTAR_COMPRAS" xml:space="preserve">
+    <value>M16_CONSULTARCOMPRA</value>
+    <comment>Store procedure que lista todos las facturas existentes para el usuario logeado</comment>
+  </data>
+  <data name="PARAMETRO_ID_USUARIO" xml:space="preserve">
+    <value>@per_id</value>
+  </data>
+  <data name="PROCEDIMIENTO_MATRICULAS_PAGADAS" xml:space="preserve">
+    <value>M16_MATRICULAS_PAGADAS</value>
+    <comment>Stored procedure que obtiene las ultimas matriculas pagadas por el usuario</comment>
+  </data>
+  <data name="PARAMETRO_ID_PERSONA" xml:space="preserve">
+    <value>@idPersona</value>
+  </data>
+  <data name="PARAMETRO_CANTIDAD" xml:space="preserve">
+    <value>@cantidad</value>
+  </data>
+  <data name="PARAMETRO_EXITO" xml:space="preserve">
+    <value>@exito</value>
+  </data>
+  <data name="PARAMETRO_PRECIO2" xml:space="preserve">
+    <value>@precio</value>
+  </data>
+  <data name="PARAMETRO_IDIMPLEMENTO" xml:space="preserve">
+    <value>idImplemento</value>
+  </data>
+  <data name="PROCEDIMIENTO_AGREGAR_EVENTO_CARRITO" xml:space="preserve">
+    <value>M16_AGREGAR_EVENTO_CARRITO</value>
+    <comment>Stored procedure que inserta una cantidad cualquiera de eventos al carrito</comment>
+  </data>
+  <data name="PROCEDIMIENTO_MODIFICAR_CANTIDAD_IMPLEMENTO" xml:space="preserve">
+    <value>M16_MODIFICAR_CANTIDAD_IMPLEMENTO</value>
+    <comment>Stored procedure que modifica la cantidad de implementos que se tengan en el carrito</comment>
+  </data>
+  <data name="PROCEDIMIENTO_AGREGAR_MATRICULA_CARRITO" xml:space="preserve">
+    <value>M16_AGREGAR_MATRICULA_CARRITO</value>
+    <comment>Stored procedure que inserta una cantidad cualquiera de matriculas al carrito</comment>
+  </data>
+  <data name="PARAMETRO_PAGO" xml:space="preserve">
+    <value>@pago</value>
+    <comment>Tipo de pago a ser hecha la compra</comment>
+  </data>
+  <data name="PARAMETRO_ESTADO_COMPRA" xml:space="preserve">
+    <value>estado</value>
+  </data>
+  <data name="PARAMETRO_FECHA" xml:space="preserve">
+    <value>fecha</value>
+  </data>
+  <data name="PARAMETRO_ID_COMPRA" xml:space="preserve">
+    <value>idCompra</value>
+  </data>
+  <data name="PARAMETRO_TIPO_PAGO" xml:space="preserve">
+    <value>tipoPago</value>
+  </data>
+  <data name="MENSAJE_ENTRADA_LOGGER" xml:space="preserve">
+    <value>Ingresando al metodo</value>
+    <comment>Mensaje de informacion que se escribira en el logger al entrar a un metodo</comment>
+  </data>
+  <data name="MENSAJE_SALIDA_LOGGER" xml:space="preserve">
+    <value>Saliendo del metodo</value>
+    <comment>Mensaje de informacion que se escribira en el logger al salir de un metodo</comment>
+  </data>
+  <data name="CODIGO_EXCEPCION_ARGUMENTO_NULO" xml:space="preserve">
+    <value>S_16_06</value>
+  </data>
+  <data name="CODIGO_EXCEPCION_FORMATO_INVALIDO" xml:space="preserve">
+    <value>S_16_07</value>
+  </data>
+  <data name="CODIGO_EXCEPCION_GENERICO" xml:space="preserve">
+    <value>S_16_01</value>
+  </data>
+  <data name="CODIGO_EXCEPCION_SOBRECARGA" xml:space="preserve">
+    <value>S_16_08</value>
+  </data>
+  <data name="MENSAJE_EXCEPCION_ARGUMENTO_NULO" xml:space="preserve">
+    <value>Error en parsear un atributo nulo</value>
+  </data>
+  <data name="MENSAJE_EXCEPCION_FORMATO_INVALIDO" xml:space="preserve">
+    <value>Error en parsear un atributo invalido</value>
+  </data>
+  <data name="MENSAJE_EXCEPCION_GENERICO" xml:space="preserve">
+    <value>Ha ocurrido un error inesperado en la capa de datos</value>
+  </data>
+  <data name="MENSAJE_EXCEPCION_SOBRECARGA" xml:space="preserve">
+    <value>Error al parsear un atributo sobrecargado</value>
+  </data>
+  <data name="PARAMETRO_IDMATRICULA2" xml:space="preserve">
+    <value>@idMatricula</value>
+  </data>
+</root>

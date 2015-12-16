@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace DatosSKD.InterfazDAO
+namespace DatosSKD.IntefazDAO
 {
-    class IDao
+    public interface IDao<Parametro>
     {
+        void Agregar(Parametro parametro);
+        void Modificar(Parametro parametro);
+        void ConsultarXId(Parametro parametro);
+        void ConsultarTodos();
     }
 }

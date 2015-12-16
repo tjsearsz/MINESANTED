@@ -40,12 +40,49 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidad.cs" />
+    <Compile Include="Entidades\Asistencia.cs" />
+    <Compile Include="Entidades\Atleta.cs" />
+    <Compile Include="Entidades\Categoria.cs" />
+    <Compile Include="Entidades\Cinta.cs" />
+    <Compile Include="Entidades\Competencia.cs" />
+    <Compile Include="Entidades\CompraFactura.cs" />
+    <Compile Include="Entidades\CompraMatricula.cs" />
+    <Compile Include="Entidades\Correo.cs" />
+    <Compile Include="Entidades\Cuenta.cs" />
+    <Compile Include="Entidades\Diseño.cs" />
+    <Compile Include="Entidades\DocumentoIdentidad.cs" />
+    <Compile Include="Entidades\Dojo.cs" />
+    <Compile Include="Entidades\Entidad.cs" />
+    <Compile Include="Entidades\Horario.cs" />
+    <Compile Include="Entidades\InformacionPersonal.cs" />
+    <Compile Include="Entidades\Inscripcion.cs" />
+    <Compile Include="Entidades\Inventario.cs" />
+    <Compile Include="Entidades\Modulo16\Compra.cs" />
+    <Compile Include="Entidades\Modulo16\Implemento.cs" />
+    <Compile Include="Entidades\Modulo16\Carrito.cs" />
+    <Compile Include="Entidades\Modulo16\Evento.cs" />
+    <Compile Include="Entidades\Modulo16\Matricula.cs" />
+    <Compile Include="Entidades\Modulo16\Persona.cs" />
+    <Compile Include="Entidades\Organizacion.cs" />
+    <Compile Include="Entidades\PersonaM1.cs" />
+    <Compile Include="Entidades\Planilla.cs" />
+    <Compile Include="Entidades\RestriccionCinta.cs" />
+    <Compile Include="Entidades\RestriccionCompetencia.cs" />
+    <Compile Include="Entidades\RestriccionEvento.cs" />
+    <Compile Include="Entidades\ResultadoAscenso.cs" />
+    <Compile Include="Entidades\ResultadoKata.cs" />
+    <Compile Include="Entidades\ResultadoKumite.cs" />
+    <Compile Include="Entidades\Rol.cs" />
+    <Compile Include="Entidades\SolicitudInscripcionDojo.cs" />
+    <Compile Include="Entidades\SolicitudP.cs" />
+    <Compile Include="Entidades\SolicitudPlanilla.cs" />
+    <Compile Include="Entidades\Telefono.cs" />
+    <Compile Include="Entidades\TipoEvento.cs" />
+    <Compile Include="Entidades\Ubicacion.cs" />
     <Compile Include="Fabrica\FabricaEntidades.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entidades\Modulo16\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
