@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B946DF89-40A8-46E9-9827-E0CF67F5A0E5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DominioSKD</RootNamespace>
+    <AssemblyName>DominioSKD</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entidad.cs" />
+    <Compile Include="Entidades\Asistencia.cs" />
+    <Compile Include="Entidades\Atleta.cs" />
+    <Compile Include="Entidades\Categoria.cs" />
+    <Compile Include="Entidades\Cinta.cs" />
+    <Compile Include="Entidades\Competencia.cs" />
+    <Compile Include="Entidades\CompraFactura.cs" />
+    <Compile Include="Entidades\CompraMatricula.cs" />
+    <Compile Include="Entidades\Correo.cs" />
+    <Compile Include="Entidades\Cuenta.cs" />
+    <Compile Include="Entidades\Diseño.cs" />
+    <Compile Include="Entidades\DocumentoIdentidad.cs" />
+    <Compile Include="Entidades\Dojo.cs" />
+    <Compile Include="Entidades\Entidad.cs" />
+    <Compile Include="Entidades\Horario.cs" />
+    <Compile Include="Entidades\InformacionPersonal.cs" />
+    <Compile Include="Entidades\Inscripcion.cs" />
+    <Compile Include="Entidades\Inventario.cs" />
+    <Compile Include="Entidades\Modulo16\Compra.cs" />
+    <Compile Include="Entidades\Modulo16\Implemento.cs" />
+    <Compile Include="Entidades\Modulo16\Carrito.cs" />
+    <Compile Include="Entidades\Modulo16\Evento.cs" />
+    <Compile Include="Entidades\Modulo16\Matricula.cs" />
+    <Compile Include="Entidades\Modulo16\Persona.cs" />
+    <Compile Include="Entidades\Organizacion.cs" />
+    <Compile Include="Entidades\PersonaM1.cs" />
+    <Compile Include="Entidades\Planilla.cs" />
+    <Compile Include="Entidades\RestriccionCinta.cs" />
+    <Compile Include="Entidades\RestriccionCompetencia.cs" />
+    <Compile Include="Entidades\RestriccionEvento.cs" />
+    <Compile Include="Entidades\ResultadoAscenso.cs" />
+    <Compile Include="Entidades\ResultadoKata.cs" />
+    <Compile Include="Entidades\ResultadoKumite.cs" />
+    <Compile Include="Entidades\Rol.cs" />
+    <Compile Include="Entidades\SolicitudInscripcionDojo.cs" />
+    <Compile Include="Entidades\SolicitudP.cs" />
+    <Compile Include="Entidades\SolicitudPlanilla.cs" />
+    <Compile Include="Entidades\Telefono.cs" />
+    <Compile Include="Entidades\TipoEvento.cs" />
+    <Compile Include="Entidades\Ubicacion.cs" />
+    <Compile Include="Fabrica\FabricaEntidades.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
