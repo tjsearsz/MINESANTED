@@ -40,11 +40,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comando.cs" />
+    <Compile Include="Comandos\Modulo16\ComanadoagregarEventoaCarrito.cs" />
+    <Compile Include="Comandos\Modulo16\ComandoagregarImplementoaCarrito.cs" />
+    <Compile Include="Comandos\Modulo16\ComandoagregarMatriculaaCarrito.cs" />
     <Compile Include="Comandos\Modulo16\ComandoeliminarItem.cs" />
+    <Compile Include="Comandos\Modulo16\ComandogetEvento.cs" />
+    <Compile Include="Comandos\Modulo16\ComandoGetImplemento.cs" />
+    <Compile Include="Comandos\Modulo16\ComandoGetMatricula.cs" />
+    <Compile Include="Comandos\Modulo16\ComandomodificarCarritoevento.cs" />
+    <Compile Include="Comandos\Modulo16\ComandomodificarCarritoimplemento.cs" />
+    <Compile Include="Comandos\Modulo16\ComandomodificarCarritomatricula.cs" />
+    <Compile Include="Comandos\Modulo16\Comandoregistrarpago.cs" />
+    <Compile Include="Comandos\Modulo16\RecursosLogicaModulo16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursosLogicaModulo16.resx</DependentUpon>
+    </Compile>
     <Compile Include="Fabrica\FabricaComandos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Comandos\Modulo16\RecursosLogicaModulo16.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursosLogicaModulo16.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
