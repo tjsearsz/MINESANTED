@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DominioSKD;
 
-namespace LogicaNegociosSKD
+namespace ComandosSKD
 {
-    class Comando
+    public abstract class Comando<Parametro>
     {
+
+        public abstract void Ejecutar(Parametro parametro);
     }
 }
