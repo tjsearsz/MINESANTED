@@ -44,11 +44,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ExcepcionesRecursosGenerales.resx</DependentUpon>
     </Compile>
+    <Compile Include="ExceptionSKD.cs" />
+    <Compile Include="ExceptionSKDConexionBD.cs" />
+    <Compile Include="InformacionPersonalInvalidaException.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="LoggerException.cs" />
+    <Compile Include="Modulo16\AgregarEventoaCarritoFallidoException.cs" />
+    <Compile Include="Modulo16\AtributoIncorrectoException.cs" />
+    <Compile Include="Modulo16\BDEventoException.cs" />
+    <Compile Include="Modulo16\BDMatriculaException.cs" />
+    <Compile Include="Modulo16\CarritoSinEventoException.cs" />
+    <Compile Include="Modulo16\CarritoSinInventarioException.cs" />
+    <Compile Include="Modulo16\CarritosSinInventarioException.cs" />
+    <Compile Include="Modulo16\ErrorEnHTTPException.cs" />
+    <Compile Include="Modulo16\LogicaagregarEventoaCarritoException.cs" />
+    <Compile Include="Modulo16\ParametroIncorrectoException.cs" />
+    <Compile Include="Modulo16\ParseoEnSobrecargaException.cs" />
+    <Compile Include="Modulo16\ParseoFormatoInvalidoException.cs" />
+    <Compile Include="Modulo16\ParseoVacioException.cs" />
+    <Compile Include="Modulo16\ReferenciaNulaException.cs" />
+    <Compile Include="ParametroInvalidoException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modulo16\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="ExcepcionesRecursosGenerales.resx">
       <Generator>ResXFileCodeGenerator</Generator>

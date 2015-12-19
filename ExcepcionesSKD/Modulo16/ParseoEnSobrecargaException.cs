@@ -6,6 +6,18 @@ using System.Threading.Tasks;
 
 namespace ExcepcionesSKD.Modulo16
 {
+    class ParseoEnSobrecargaException
+    {
+    }
+}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ExcepcionesSKD.Modulo16
+{
     /// <summary>
     /// Clase que controla la excepcion al parsear un dato que esta desbordado o una cantidad enorme para manejar
     /// </summary>
@@ -14,8 +26,7 @@ namespace ExcepcionesSKD.Modulo16
         /// <summary>
         /// Constructor vacio de la clase
         /// </summary>
-        public ParseoEnSobrecargaException()
-            : base()
+        public ParseoEnSobrecargaException():base()
         {
 
         }
@@ -24,8 +35,7 @@ namespace ExcepcionesSKD.Modulo16
         /// Constructor que obtiene el mensaje de la excepcion
         /// </summary>
         /// <param name="mensaje">El mensaje de error que se pasa al ocurrir la excepcion</param>
-        public ParseoEnSobrecargaException(String mensaje)
-            : base(mensaje)
+        public ParseoEnSobrecargaException(String mensaje):base(mensaje)
         {
 
         }
@@ -35,8 +45,7 @@ namespace ExcepcionesSKD.Modulo16
         /// </summary>
         /// <param name="mensaje">El mensaje de error que se pasa al ocurrir la excepcion</param>
         /// <param name="excepcion">La excepcion como tal capturada</param>
-        public ParseoEnSobrecargaException(String mensaje, Exception excepcion)
-            : base(mensaje, excepcion)
+        public ParseoEnSobrecargaException(String mensaje, Exception excepcion):base(mensaje, excepcion)
         {
 
         }
@@ -47,8 +56,7 @@ namespace ExcepcionesSKD.Modulo16
         /// <param name="codigo">Identificador especifico del error ocurrido</param>
         /// <param name="mensaje"><El mensaje de error que se pasa al ocurrir la excepcion/param>
         /// <param name="excepcion">La excepcion como tal capturada</param>
-        public ParseoEnSobrecargaException(String codigo, String mensaje, Exception excepcion)
-            : base(codigo, mensaje, excepcion)
+        public ParseoEnSobrecargaException(String codigo, String mensaje, Exception excepcion):base(codigo, mensaje, excepcion)
         {
 
         }
