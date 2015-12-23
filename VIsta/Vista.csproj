@@ -1466,6 +1466,10 @@
       <Project>{fe3043f3-9ca4-4c6a-a975-98aee7a8e189}</Project>
       <Name>ExcepcionesSKD</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LogicaNegociosSKD\Comandos.csproj">
+      <Project>{d56f2dce-d833-4254-a650-f5ea5fe09315}</Project>
+      <Name>Comandos</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

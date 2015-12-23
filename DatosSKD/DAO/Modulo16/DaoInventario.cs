@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using DominioSKD;
 using DatosSKD;
-using DatosSKD.Modulo16;
+using DatosSKD.DAO.Modulo16;
 using DatosSKD.InterfazDAO.Modulo16;
 
 namespace DatosSKD.Modulo16

@@ -10,6 +10,7 @@ using System.Configuration;
 using DominioSKD;
 using DatosSKD.InterfazDAO.Modulo16;
 using DatosSKD;
+using DatosSKD.DAO.Modulo16;
 using DominioSKD.Fabrica;
 
 namespace DatosSKD.Modulo16

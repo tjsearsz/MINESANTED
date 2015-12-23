@@ -10,58 +10,58 @@ namespace ComandosSKD.Fabrica
     public class FabricaComandos
     {
         #region Modulo 16
-        public static Comando<Entidad, bool> crearComandoagregarEventoaCarrito()
+        public static Comando<Entidad> crearComandoagregarEventoaCarrito()
         {
             return new ComanadoagregarEventoaCarrito();
         }
 
-        public static Comando<Entidad, bool> CrearComandoagregarImplementoaCarrito()
+        public static Comando<Entidad> CrearComandoagregarImplementoaCarrito()
         {
             return new ComandoagregarImplementoaCarrito();
         }
 
-        public static Comando<Entidad, bool> CrearComandoagregarMatriculaaCarrito()
+        public static Comando<Entidad> CrearComandoagregarMatriculaaCarrito()
         {
             return new ComandoagregarMatriculaaCarrito();
         }
 
-        public static Comando<Entidad, bool> CrearComandoeliminarItem()
+        public static Comando<Entidad> CrearComandoeliminarItem()
         {
             return new ComandoeliminarItem();
         }
-        public static Comando<Entidad, Entidad> CrearComandogetEvento()
+        public static Comando<Entidad> CrearComandogetEvento()
         {
             return new ComandogetEvento();
         }
 
-        public static Comando<Entidad, Entidad> CrearComandoGetImplemento()
+        public static Comando<Entidad> CrearComandoGetImplemento()
         {
             return new ComandoGetImplemento();
         }
 
-        public static Comando<Entidad, Entidad> CrearComandoGetMatricula()
+        public static Comando<Entidad> CrearComandoGetMatricula()
         {
             return new ComandoGetMatricula();
         }
 
-        public static Comando<Entidad, bool> CrearComandomodificarCarritoevento()
+        public static Comando<Entidad> CrearComandomodificarCarritoevento()
         {
             return new ComandomodificarCarritoevento();
         }
 
-        public static Comando<Entidad, bool> CrearComandomodificarCarritoimplemento()
+        public static Comando<Entidad> CrearComandomodificarCarritoimplemento()
         {
             return new ComandomodificarCarritoimplemento();
         }
 
 
-        public static Comando<Entidad, bool> CrearComandomodificarCarritomatricula()
+        public static Comando<Entidad> CrearComandomodificarCarritomatricula()
         {
             return new ComandomodificarCarritomatricula();
         }
 
 
-        public static Comando<Entidad, bool> CrearComandoregistrarpago()
+        public static Comando<Entidad> CrearComandoregistrarpago()
         {
             return new Comandoregistrarpago();
         }

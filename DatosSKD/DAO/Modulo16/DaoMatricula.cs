@@ -11,6 +11,8 @@ using DominioSKD;
 using ExcepcionesSKD.Modulo16.ExcepcionesDeDatos;
 using DatosSKD;
 using DatosSKD.InterfazDAO.Modulo16;
+using DatosSKD.DAO.Modulo16;
+
 
 
 namespace DatosSKD.Modulo16

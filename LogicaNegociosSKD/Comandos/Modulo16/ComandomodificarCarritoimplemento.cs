@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DominioSKD;
 using DominioSKD.Entidades.Modulo16;
 using DatosSKD.InterfazDAO.Modulo16;
-using DatosSKD.Fabrica;
+using DatosSKD.FabricaDAO;
 using ComandosSKD;
 using DominioSKD;
 using DatosSKD.Modulo16;
