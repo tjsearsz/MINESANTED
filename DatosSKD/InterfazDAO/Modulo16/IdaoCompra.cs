@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DominioSKD;
-using DAO;
+using DatosSKD.IntefazDAO;
 
-namespace DAO.InterfazDAO.Modulo16
+namespace DatosSKD.InterfazDAO.Modulo16
 {
-    public interface IdaoCompra : Idao<Entidad, bool>
+    public interface IdaoCompra : IDao<Entidad, List<Entidad>>
     {
         List<Entidad> ListarCompra(int idPersona);
         List<Entidad> MatriculasPagadas(int idPersona);

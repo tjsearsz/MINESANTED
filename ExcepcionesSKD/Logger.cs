@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ExcepcionesSKD
-{
-    class Logger
-    {
-    }
-}
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +6,7 @@ using System.Text;
 using log4net;
 using log4net.Config;
 using System.Threading.Tasks;
+using ExcepcionesSKD.Modulo16;
 
 
 namespace ExcepcionesSKD
@@ -44,8 +34,8 @@ namespace ExcepcionesSKD
             }
             else
             {
-                throw new LoggerException(ExcepcionesSKDRecursosGenerales.Codigo_Error_Log,
-                    ExcepcionesSKDRecursosGenerales.Mensaje_Error_Log,
+                throw new LoggerException(ExcepcionesRecursosGenerales.Codigo_Error_Log,
+                    ExcepcionesRecursosGenerales.Mensaje_Error_Log,
                     new LoggerException());
             }
         }
@@ -70,8 +60,8 @@ namespace ExcepcionesSKD
             }
             else
             {
-                throw new LoggerException(ExcepcionesSKDRecursosGenerales.Codigo_Error_Log,
-                    ExcepcionesSKDRecursosGenerales.Mensaje_Error_Log,
+                throw new LoggerException(ExcepcionesRecursosGenerales.Codigo_Error_Log,
+                    ExcepcionesRecursosGenerales.Mensaje_Error_Log,
                     new LoggerException());
             }
         }
@@ -96,8 +86,8 @@ namespace ExcepcionesSKD
             }
             else
             {
-                throw new LoggerException(ExcepcionesSKDRecursosGenerales.Codigo_Error_Log,
-                    ExcepcionesSKDRecursosGenerales.Mensaje_Error_Log,
+                throw new LoggerException(ExcepcionesRecursosGenerales.Codigo_Error_Log,
+                    ExcepcionesRecursosGenerales.Mensaje_Error_Log,
                     new LoggerException());
             }
         }

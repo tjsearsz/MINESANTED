@@ -9,13 +9,13 @@ using System.Data.SqlClient;
 using System.Configuration;
 using DominioSKD;
 using ExcepcionesSKD.Modulo16.ExcepcionesDeDatos;
-using DAO;
-using DAO.InterfazDAO.Modulo16;
+using DatosSKD;
+using DatosSKD.InterfazDAO.Modulo16;
 
 
-namespace DAO.Modulo16
+namespace DatosSKD.Modulo16
 {
-    public class DaoMatricula : DAOGeneral, IdaoMatricula
+    public class DaoMatricula : DAOGeneral//, IdaoMatricula
     {
 
 

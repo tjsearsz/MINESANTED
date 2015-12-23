@@ -10,6 +10,6 @@ namespace ComandosSKD
     public abstract class Comando<Parametro>
     {
 
-        public abstract void Ejecutar(Parametro parametro);
+        public abstract Parametro Ejecutar();
     }
 }

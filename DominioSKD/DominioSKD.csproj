@@ -52,7 +52,6 @@
     <Compile Include="Entidades\Diseño.cs" />
     <Compile Include="Entidades\DocumentoIdentidad.cs" />
     <Compile Include="Entidades\Dojo.cs" />
-    <Compile Include="Entidades\Entidad.cs" />
     <Compile Include="Entidades\Horario.cs" />
     <Compile Include="Entidades\InformacionPersonal.cs" />
     <Compile Include="Entidades\Inscripcion.cs" />
@@ -82,7 +81,12 @@
     <Compile Include="Fabrica\FabricaEntidades.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ExcepcionesSKD\ExcepcionesSKD.csproj">
+      <Project>{fe3043f3-9ca4-4c6a-a975-98aee7a8e189}</Project>
+      <Name>ExcepcionesSKD</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DominioSKD;
+using DatosSKD;
+using DatosSKD.IntefazDAO;
 
 
-namespace DAO.InterfazDAO.Modulo16
+namespace DatosSKD.InterfazDAO.Modulo16
 {
-    public interface IdaoEvento : Idao<Entidad, bool, Entidad>
+    public interface IdaoEvento : IDao<Entidad, bool>
     {
 
-        List<Entidad> ListarEvento();
-        Entidad DetallarEvento(int Id_evento);
+         bool ListarEvento();
+    //    Entidad DetallarEvento(int Id_evento);
 
     }
 }

@@ -9,15 +9,15 @@ using System.Data.SqlClient;
 using System.Configuration;
 using DominioSKD;
 using ExcepcionesSKD;
-using DAO.InterfazDAO;
+using DatosSKD.InterfazDAO.Modulo16;
 using DatosSKD;
 
-namespace DAO.Modulo16
+namespace DatosSKD.Modulo16
 {
     /// <summary>
     /// Clase que gestiona todo el proceso de las compras contra la Base de Datos
     /// </summary>
-    public class DaoCompra : DAOGeneral, InterfazDAO.Modulo16.IdaoCompra
+    public class DaoCompra : DAOGeneral//,  IdaoCompra
     {
         #region Constructores
         /// <summary>

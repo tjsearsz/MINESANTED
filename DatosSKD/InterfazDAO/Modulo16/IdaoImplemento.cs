@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DominioSKD;
-using DAO;
+using DatosSKD.IntefazDAO;
 
-namespace DAO.InterfazDAO.Modulo16
+namespace DatosSKD.InterfazDAO.Modulo16
 {
-    public interface IdaoImplemento : Idao<Entidad, bool, Entidad>
+    public interface IdaoImplemento : IDao<Entidad, bool>
     {
 
         Entidad detallarImplemento(Entidad idImplemento);

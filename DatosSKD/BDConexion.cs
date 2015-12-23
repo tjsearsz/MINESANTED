@@ -1,21 +1,22 @@
-﻿using System;
+﻿using ExcepcionesSKD;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.Sql;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using DAO;
 
-namespace DAO
+
+namespace DatosSKD
 {
-    public abstract class DAOGeneral
+    public class BDConexion
     {
         private SqlConnection conexion;
         private string strConexion;
         private SqlCommand comando;
         private string query;
+        // cargar metodos despues de creacion del ER y mdf
+
 
         #region Conectar con la Base de Datos
         /// <summary>
@@ -28,18 +29,23 @@ namespace DAO
 
             try
             {
-
-                strConexion = ConfigurationManager.
-                ConnectionStrings[RecursoGeneralDAO.NombreBD].ConnectionString;
-                conexion = new SqlConnection(strConexion);
-
+                strConexion = ConfigurationManager.ConnectionStrings[RecursoGeneralDAO.NombreBD].ConnectionString;
+                if (conexion == null)
+                {
+                    conexion = new SqlConnection(strConexion);
+                }
 
             }
 
             catch (Exception ex)
             {
 
-                throw ex;
+                ExceptionSKDConexionBD CnBD = new ExceptionSKDConexionBD(
+                  RecursoGeneralDAO.Codigo,
+                  RecursoGeneralDAO.Mensaje,
+                  ex);
+
+                throw CnBD;
             }
 
             return conexion;
@@ -64,7 +70,12 @@ namespace DAO
             catch (Exception ex)
             {
 
-                throw ex;
+                ExceptionSKDConexionBD CnBD = new ExceptionSKDConexionBD(
+                  RecursoGeneralDAO.Codigo_Error_Desconexion,
+                  RecursoGeneralDAO.Mensaje_Error_Desconexion,
+                  ex);
+
+                throw CnBD;
             }
 
         }
@@ -80,9 +91,52 @@ namespace DAO
             catch (Exception ex)
             {
 
-                throw ex;
+                ExceptionSKDConexionBD CnBD = new ExceptionSKDConexionBD(
+                  RecursoGeneralDAO.Codigo_Error_Desconexion,
+                  RecursoGeneralDAO.Mensaje_Error_Desconexion,
+                  ex);
+
+                throw CnBD;
             }
 
+        }
+        #endregion
+
+        #region Ejecutar el Query
+        /// <summary>
+        /// Metodo que manda a ejecutar el query
+        /// </summary>
+        /// <param name="query">String con el query a ejecutar</param>
+        /// <returns>Retorna el data reader con el resultado</returns>
+        public SqlDataReader EjecutarQuery(string query)
+        {
+            try
+            {
+                Conectar();
+
+                using (conexion)
+                {
+                    comando = new SqlCommand(query, conexion);
+                    SqlDataReader resultado = comando.ExecuteReader();
+                    return resultado;
+                }
+
+
+            }
+            catch (SqlException ex)
+            {
+                throw new ExcepcionesSKD.ExceptionSKDConexionBD(RecursoGeneralDAO.Codigo,
+                    RecursoGeneralDAO.Mensaje, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionesSKD.ExceptionSKDConexionBD(RecursoGeneralDAO.Codigo,
+                    RecursoGeneralDAO.Mensaje, ex);
+            }
+            finally
+            {
+                Desconectar();
+            }
         }
         #endregion
 
@@ -128,7 +182,10 @@ namespace DAO
                         }
                         else
                         {
-                            throw new Exception();
+                            throw new ExcepcionesSKD.ParametroInvalidoException(
+                                RecursoGeneralDAO.Codigo_Parametro_Errado,
+                                RecursoGeneralDAO.Mensaje_Parametro_Errado,
+                                new ExcepcionesSKD.ParametroInvalidoException());
                         }
                     }
                     return null;
@@ -138,11 +195,20 @@ namespace DAO
             }
             catch (SqlException ex)
             {
-                throw ex;
+                throw new ExcepcionesSKD.ExceptionSKDConexionBD(RecursoGeneralDAO.Codigo,
+                    RecursoGeneralDAO.Mensaje, ex);
+            }
+            catch (ExcepcionesSKD.ParametroInvalidoException ex)
+            {
+                throw new ExcepcionesSKD.ParametroInvalidoException(
+                                RecursoGeneralDAO.Codigo_Parametro_Errado,
+                                RecursoGeneralDAO.Mensaje_Parametro_Errado,
+                                ex);
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new ExcepcionesSKD.ExceptionSKDConexionBD(RecursoGeneralDAO.Codigo,
+                    RecursoGeneralDAO.Mensaje, ex);
             }
             finally
             {
@@ -174,13 +240,19 @@ namespace DAO
                         }
                         else
                         {
-                            throw new Exception();
+                            throw new ExcepcionesSKD.ParametroInvalidoException(
+                                RecursoGeneralDAO.Codigo_Parametro_Errado,
+                                RecursoGeneralDAO.Mensaje_Parametro_Errado,
+                                new ExcepcionesSKD.ParametroInvalidoException());
                         }
                     }
                 }
                 else
                 {
-                    throw new Exception();
+                    throw new ExcepcionesSKD.ParametroInvalidoException(
+                                 RecursoGeneralDAO.Codigo_Parametro_Errado,
+                                 RecursoGeneralDAO.Mensaje_Parametro_Errado,
+                                 new ExcepcionesSKD.ParametroInvalidoException());
                 }
 
             }
@@ -207,7 +279,11 @@ namespace DAO
                     conexion.Open();
                     using (SqlDataAdapter dataAdapter = new SqlDataAdapter(comando))
                     {
+                        //SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                        //dataAdapter.SelectCommand = comando;
                         dataAdapter.Fill(dataTable);
+                        System.Diagnostics.Debug.WriteLine(dataAdapter);
+                        System.Diagnostics.Debug.WriteLine(dataTable);
                     }
 
                     return dataTable;
@@ -217,11 +293,20 @@ namespace DAO
             }
             catch (SqlException ex)
             {
-                throw ex;
+                throw new ExcepcionesSKD.ExceptionSKDConexionBD(RecursoGeneralDAO.Codigo,
+                    RecursoGeneralDAO.Mensaje, ex);
+            }
+            catch (ExcepcionesSKD.ParametroInvalidoException ex)
+            {
+                throw new ExcepcionesSKD.ParametroInvalidoException(
+                                RecursoGeneralDAO.Codigo_Parametro_Errado,
+                                RecursoGeneralDAO.Mensaje_Parametro_Errado,
+                                ex);
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new ExcepcionesSKD.ExceptionSKDConexionBD(RecursoGeneralDAO.Codigo,
+                    RecursoGeneralDAO.Mensaje, ex);
             }
             finally
             {
@@ -230,57 +315,10 @@ namespace DAO
         }
         #endregion
 
-        #region Ejecutar Stored Procedure Altera Filas
-        /// <summary>
-        /// Metodo para ejecutar un stored procedure de la base de datos usando parametros y verificar si hubo cambios
-        /// </summary>
-        /// <param name="query">El stored procedure a ejecutar</param>
-        /// <param name="parametros">lista de los parametros a usar</param>
-        /// <returns>Las filas alteradas de la consulta hecha</returns>
-        public int EjecutarStoredProcedureAlteraFilas(string query, List<Parametro> parametros)
-        {
-            //Variable que nos indicara si se alteraron filas en la BD
-            int filasAfectadas;
-            try
-            {
-                //nos conectamos con la Base de Datos
-                Conectar();
-                using (conexion)
-                {
-                    //Indicamos que es un stored procedure, cual utilizar y ademas la conexion que necesita
-                    comando = new SqlCommand(query, conexion);
-                    comando.CommandType = CommandType.StoredProcedure;
-
-                    //Asignamos los parametros que tendra la consulta
-                    AsignarParametros(parametros);
-
-                    //Abrimos la conexion
-                    conexion.Open();
-
-                    //Ejecutamos la consulta y nos traemos las filas afectadas
-                    filasAfectadas = comando.ExecuteNonQuery();
-
-                    //retornamos la respuesta
-                    return filasAfectadas;
-                }
 
 
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                //Desconectamos si hubo algun error
-                Desconectar();
-            }
-        }
-        #endregion
+
+
 
     }
 }

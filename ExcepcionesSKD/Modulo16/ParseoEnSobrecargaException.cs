@@ -6,18 +6,6 @@ using System.Threading.Tasks;
 
 namespace ExcepcionesSKD.Modulo16
 {
-    class ParseoEnSobrecargaException
-    {
-    }
-}
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ExcepcionesSKD.Modulo16
-{
     /// <summary>
     /// Clase que controla la excepcion al parsear un dato que esta desbordado o una cantidad enorme para manejar
     /// </summary>

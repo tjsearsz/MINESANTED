@@ -8,13 +8,13 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Configuration;
 using DominioSKD;
-using DAO;
-using DAO.Modulo16;
-using DAO.InterfazDAO.Modulo16;
+using DatosSKD;
+using DatosSKD.Modulo16;
+using DatosSKD.InterfazDAO.Modulo16;
 
 namespace DatosSKD.Modulo16
 {
-    public class DaoInventario : DAOGeneral, IdaoImplemento
+    public class DaoInventario : DAOGeneral//, IdaoImplemento
     {
 
         #region Metodos

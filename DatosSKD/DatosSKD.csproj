@@ -39,13 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\DAOGeneral.cs" />
+    <Compile Include="BDConexion.cs" />
+    <Compile Include="DAOGeneral.cs" />
     <Compile Include="DAO\Modulo16\DaoCarrito.cs" />
     <Compile Include="DAO\Modulo16\DaoCompra.cs" />
     <Compile Include="DAO\Modulo16\DaoEvento.cs" />
     <Compile Include="DAO\Modulo16\DaoInventario.cs" />
     <Compile Include="DAO\Modulo16\DaoMatricula.cs" />
-    <Compile Include="DAO\Modulo16\RecursosBDModulo16.Designer.cs" />
+    <Compile Include="DAO\Modulo16\RecursosBDModulo16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursosBDModulo16.resx</DependentUpon>
+    </Compile>
     <Compile Include="DAO\Parametro.cs" />
     <Compile Include="DAO\RecursoGeneralDAO.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -59,15 +64,45 @@
     <Compile Include="InterfazDAO\Modulo16\IdaoEvento.cs" />
     <Compile Include="InterfazDAO\Modulo16\IdaoImplemento.cs" />
     <Compile Include="InterfazDAO\Modulo16\IdaoMatricula.cs" />
+    <Compile Include="Parametro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecursoGeneralDAO.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursoGeneralDAO.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resultado.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="DAO\Modulo16\RecursosBDModulo16.resx" />
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DAO\Modulo16\RecursosBDModulo16.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursosBDModulo16.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="DAO\RecursoGeneralDAO.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>RecursoGeneralDAO.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="RecursoGeneralDAO.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursoGeneralDAO.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Contratos\Contratos.csproj">
+      <Project>{1767095a-3b32-4cdb-84e5-c407649a0cda}</Project>
+      <Name>Contratos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DominioSKD\DominioSKD.csproj">
+      <Project>{b946df89-40a8-46e9-9827-e0cf67f5a0e5}</Project>
+      <Name>DominioSKD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExcepcionesSKD\ExcepcionesSKD.csproj">
+      <Project>{fe3043f3-9ca4-4c6a-a975-98aee7a8e189}</Project>
+      <Name>ExcepcionesSKD</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

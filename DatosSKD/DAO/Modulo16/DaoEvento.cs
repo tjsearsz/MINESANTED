@@ -8,13 +8,13 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Configuration;
 using DominioSKD;
-using DAO.InterfazDAO.Modulo16;
-using DAO;
+using DatosSKD.InterfazDAO.Modulo16;
+using DatosSKD;
 using DominioSKD.Fabrica;
 
-namespace DAO.Modulo16
+namespace DatosSKD.Modulo16
 {
-    public class DaoEvento : DAOGeneral, IdaoEvento
+    public class DaoEvento : DAOGeneral//, IdaoEvento
     {
 
         #region Metodos

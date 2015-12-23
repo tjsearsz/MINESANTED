@@ -5,11 +5,11 @@ using System.Text;
 
 namespace DatosSKD.IntefazDAO
 {
-    public interface IDao<Parametro>
+    public interface IDao<Parametro, Resultado>
     {
-        void Agregar(Parametro parametro);
-        void Modificar(Parametro parametro);
-        void ConsultarXId(Parametro parametro);
-        void ConsultarTodos();
+        Resultado Agregar(Parametro parametro);
+        Resultado Modificar(Parametro parametro);
+        Resultado ConsultarXId(Parametro parametro);
+        List<Resultado> ConsultarTodos();
     }
 }

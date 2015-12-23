@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DominioSKD;
-using DatosSKD.InterfazDAO;
+using DatosSKD.IntefazDAO;
  
 
 namespace DatosSKD.InterfazDAO.Modulo16
 {
-    public interface IdaoMatricula : IDao<Entidad>
+    public interface IdaoMatricula : IDao<Entidad, bool>
     {
         List<Entidad> mostrarMensualidadesmorosas();
 
