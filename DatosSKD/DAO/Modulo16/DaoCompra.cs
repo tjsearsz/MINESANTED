@@ -9,15 +9,17 @@ using System.Data.SqlClient;
 using System.Configuration;
 using DominioSKD;
 using ExcepcionesSKD;
-using DAO.InterfazDAO;
+using DatosSKD.InterfazDAO.Modulo16;
 using DatosSKD;
+using DatosSKD.DAO.Modulo16;
 
-namespace DAO.Modulo16
+
+namespace DatosSKD.Modulo16
 {
     /// <summary>
     /// Clase que gestiona todo el proceso de las compras contra la Base de Datos
     /// </summary>
-    public class DaoCompra : DAOGeneral, InterfazDAO.Modulo16.IdaoCompra
+    public class DaoCompra : DAOGeneral//,  IdaoCompra
     {
         #region Constructores
         /// <summary>
@@ -37,7 +39,7 @@ namespace DAO.Modulo16
         /// </summary>
         /// <param name=NONE>Este metodo no posee paso de parametros</param>
         /// <returns>Todo lasfacturas que tiene el usuario logueado</returns>
-        public List<Entidad> ListarCompra(int IdPersona)
+      /*  public List<Entidad> ListarCompra(int IdPersona)
         {
             BDConexion laConexion;
             List<Parametro> parametros;
@@ -75,13 +77,13 @@ namespace DAO.Modulo16
             }
 
         }
-
+        */
         /// <summary>
         /// Metodo que obtiene la o las ultimas matriculas pagadas por una persona en Base de Datos
         /// </summary>
         /// /// <param name="idUsuario">El id del usuario el cual se desea saber las matriculas que pago</param>
         /// <returns>Una lista con los id de las matriculas</returns>
-        public List<Entidad> MatriculasPagadas(int idUsuario)
+       /* public List<Entidad> MatriculasPagadas(int idUsuario)
         {
             //Variable que retorna la lista
             List<DominioSKD.Entidades.Modulo16.Matricula> listaMatriculas = new List<DominioSKD.Entidades.Modulo16.Matricula>();
@@ -125,7 +127,7 @@ namespace DAO.Modulo16
                 throw new ExceptionSKDConexionBD("blabla", "blabla", e);
             }
 
-        }
+        }*/
         #endregion
 
     }

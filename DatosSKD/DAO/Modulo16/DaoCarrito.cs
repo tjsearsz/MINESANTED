@@ -13,18 +13,19 @@ using System.Configuration;
 using ExcepcionesSKD.Modulo16;
 using DatosSKD;
 using DatosSKD.InterfazDAO.Modulo16;
-using DAO.Modulo16;
+using DatosSKD.Modulo16;
 using DominioSKD.Fabrica;
 using DominioSKD;
+using DatosSKD.DAO.Modulo16;
 
 
 
-namespace DAO.Modulo16
+namespace DatosSKD.Modulo16
 {
     /// <summary>
     /// Clase que gestiona todo el proceso del carrito del usuario contra la Base de Datos
     /// </summary>
-    public class DaoCarrito : DAOGeneral, InterfazDAO.Modulo16.IdaoCarrito
+    public class DaoCarrito : DAOGeneral//, IdaoCarrito
     {
         #region Constructores
         /// <summary>
