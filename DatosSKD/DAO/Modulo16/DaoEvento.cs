@@ -7,14 +7,16 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Configuration;
-using DominioSKD;
-using DAO.InterfazDAO.Modulo16;
-using DAO;
+using DatosSKD.DAO;
 using DominioSKD.Fabrica;
+using DominioSKD;
+using DominioSKD.Entidades.Modulo16;
+using DatosSKD.InterfazDAO.Modulo16;
+using DatosSKD.DAO.Modulo16;
 
-namespace DAO.Modulo16
+namespace DatosSKD.DAO.Modulo16
 {
-    public class DaoEvento : DAOGeneral, IdaoEvento
+    public class DaoEvento : DAOGeneral, InterfazDAO.Modulo16.IdaoEvento
     {
 
         #region Metodos
@@ -23,85 +25,58 @@ namespace DAO.Modulo16
         /// </summary>
         /// <param name=NONE>Este metodo no posee paso de parametros</param>
         /// <returns>Todo lo que tiene actualmente el inventario de eventos</returns>
-        public List<DominioSKD.Entidades.Modulo16.Evento> ListarEvento()
+        public List<Entidad> ConsultarTodos()
         {
-            BDConexion laConexion;
-            List<DominioSKD.Entidades.Modulo16.Evento> laListaDeEvento = new List<DominioSKD.Entidades.Modulo16.Evento>();
-            List<Parametro> parametros;
+            FabricaEntidades laFabrica = new FabricaEntidades();
+            List<Entidad> laLista = new List<Entidad>();
+            DataTable resultado = new DataTable();
+            List<Parametro> parametros = new List<Parametro>();
+            Evento elEvento;
 
             try
             {
-                laConexion = new BDConexion();
-                parametros = new List<Parametro>();
+                resultado = EjecutarStoredProcedureTuplas(RecursosBDModulo16.CONSULTAR_EVENTOS,
+                    parametros);
 
-
-                DataTable dt = laConexion.EjecutarStoredProcedureTuplas(
-                               RecursosBDModulo16.CONSULTAR_EVENTOS, parametros);
-
-                foreach (DataRow row in dt.Rows)
+                foreach (DataRow row in resultado.Rows)
                 {
-                    DominioSKD.Entidades.Modulo16.Evento elEvento = new DominioSKD.Entidades.Modulo16.Evento();
-
+                    elEvento = (Evento)laFabrica.ObtenerEvento();
                     elEvento.Id_evento = int.Parse(row[RecursosBDModulo16.PARAMETRO_IDEVENTO].ToString());
                     elEvento.Nombre = row[RecursosBDModulo16.PARAMETRO_NOMBRE].ToString();
                     elEvento.Descripcion = row[RecursosBDModulo16.PARAMETRO_DESCRIPCION].ToString();
                     elEvento.Costo = int.Parse(row[RecursosBDModulo16.PARAMETRO_PRECIO].ToString());
-                    laListaDeEvento.Add(elEvento);
+                    laLista.Add(elEvento);
 
                 }
 
-                return laListaDeEvento;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+                return laLista;
 
+            }
+            #region catches
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            #endregion
         }
 
+
+        public List<Entidad> ListarEvento()
+        {
+            return new List<Entidad>();
+        }
+
+        public Entidad DetallarEvento(int Id_evento)
+        {
+            return new Persona(); 
+        }
 
         /// <summary>
         /// Metodo que devueve un tipoevento dado su id
         /// </summary>
         /// <param name="Id_evento">Indica el objeto a detallar</param>
         /// <returns>Retorna un evento en especifico con todos sus detalles</returns>
-        public static DominioSKD.Entidades.Modulo16.Evento DetallarEvento(int Id_evento)
-        {
-            BDConexion laConexion;
-            List<Parametro> parametros;
-            Parametro elParametro = new Parametro();
-
-            try
-            {
-                laConexion = new BDConexion();
-                parametros = new List<Parametro>();
-                DominioSKD.Entidades.Modulo16.Evento elEvento = new DominioSKD.Entidades.Modulo16.Evento();
-
-                elParametro = new Parametro(RecursosBDModulo16.PARAMETRO_ITEM, SqlDbType.Int, Id_evento.ToString(),
-                                            false);
-                parametros.Add(elParametro);
-
-                DataTable dt = laConexion.EjecutarStoredProcedureTuplas(
-                               RecursosBDModulo16.DETALLAR_EVENTO, parametros);
-
-                foreach (DataRow row in dt.Rows)
-                {
-                    elEvento.Id_evento = int.Parse(row[RecursosBDModulo16.PARAMETRO_IDEVENTO].ToString());
-                    elEvento.Nombre = row[RecursosBDModulo16.PARAMETRO_NOMBRE].ToString();
-                    elEvento.Costo = int.Parse(row[RecursosBDModulo16.PARAMETRO_PRECIO].ToString());
-                    elEvento.Descripcion = row[RecursosBDModulo16.PARAMETRO_DESCRIPCION].ToString();
-
-                }
-                return elEvento;
-
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-
-
-        }
+        
 
         #endregion
     }

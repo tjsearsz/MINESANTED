@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace templateApp.GUI.Modulo16 {
+namespace Presentadores.Modulo16{
     using System;
     
     
@@ -39,7 +39,7 @@ namespace templateApp.GUI.Modulo16 {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("templateApp.GUI.Modulo16.M16_Recursointerfaz", typeof(M16_Recursointerfaz).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Presentadores.Modulo16.M16_Recursointerfaz", typeof(M16_Recursointerfaz).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -287,15 +287,6 @@ namespace templateApp.GUI.Modulo16 {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;&gt;&quot;.
-        /// </summary>
-        internal static string CERRARFINCABEZATAG {
-            get {
-                return ResourceManager.GetString("CERRARFINCABEZATAG", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to S_16_09.
         /// </summary>
         internal static string CODIGO_HTTP_EXCEPTION {
@@ -319,15 +310,6 @@ namespace templateApp.GUI.Modulo16 {
         internal static string COMBOCANTIDAD {
             get {
                 return ResourceManager.GetString("COMBOCANTIDAD", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &apos;&quot;&apos;.
-        /// </summary>
-        internal static string FINCABEZATAG {
-            get {
-                return ResourceManager.GetString("FINCABEZATAG", resourceCulture);
             }
         }
         

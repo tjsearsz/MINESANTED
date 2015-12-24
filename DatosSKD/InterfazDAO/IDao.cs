@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DatosSKD.IntefazDAO
+namespace DatosSKD.InterfazDAO
 {
-    public interface IDao<Parametro>
+    public interface IDao<Parametro, Resultado1, Resultado2>
     {
-        void Agregar(Parametro parametro);
-        void Modificar(Parametro parametro);
-        void ConsultarXId(Parametro parametro);
-        void ConsultarTodos();
+      /*  Resultado1 Agregar(Parametro parametro);
+        Resultado1 Modificar(Parametro parametro);
+        Resultado2 ConsultarXId(Parametro parametro);*/
+        List<Resultado2> ConsultarTodos();
     }
 }

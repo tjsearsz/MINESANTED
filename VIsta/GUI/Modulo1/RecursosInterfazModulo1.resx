@@ -117,32 +117,82 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Codigo_Error_BaseDatos" xml:space="preserve">
-    <value>T_00_001</value>
-    <comment>Codigo de error en la conexion con la BD</comment>
+  <data name="direccionM1_Index" xml:space="preserve">
+    <value>~/GUI/Modulo1/Index.aspx</value>
   </data>
-  <data name="Codigo_Error_Desconexion" xml:space="preserve">
-    <value>T_00_003</value>
-    <comment>Codigo de error al cerrar sesion de la BD</comment>
+  <data name="logErr" xml:space="preserve">
+    <value>Contraseña y/o usuario incorrecto.</value>
+    <comment>mensae para alertar sobre usuario y/o contrasea incorrecto en el login</comment>
   </data>
-  <data name="Codigo_Parametro_Errado" xml:space="preserve">
-    <value>T_00_02</value>
-    <comment>Codigo de error cuando se coloca un parametro errado</comment>
+  <data name="logInfo" xml:space="preserve">
+    <value>¡Correo enviado!</value>
   </data>
-  <data name="Mensaje_Error_BaseDatos" xml:space="preserve">
-    <value>Error con la Conexion en la BaseDeDatosSKD, no se pudo abrir la conexion</value>
-    <comment>Mensaje al dar error en la conexion con la BD</comment>
+  <data name="logSuccess" xml:space="preserve">
+    <value>Se reestableció con exito su contraseña</value>
   </data>
-  <data name="Mensaje_Error_Desconexion" xml:space="preserve">
-    <value>Error al Desconectarse con la BaseDeDatosSKD</value>
-    <comment>Mensaje de error al cerrar la conexion a la BD</comment>
+  <data name="logWarning" xml:space="preserve">
+    <value>¡El correo no se encuentra registrado en SA-KARATEDO!</value>
   </data>
-  <data name="Mensaje_Parametro_Errado" xml:space="preserve">
-    <value>Error en un parametro del stored procedure</value>
-    <comment>Mensajer de error cuando se coloca un parametro errado</comment>
+  <data name="parametroURLCorreoEnviado" xml:space="preserve">
+    <value>true</value>
+    <comment>parametro utilizado en el url cuando el correo se envia con exito</comment>
   </data>
-  <data name="Nombre_Base_Datos" xml:space="preserve">
-    <value>BaseDeDatosSKD</value>
-    <comment>Nombre de la base de datos del sistema</comment>
+  <data name="parametroURLCorreoFalla" xml:space="preserve">
+    <value>false</value>
+    <comment>parametro utilizado en el url cuando el correo no se envia con exito</comment>
+  </data>
+  <data name="parametroURLID" xml:space="preserve">
+    <value>user</value>
+  </data>
+  <data name="parametroURLReestablecerExito" xml:space="preserve">
+    <value>true</value>
+    <comment>parametro utilizado para notificar exito en reestablecer contraseña</comment>
+  </data>
+  <data name="parametroURLReestablecerFalla" xml:space="preserve">
+    <value>false</value>
+    <comment>parametro utilizado para notificar falla en reestablecer contraseña</comment>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tipoErr" xml:space="preserve">
+    <value>Error</value>
+    <comment>Timpo de mensaje Error</comment>
+  </data>
+  <data name="tipoInfo" xml:space="preserve">
+    <value>Info</value>
+    <comment>Tipo de mensaje Informacion</comment>
+  </data>
+  <data name="tipoSucess" xml:space="preserve">
+    <value>Success</value>
+    <comment>Tipo de mensaje Exito</comment>
+  </data>
+  <data name="tipoWarning" xml:space="preserve">
+    <value>Warning</value>
+    <comment>Tipo de mensaje Alerta</comment>
+  </data>
+  <data name="logRestablecerRequerimientos" xml:space="preserve">
+    <value />
+  </data>
+  <data name="logErrRestablecer" xml:space="preserve">
+    <value>Su enlace ha caducado por favor vuelva a solicitar el reestablecimiento de su contraseña</value>
+  </data>
+  <data name="parametroURLRestablecerCaducado" xml:space="preserve">
+    <value>caducado</value>
+  </data>
+  <data name="logCaracterInvalidos" xml:space="preserve">
+    <value>Se introdujo carácteres no validos (&gt;&lt;*-+¡?=(/&amp;%$·"!) verifíque y vuelva a ingresar.</value>
+  </data>
+  <data name="logCadenaMaliciosa" xml:space="preserve">
+    <value>¡Atención! Se introdujo una secuencia de caracteres no permitidos.</value>
+  </data>
+  <data name="tipoErrMalicioso" xml:space="preserve">
+    <value>error</value>
+  </data>
+  <data name="signoIgual" xml:space="preserve">
+    <value>=</value>
+  </data>
+  <data name="signoPregunta" xml:space="preserve">
+    <value>?</value>
   </data>
 </root>

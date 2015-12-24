@@ -69,7 +69,7 @@ namespace DominioSKD.Entidades.Modulo16
         /// <summary>
         /// Lista de Correos para contactar a la persona
         /// </summary>
-        private List<Correo> _correos = null;
+   //     private List<Correo> _correos = null;
 
         /// <summary>
         /// Lista de telefonos para contactar a la persona 
@@ -228,12 +228,12 @@ namespace DominioSKD.Entidades.Modulo16
         /// </summary>
         /// <param name="main">Objeto Correo</param>
         /// <param name="primario"> True si es el correo principal</param>
-        public void agregarEmail(Correo mail)
-        {
-            if (this._correos == null)
-                this._correos = new List<Correo>();
-            this._correos.Add(mail);
-        }
+      //  public void agregarEmail(Correo mail)
+      //  {
+         //   if (this._correos == null)
+              //  this._correos = new List<Correo>();
+          //  this._correos.Add(mail);
+       // }
 
         public List<Telefono> Telefonos
         {
@@ -247,19 +247,19 @@ namespace DominioSKD.Entidades.Modulo16
             }
         }
 
-        public List<Correo> Correos
-        {
-            get
-            {
-                return this._correos;
-            }
-            set
-            {
-                this._correos = value;
-            }
-        }
+    //    public List<Correo> Correos
+      //  {
+        //    get
+          //  {
+            //    return this._correos;
+            //}
+            //set
+           // {
+             //   this._correos = value;
+            //}
+        //}
 
-        public Correo Correo
+     /*   public Correo Correo
         {
             get
             {
@@ -270,7 +270,7 @@ namespace DominioSKD.Entidades.Modulo16
                 }
                 return null;
             }
-        }
+        }*/
 
         /// <summary>
         /// Cálculo de edad de la persona. (Años)

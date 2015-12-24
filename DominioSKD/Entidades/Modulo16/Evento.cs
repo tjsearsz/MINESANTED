@@ -77,7 +77,6 @@ namespace DominioSKD.Entidades.Modulo16
 
         #endregion
 
-
         #region Propiedades
 
         public int Id_evento
@@ -141,8 +140,6 @@ namespace DominioSKD.Entidades.Modulo16
             set { persona = value; }
         }
         #endregion
-
-
 
     }
 }

@@ -6,9 +6,9 @@ using System.Data.Sql;
 using System.Configuration;
 using System.Linq;
 using System.Text;
-using DAO;
+using DatosSKD.DAO;
 
-namespace DAO
+namespace DatosSKD.DAO
 {
     public abstract class DAOGeneral
     {
@@ -30,7 +30,7 @@ namespace DAO
             {
 
                 strConexion = ConfigurationManager.
-                ConnectionStrings[RecursoGeneralDAO.NombreBD].ConnectionString;
+                ConnectionStrings[RecursoGeneralDAO.Nombre_Base_Datos].ConnectionString;
                 conexion = new SqlConnection(strConexion);
 
 

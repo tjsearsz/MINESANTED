@@ -47,12 +47,10 @@
     <Compile Include="Entidades\Competencia.cs" />
     <Compile Include="Entidades\CompraFactura.cs" />
     <Compile Include="Entidades\CompraMatricula.cs" />
-    <Compile Include="Entidades\Correo.cs" />
     <Compile Include="Entidades\Cuenta.cs" />
     <Compile Include="Entidades\Diseño.cs" />
     <Compile Include="Entidades\DocumentoIdentidad.cs" />
     <Compile Include="Entidades\Dojo.cs" />
-    <Compile Include="Entidades\Entidad.cs" />
     <Compile Include="Entidades\Horario.cs" />
     <Compile Include="Entidades\InformacionPersonal.cs" />
     <Compile Include="Entidades\Inscripcion.cs" />

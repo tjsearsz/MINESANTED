@@ -59,5 +59,68 @@ namespace DatosSKD.DAO {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to T_00_001.
+        /// </summary>
+        internal static string Codigo_Error_BaseDatos {
+            get {
+                return ResourceManager.GetString("Codigo_Error_BaseDatos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to T_00_003.
+        /// </summary>
+        internal static string Codigo_Error_Desconexion {
+            get {
+                return ResourceManager.GetString("Codigo_Error_Desconexion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to T_00_02.
+        /// </summary>
+        internal static string Codigo_Parametro_Errado {
+            get {
+                return ResourceManager.GetString("Codigo_Parametro_Errado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error con la Conexion en la BaseDeDatosSKD, no se pudo abrir la conexion.
+        /// </summary>
+        internal static string Mensaje_Error_BaseDatos {
+            get {
+                return ResourceManager.GetString("Mensaje_Error_BaseDatos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error al Desconectarse con la BaseDeDatosSKD.
+        /// </summary>
+        internal static string Mensaje_Error_Desconexion {
+            get {
+                return ResourceManager.GetString("Mensaje_Error_Desconexion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error en un parametro del stored procedure.
+        /// </summary>
+        internal static string Mensaje_Parametro_Errado {
+            get {
+                return ResourceManager.GetString("Mensaje_Parametro_Errado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BaseDeDatosSKD.
+        /// </summary>
+        internal static string Nombre_Base_Datos {
+            get {
+                return ResourceManager.GetString("Nombre_Base_Datos", resourceCulture);
+            }
+        }
     }
 }

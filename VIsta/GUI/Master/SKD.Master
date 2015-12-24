@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SKD.master.cs" Inherits="templateApp.SKD" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SKD.master.cs" Inherits="Vista.SKD" %>
 
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Css de pagina inicial -->
-    <link rel="stylesheet" href="../../dist/css/inicio.css" rel="stylesheet" />
+    <!--link rel="stylesheet" href="../../dist/css/inicio.css" rel="stylesheet" />
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
@@ -79,7 +79,7 @@
             <ul class="nav navbar-nav">
                <%-- <li class="header">MAIN NAVIGATION</li>--%>           
 
-            <% foreach (KeyValuePair<string, string[,]> opcion in SubOpcionesDelMenu) %>
+            <%-- foreach (KeyValuePair<string, string[,]> opcion in SubOpcionesDelMenu) %>
 						<% { %>
                             <li class="dropdown">
                             <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%=opcion.Key%><span class="caret"></span></a>
@@ -87,16 +87,16 @@
                                 <%for (int i = 0; i < opcion.Value.GetLength(1); i++) %>
                                 <%{
                                       if (opcion.Value[1, i] != null)
-                                      { %>
-							             <li><a href="<%=Page.ResolveUrl(opcion.Value[1, i]) %>"><%= opcion.Value[0, i]%></a></li>
+                                     { %>
+							            <li><a href="<%=Page.ResolveUrl(opcion.Value[1, i]) %>"><%= opcion.Value[0, i]%></a></li>
                                 <%}
-                                  } %>
+                                 } %>
                                  </ul>
 					         </li>
-						<% } %> 
+						<% } --%> 
  <li class="dropdown">
                             
-                     <a href= "<%=Page.ResolveUrl("~/GUI/Modulo16/M16_VerCarrito.aspx") %>" class="logo" style="background-color:#080B0C; width:auto;">
+                     <a href= "<%--=Page.ResolveUrl("~/GUI/Modulo16/M16_VerCarrito.aspx") --%>" class="logo" style="background-color:#080B0C; width:auto;">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>SKD</b></span>
           <!-- logo for regular state and mobile devices -->
@@ -147,14 +147,14 @@
                           <p>Roles</p>
                           <hr />
                             <ul class="nav nav-pills">
-                              <li role="presentation" class="active"><a href="#"><%=Session["rol"] %></a></li>
+                              <li role="presentation" class="active"><a href="#"><%--=Session["rol"] %></a></li>
                                         <% foreach (string opcion in RolesUsuario) %>
 						                    <% { %>
                                                 <%if ((opcion != null) && (opcion != Session["rol"].ToString()))%>
                                                  <% { %>
 							                    <li role="presentation"><a href="<%=Page.ResolveUrl("~/GUI/Master/Inicio.aspx?rol="+ cripto.EncriptarCadenaDeCaracteres(opcion,DES)) %>" class="rolButton"><%=opcion %></a></li>
 						                         <% }%>
-                                             <% } %> 
+                                             <% } --%> 
                             </ul> 
                     </li>
                   <!-- Menu Footer-->
@@ -166,7 +166,7 @@
                       fin de comentario:Boton Profile-->
                       <form >
                         <div id="Div1" class="pull-right" runat="server">
-                          <a id="A1" href="<%=Page.ResolveUrl("~/GUI/Master/Inicio.aspx?rol=logout" ) %>" class="btn btn-default btn-flat" >Cerrar Sesión</a>
+                          <a id="A1" href="<%--=Page.ResolveUrl("~/GUI/Master/Inicio.aspx?rol=logout" ) --%>" class="btn btn-default btn-flat" >Cerrar Sesión</a>
                         </div>
                     </form>
                   </li>
@@ -196,10 +196,10 @@
 
            <%-- <li class="header">MAIN NAVIGATION</li>--%>           
 
-            <% foreach (KeyValuePair<string, string> opcion in OpcionesDelMenu) %>
+            <%-- foreach (KeyValuePair<string, string> opcion in OpcionesDelMenu) %>
 						<% { %>
 							<li><a href="<%= Page.ResolveUrl(opcion.Value) %>"><%= opcion.Key%></a></li>
-						<% } %>  
+						<% } --%>  
           </ul>
         </section>
         <!-- /.sidebar -->

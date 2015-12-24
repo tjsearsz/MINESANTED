@@ -7,108 +7,108 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Vista {
+namespace templateApp.GUI.Modulo1 {
     
     
-    public partial class SKD {
+    public partial class Index {
         
         /// <summary>
-        /// Control head.
+        /// Control Head1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
-        /// Control imageUsuario.
+        /// Control loginUser.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage imageUsuario;
+        protected global::System.Web.UI.HtmlControls.HtmlForm loginUser;
         
         /// <summary>
-        /// Control userName.
+        /// Control errorLogin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userName;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorLogin;
         
         /// <summary>
-        /// Control imageTag.
+        /// Control warningLog.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage imageTag;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl warningLog;
         
         /// <summary>
-        /// Control userTag.
+        /// Control infoLog.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userTag;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl infoLog;
         
         /// <summary>
-        /// Control fechaDeRol.
+        /// Control successLog.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl fechaDeRol;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl successLog;
         
         /// <summary>
-        /// Control Div1.
+        /// Control userIni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText userIni;
         
         /// <summary>
-        /// Control breads.
+        /// Control passwordIni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder breads;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword passwordIni;
         
         /// <summary>
-        /// Control titulo.
+        /// Control LoginButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder titulo;
+        protected global::System.Web.UI.HtmlControls.HtmlButton LoginButton;
         
         /// <summary>
-        /// Control subtitulo.
+        /// Control RestablecerCorreo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder subtitulo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl RestablecerCorreo;
         
         /// <summary>
-        /// Control contenidoCentral.
+        /// Control restab.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder contenidoCentral;
+        protected global::System.Web.UI.HtmlControls.HtmlButton restab;
     }
 }

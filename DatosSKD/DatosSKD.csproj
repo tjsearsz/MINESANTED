@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,30 +41,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DAOGeneral.cs" />
-    <Compile Include="DAO\Modulo16\DaoCarrito.cs" />
-    <Compile Include="DAO\Modulo16\DaoCompra.cs" />
     <Compile Include="DAO\Modulo16\DaoEvento.cs" />
-    <Compile Include="DAO\Modulo16\DaoInventario.cs" />
-    <Compile Include="DAO\Modulo16\DaoMatricula.cs" />
-    <Compile Include="DAO\Modulo16\RecursosBDModulo16.Designer.cs" />
+    <Compile Include="DAO\Modulo16\RecursosBDModulo16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursosBDModulo16.resx</DependentUpon>
+    </Compile>
     <Compile Include="DAO\Parametro.cs" />
     <Compile Include="DAO\RecursoGeneralDAO.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RecursoGeneralDAO.resx</DependentUpon>
     </Compile>
+    <Compile Include="DAO\Resultado.cs" />
     <Compile Include="FabricaDAO\FabricaDAOSqlServer.cs" />
     <Compile Include="InterfazDAO\IDao.cs" />
-    <Compile Include="InterfazDAO\Modulo16\IdaoCarrito.cs" />
-    <Compile Include="InterfazDAO\Modulo16\IdaoCompra.cs" />
     <Compile Include="InterfazDAO\Modulo16\IdaoEvento.cs" />
-    <Compile Include="InterfazDAO\Modulo16\IdaoImplemento.cs" />
-    <Compile Include="InterfazDAO\Modulo16\IdaoMatricula.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="DAO\Modulo16\RecursosBDModulo16.resx" />
+    <ProjectReference Include="..\DominioSKD\DominioSKD.csproj">
+      <Project>{b946df89-40a8-46e9-9827-e0cf67f5a0e5}</Project>
+      <Name>DominioSKD</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DAO\Modulo16\RecursosBDModulo16.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursosBDModulo16.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="DAO\RecursoGeneralDAO.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>RecursoGeneralDAO.Designer.cs</LastGenOutput>

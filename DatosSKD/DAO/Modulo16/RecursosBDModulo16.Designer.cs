@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DatosSKD.Modulo16 {
+namespace DatosSKD.DAO.Modulo16 {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DatosSKD.Modulo16 {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DatosSKD.Modulo16.RecursosBDModulo16", typeof(RecursosBDModulo16).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DatosSKD.DAO.Modulo16.RecursosBDModulo16", typeof(RecursosBDModulo16).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

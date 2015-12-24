@@ -11,7 +11,7 @@ namespace templateApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ((SKD)Page.Master).IdModulo = "0";
+           /* ((SKD)Page.Master).IdModulo = "0";*/
             String success = Request.QueryString["eliminacionSuccess"];
 
             if (success != null)

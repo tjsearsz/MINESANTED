@@ -40,11 +40,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comando.cs" />
+    <Compile Include="Comandos\Modulo16\ComandoConsultarTodosEventos.cs" />
     <Compile Include="Fabrica\FabricaComandos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Comandos\Modulo16\" />
+    <ProjectReference Include="..\Contratos\Contratos.csproj">
+      <Project>{1767095a-3b32-4cdb-84e5-c407649a0cda}</Project>
+      <Name>Contratos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DatosSKD\DatosSKD.csproj">
+      <Project>{33096d4d-7f6b-46c0-af9a-d28b4b0380c0}</Project>
+      <Name>DatosSKD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DominioSKD\DominioSKD.csproj">
+      <Project>{b946df89-40a8-46e9-9827-e0cf67f5a0e5}</Project>
+      <Name>DominioSKD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExcepcionesSKD\ExcepcionesSKD.csproj">
+      <Project>{fe3043f3-9ca4-4c6a-a975-98aee7a8e189}</Project>
+      <Name>ExcepcionesSKD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PruebasUnitariasSKD\PruebasUnitariasSKD.csproj">
+      <Project>{f5dcae55-28b6-4798-9d65-cc88d45f1f62}</Project>
+      <Name>PruebasUnitariasSKD</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

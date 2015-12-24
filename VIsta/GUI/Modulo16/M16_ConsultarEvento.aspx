@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GUI/Master/SKD.Master" AutoEventWireup="true" CodeBehind="M16_ConsultarEvento.aspx.cs" Inherits="templateApp.GUI.Modulo16.M16_ConsultarEvento" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GUI/Master/SKD.Master" AutoEventWireup="true" CodeBehind="M16_ConsultarEvento.aspx.cs" Inherits="Vista.GUI.Modulo16.M16_ConsultarEvento" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
@@ -50,12 +50,13 @@
                     <th style="text-align:left">Nombre</th>
 					<th style="text-align:left">Descripcion</th>
                     <th style="text-align:left">Costo (Bs.)</th>
+                    <th style="text-align:left">Cantidad</th>
 					<th style="text-align:left">Acciones</th> 
             </tr>
         </thead>
  
         <tbody>
-            <asp:Literal runat="server" ID="laTabla"></asp:Literal>
+            <asp:Literal runat="server" ID="tlTablaEventos"></asp:Literal>
         </tbody>
     </table>    
    </div>
@@ -84,130 +85,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-
-     <!--VALIDACION PARA MODAL -->
-         
-         <script type="text/javascript">
-
-             // Funcionalidad para el boton Agregar Evento al Carrito
-             function prueba3(e) {
-
-                 debugger
-
-                 if (e != undefined) {
-
-                     var arrayConDatosDelProducto = e.id.split("_");
-
-                     //Obtenemos el id del boton presionado.
-                     var aux = $("#" + arrayConDatosDelProducto[0] + "_combo");
-
-                     //Creamos un objeto con los datos a ser enviado al servidor.
-                     var producto = {
-                         idEvento: arrayConDatosDelProducto[0],
-                         cantidad: aux.val(),
-                         precio: arrayConDatosDelProducto[1]
-                     }
-
-                     var datos = JSON.stringify(producto);
-
-                     if (aux != undefined) {
-
-                         $.ajax({
-                             cache: false,
-                             type: 'POST',
-                             url: 'http://localhost:23072/GUI/Modulo16/M16_ConsultarEvento.aspx/agregarEventoaCarrito',
-                             data: datos,
-                             dataType: 'json',
-                             contentType: "application/json; charset=utf-8",
-
-                             success: function (data) {
-                                 debugger
-
-                                 console.log("Exito:" + data);
-
-                                 var aa = JSON.parse(data.d);
-
-                                 alert("Peticion ajax exitosa:" + aa);
-
-
-                             }
-
-                         });
-
-                         window.location.href = "M16_VerCarrito.aspx?accion=1&exito=1";
-
-                     }
-                 }
-
-             }
-
-
-             $(document).ready(function () {
-
-                 var table = $('#tablaevento').DataTable({
-                    "dom": '<"pull-left"f>rt<"pull-right"lp>i',
-                     "language": {
-                         "url": "http://cdn.datatables.net/plug-ins/1.10.9/i18n/Spanish.json"
-                     }
-                 });
-                 var req;
-                 var tr;
-
-                 $('#tablaevento tbody').on('click', 'a', function () {
-                     if ($(this).parent().hasClass('selected')) {
-                         req = $(this).parent().prev().prev().prev().text();
-                         tr = $(this).parents('tr');//se guarda la fila seleccionada
-                         $(this).parent().removeClass('selected');
-
-                     }
-                     else {
-                         req = $(this).parent().prev().prev().prev().text();
-                         tr = $(this).parents('tr');//se guarda la fila seleccionada
-                         table.$('tr.selected').removeClass('selected');
-                         $(this).parent().addClass('selected');
-                     }
-
-                 });
-
-                 $('#modal-delete').on('show.bs.modal', function (event) {
-                     var modal = $(this)
-                     modal.find('.modal-title').text('Eliminar requerimiento:  ' + req)
-                     modal.find('#req').text(req)
-                 })
-                 $('#btn-eliminar').on('click', function () {
-                     table.row(tr).remove().draw();//se elimina la fila de la tabla
-                     $('#modal-delete').modal('hide');//se esconde el modal
-                     $('#prueba').show();//Muestra el mensaje de agregado exitosamente
-
-                 });
-
-                 // Carga el modal con la informacion del evento de acuerdo al id
-                 $('#modal-info1').on('show.bs.modal', function (e) {
-                   
-                     $.ajax({
-                         cache: false,
-                         type: 'POST',
-                         url: 'http://localhost:23072/GUI/Modulo16/M16_ConsultarEvento.aspx/prueba',
-                         data: "{'id':" + "'" + e.relatedTarget.id + "'" + "}",
-                         dataType: 'json',
-                         contentType: "application/json; charset=utf-8",
-
-                         success: function (data) {
-                             console.log(data);
-
-                             var aa = JSON.parse(data.d);
-                             console.log(aa);
-
-                             $("#aux1").html(aa.Id_evento);
-                             $("#aux2").html(aa.Nombre);
-                             $("#aux3").html(aa.Descripcion);
-                             $("#aux4").html(aa.Costo);
-
-                         }
-                     });
-                 })
-             });
-        </script>
+		</div>        
 
 </asp:Content>

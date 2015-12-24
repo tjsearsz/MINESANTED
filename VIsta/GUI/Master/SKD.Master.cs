@@ -7,23 +7,23 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using templateApp.GUI.Master;
-using templateApp.GUI.Modulo1;
+using templateApp.GUI.Modulo16;
 using DominioSKD;
-using LogicaNegociosSKD.Modulo2;
 
-namespace templateApp
+
+namespace Vista
 {
     public partial class SKD : System.Web.UI.MasterPage
     {
         private string idModulo;
-        public Cuenta userLogin = new Cuenta();
+        /*public Cuenta userLogin = new Cuenta();
         public string DES=RecursosLogicaModulo2.claveDES;
         public AlgoritmoDeEncriptacion cripto=new AlgoritmoDeEncriptacion();
         private Dictionary<string, string> opcionesDelMenu = new Dictionary<string, string>();
-        private Dictionary<string, string[,]> subOpcionesDelMenu = new Dictionary<string, string[,]>(); //Se guardaran las sub opciones del menú
+        private Dictionary<string, string[,]> subOpcionesDelMenu = new Dictionary<string, string[,]>();*/ //Se guardaran las sub opciones del menú
         private string[] rolesUsuario = new string[10];//los roles que el usuario tiene registrado
 
-        public string IdModulo
+       /* public string IdModulo
         {
             get { return idModulo; }
             set { idModulo = value; }
@@ -37,7 +37,8 @@ namespace templateApp
         {
             get { return subOpcionesDelMenu; }
             set { subOpcionesDelMenu = value; }
-        }
+        }*/
+
         public string[] RolesUsuario
         {
             get { return rolesUsuario; }
@@ -46,37 +47,7 @@ namespace templateApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                if (Session[RecursosInterfazMaster.sessionUsuarioID].ToString() != null)
-                {
-                    XmlDocument doc = new XmlDocument();
-                    doc.Load(Server.MapPath(RecursosInterfazMaster.direccionMaster_MenuLateral));
-                    idModulo = IdModulo;
-                    foreach (XmlNode node in doc.DocumentElement.ChildNodes)
-                        foreach (XmlNode subNode in node.ChildNodes)
-                            if (!(subNode.Attributes[RecursosInterfazMaster.tagId] == null) &&
-                                subNode.Attributes[RecursosInterfazMaster.tagId].InnerText.Equals(IdModulo))
-                            {
-                                OpcionesDelMenu[node.Attributes[RecursosInterfazMaster.tagName].InnerText] =
-                                    node.Attributes[RecursosInterfazMaster.tagLink].InnerText;
-                                break;
-                            }
-                    asignarUsuario();
-                    DropDownMenu();
-                }
-                else
-                    Response.Redirect(RecursosInterfazModulo1.direccionM1_Index);
-
-            }
-            catch (NullReferenceException ex)
-            {
-
-            }
-            catch (Exception ex)
-            {
-
-            }
+            
         }
         
 
@@ -85,38 +56,7 @@ namespace templateApp
         /// </summary>
         protected void asignarUsuario()
         {
-            
-            string Stringhttp = RecursosInterfazMaster.AliasHttp;
-            char[] http = Stringhttp.ToCharArray();
-            string imagen = Session[RecursosInterfazMaster.sessionImagen].ToString();
-
-            if (imagen == "")
-            {
-                imagen = "../../dist/img/AvatarSKD.jpg";
-            }
-                imageUsuario.Src = imagen;
-                imageTag.Src = imagen;
-
-            userName.InnerText = (string)Session[RecursosInterfazMaster.sessionUsuarioNombre];
-
-            //aqui va el nombre y apellido
-            userTag.InnerText = (string)Session[RecursosInterfazMaster.sessionNombreCompleto] ;
-            string[] roles = Session[RecursosInterfazMaster.sessionRoles].ToString().Split(char.Parse(RecursosInterfazMaster.splitRoles));
-            int cont = 0;
-            foreach (string perfil in roles)
-            {
-                rolesUsuario[cont] = perfil;
-                cont++;
-            }
-            if (Request.QueryString[RecursosInterfazMaster.sessionRol] == RecursosInterfazMaster.sessionLogout)
-                logout();
-
-                string rol = cripto.DesencriptarCadenaDeCaracteres
-                    (Request.QueryString[RecursosInterfazMaster.sessionRol], RecursosLogicaModulo2.claveDES);
-
-
-                if (rol != null)
-                    Session[RecursosInterfazMaster.sessionRol] = rol;
+           
 
         }
 
@@ -141,50 +81,14 @@ namespace templateApp
         /// </summary>
         protected void DropDownMenu()
         {
-            string rol = (string)(Session[RecursosInterfazMaster.sessionRol]);
-            XmlDocument doc = new XmlDocument();
-            string[] permisos;//se guardaran los permisos asociados a cada opcion del menuSuperior.xml
-            string[] opciones = new string[2];
-            int i = 0; //iteracion de posicionOpciones
-            doc.Load(Server.MapPath(RecursosInterfazMaster.direccionMaster_MenuSuperior));
-            foreach (XmlNode node in doc.DocumentElement.ChildNodes)
-            {
-                i = 0;
-                permisos = node.Attributes[RecursosInterfazMaster.sessionRol].InnerText.Split(char.Parse(RecursosInterfazMaster.splitRoles));
-
-                if (validaRol(permisos, rol))
-                {
-                    string[,] posicionOpcinones = new string[2, node.ChildNodes.Count];
-                    foreach (XmlNode subNode in node.ChildNodes)
-                    {
-
-                        permisos = subNode.Attributes[RecursosInterfazMaster.sessionRol].
-                            InnerText.Split(char.Parse(RecursosInterfazMaster.splitRoles));
-                        if ((subNode.Attributes[RecursosInterfazMaster.tagLink].InnerText != null) && (validaRol(permisos, rol)))
-                        {
-
-                            posicionOpcinones[0, i] = (string)subNode.Attributes[RecursosInterfazMaster.tagName].InnerText.ToString();
-                            posicionOpcinones[1, i] = subNode.Attributes[RecursosInterfazMaster.tagLink].InnerText.ToString();
-                            i++;
-                        }
-                    }
-
-                    SubOpcionesDelMenu[node.Attributes[RecursosInterfazMaster.tagName].InnerText] = posicionOpcinones;
-
-                }
-            }
+            
         }
         /// <summary>
         /// Metodo para el boto Sing Out de la tabla de usuario
         /// </summary>
         protected void logout()
         {
-            Session.Remove(RecursosInterfazMaster.sessionRol);
-            Session.Remove(RecursosInterfazMaster.sessionRoles);
-            Session.Remove(RecursosInterfazMaster.sessionUsuarioID);
-            Session.Remove(RecursosInterfazMaster.sessionUsuarioNombre);
-            Session.Remove(RecursosInterfazMaster.sessionImagen);
-            Response.Redirect(RecursosInterfazModulo1.direccionM1_Index);
+            
         }
     }
 }

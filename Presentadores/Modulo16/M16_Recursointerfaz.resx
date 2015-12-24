@@ -186,10 +186,6 @@
   <data name="BOTON_MODIFICAR" xml:space="preserve">
     <value>&lt;a class="btn btn-default glyphicon glyphicon-pencil" href="M12_ModificarCompetencias.aspx?compMod=</value>
   </data>
-  <data name="CERRARFINCABEZATAG" xml:space="preserve">
-    <value>"&gt;"</value>
-    <comment>Tag final para cerrar la cabecera de la tabla</comment>
-  </data>
   <data name="CERRAR_COMBO" xml:space="preserve">
     <value>'&gt;&lt;option value=1&gt;1&lt;/option&gt;&lt;option value=2&gt;2&lt;/option&gt;&lt;option value=3&gt;3&lt;/option&gt;&lt;option value=4&gt;4&lt;/option&gt;&lt;option value=5&gt;5&lt;/option&gt;&lt;option value=6&gt;6&lt;/option&gt;&lt;option value=7&gt;7&lt;/option&gt;&lt;option value=8&gt;8&lt;/option&gt;&lt;option value=9&gt;9&lt;/option&gt;&lt;option value=10&gt;10&lt;/option&gt;
 &lt;/select&gt;</value>
@@ -209,10 +205,6 @@
   <data name="COMBOCANTIDAD" xml:space="preserve">
     <value>&lt;select   id='</value>
     <comment>Combo box que muestra 10 valores del 1 al 10</comment>
-  </data>
-  <data name="FINCABEZATAG" xml:space="preserve">
-    <value>'"'</value>
-    <comment>Tag para cerrar la cabecera de la tabla </comment>
   </data>
   <data name="MENSAJE_ENTRADA_LOGGER" xml:space="preserve">
     <value>Ingresando al metodo</value>
