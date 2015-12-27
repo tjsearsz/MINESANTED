@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DatosSKD.InterfazDAO.Modulo16;
+using DatosSKD.DAO.Modulo16;
+using DominioSKD.Fabrica;
 using DominioSKD;
-using System.Data;
-using DominioSKD.Entidades.Modulo16;
-
 
 namespace DatosSKD.DAO.Modulo16
 {
@@ -27,11 +26,6 @@ namespace DatosSKD.DAO.Modulo16
         #endregion
 
         #region Metodos
-        public List<Entidad> ConsultarTodos()
-        {
-            throw new NotImplementedException();
-        }
-
         /// <summary>
         /// Metodo que agrega un item al carrito de una persona en Base de Datos
         /// </summary>
@@ -138,6 +132,54 @@ namespace DatosSKD.DAO.Modulo16
                  return exito;
            // }
            /* catch (LoggerException e)
+        #region VerCarrito
+         
+        #region EliminarItem
+        /// <summary>
+        /// Metodo que elimina un objeto que haya en el carrito del usuario en la Base de Datos
+        /// </summary>
+        /// <param name="tipoObjeto">Especifica si se borrara una matricula, un inventario o evento</param>
+        /// <param name="objetoBorrar">El objeto en especifico a borrar</param>
+        /// <param name="idUsuario">El usuario al que se alterara su carrito</param>
+        /// <returns>Si la operacion fue exitosa o fallida</returns>
+        public bool eliminarItem(int tipoObjeto, int objetoBorrar, Entidad parametro)
+        {
+            Persona laPersona;
+            
+            try
+            {
+
+                laPersona = (Persona)FabricaEntidades.ObtenerPersona();
+                //Escribo en el logger la entrada a este metodo
+               Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                    RecursosBDModulo16.MENSAJE_ENTRADA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+                //Creo la lista de los parametros para el stored procedure y los anexo
+                List<Parametro> parametros = new List<Parametro>();
+                Parametro elParametro = new Parametro(RecursosBDModulo16.PARAMETRO_USUARIO, SqlDbType.Int,
+                    laPersona.ID.ToString(), false);
+                parametros.Add(elParametro);
+                elParametro = new Parametro(RecursosBDModulo16.PARAMETRO_ITEM, SqlDbType.Int,
+                    objetoBorrar.ToString(), false);
+                parametros.Add(elParametro);
+                elParametro = new Parametro(RecursosBDModulo16.PARAMETRO_TIPO_ITEM, SqlDbType.Int,
+                    tipoObjeto.ToString(), false);
+                parametros.Add(elParametro);
+
+
+                //Procedo a intentar eliminar el item en BD ejecutando el stored procedure
+                BDConexion conexion = new BDConexion();
+                conexion.EjecutarStoredProcedure(RecursosBDModulo16.PROCEDIMIENTO_ELIMINAR_ITEM, parametros);
+
+                //Escribo en el logger la salida a este metodo
+              Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                  RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+                return true;
+            }
+
+          
+            catch (LoggerException e)
             {
                 Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
                 throw e;
@@ -241,8 +283,40 @@ namespace DatosSKD.DAO.Modulo16
             {
                 Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
                 throw e;
+            } 
+        }
+
+
+
+        public List<Entidad> ConsultarTodos()
+        {
+            FabricaEntidades laFabrica = new FabricaEntidades();
+            List<Entidad> laLista = new List<Entidad>();
+            DataTable resultado = new DataTable();
+            List<Parametro> parametros = new List<Parametro>();
+            Evento elEvento;
+
+            try
+            {
+                resultado = EjecutarStoredProcedureTuplas(RecursosBDModulo16.CONSULTAR_EVENTOS,
+                    parametros);
+
+                foreach (DataRow row in resultado.Rows)
+                {
+                    elEvento = (Evento)laFabrica.ObtenerEvento();
+                    elEvento.Id_evento = int.Parse(row[RecursosBDModulo16.PARAMETRO_IDEVENTO].ToString());
+                    elEvento.Nombre = row[RecursosBDModulo16.PARAMETRO_NOMBRE].ToString();
+                    elEvento.Descripcion = row[RecursosBDModulo16.PARAMETRO_DESCRIPCION].ToString();
+                    elEvento.Costo = int.Parse(row[RecursosBDModulo16.PARAMETRO_PRECIO].ToString());
+                    laLista.Add(elEvento);
+
+                }
+
+                return laLista;
+
             }
-            catch (ArgumentNullException e)
+            #region catches
+            catch (Exception ex)
             {
                 Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
                 throw new ParseoVacioException(RecursosBDModulo16.CODIGO_EXCEPCION_ARGUMENTO_NULO,

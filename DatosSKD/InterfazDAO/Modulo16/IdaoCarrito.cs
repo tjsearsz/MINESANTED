@@ -30,5 +30,13 @@ namespace DatosSKD.InterfazDAO.Modulo16
         /// <param name="tipoPoago">El metodo de pago con el que se realizo la transaccion</param>
         /// <returns>El exito o fallo del proceso</returns>
         bool RegistrarPago(Entidad persona, string tipoPoago);
+        bool eliminarItem(int tipoObjeto, int objetoBorrar, Entidad parametro);
+  //      void getEvento(Entidad idusuario);
+  //      void getImplemento(Entidad idusuario);
+  //      void getMatricula(Entidad idusuario);
+  //      void modificarCarritoevento(Entidad persona, Entidad idevento, int cantidad);
+  //      void modificarCarritoimplemento(Entidad persona, Entidad idimplemento, int cantidad);
+  //      void modificarCarritomatricula(Entidad persona, Entidad idmatricula, int cantidad);
+
     }
 }

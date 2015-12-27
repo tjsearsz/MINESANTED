@@ -1,34 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DominioSKD;
-using DominioSKD.Entidades.Modulo16;
+﻿using DominioSKD.Entidades.Modulo16;
 using DatosSKD.InterfazDAO.Modulo16;
 using DatosSKD.FabricaDAO;
-using ComandosSKD;
+using LogicaNegociosSKD.Comandos;
 using DominioSKD;
-using DatosSKD.Modulo16;
+using DominioSKD.Fabrica;
 using ExcepcionesSKD.Modulo16.ExcepcionesDeDatos;
 using ExcepcionesSKD.Modulo16;
 using ExcepcionesSKD;
 using DatosSKD.DAO.Modulo16;
-using ComandosSKD.Modulo16;
+ 
+ 
 
-namespace ComandosSKD.Modulo16
+namespace LogicaNegociosSKD.Comandos.Modulo16
 {
-    class ComandoeliminarItem : Comando<Entidad>
+    class ComandoeliminarItem : Comando<bool>
     {
-
-
-        #region Atributos
-        int _tipobj;
-        int _objbor;
-        bool _e;
-        Entidad _param;
-        #endregion
-
+          
 
         /// <summary>
         /// Comando que ejecuta la logica para eliminar un item del carrito
@@ -43,10 +30,17 @@ namespace ComandosSKD.Modulo16
             {
                 FabricaDAOSqlServer laFabrica = new FabricaDAOSqlServer();
                 IdaoCarrito daoCarrito = laFabrica.ObtenerDAOCarrito();
-
-
+ 
+                Persona  p = FabricaEntidades.ObtenerPersona() as Persona;
+            
+                p.Id =  7;
+                 
                 //Retornamos la respuesta  
-                return daoCarrito.eliminarItem(1, 1, _param);
+                return daoCarrito.eliminarItem(7, 3, p );
+ 
+
+
+               
 
 
             }
@@ -89,12 +83,7 @@ namespace ComandosSKD.Modulo16
                 Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
                 throw e;
             }
-            catch (Exception e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw new ExceptionSKDConexionBD(RecursosLogicaModulo16.CODIGO_EXCEPCION_GENERICO,
-                    RecursosLogicaModulo16.MENSAJE_EXCEPCION_GENERICO, e);
-            }
+        
 
             #endregion
 
@@ -102,11 +91,7 @@ namespace ComandosSKD.Modulo16
 
         }
 
-        public ComandoeliminarItem(bool e)
-        {
-            _e = e;
-
-        }
+ 
 
     }
 }

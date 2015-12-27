@@ -30,12 +30,12 @@ namespace DominioSKD.Fabrica
             return new Entidades.Modulo16.Compra();
         }
 
-        public Entidad ObtenerPersona()
+        public static Entidad ObtenerPersona()
         {
             return new Entidades.Modulo16.Persona();
         }
 
-        public Entidad ObtenerImplemento()
+        public  Entidad ObtenerImplemento()
         {
             return new Entidades.Modulo16.Implemento();
         }

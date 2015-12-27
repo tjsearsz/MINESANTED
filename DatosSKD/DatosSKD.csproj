@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BDConexion.cs" />
     <Compile Include="DAO\DAOGeneral.cs" />
     <Compile Include="DAO\Modulo16\DaoCarrito.cs" />
     <Compile Include="DAO\Modulo16\DaoEvento.cs" />
@@ -66,6 +67,10 @@
       <Project>{b946df89-40a8-46e9-9827-e0cf67f5a0e5}</Project>
       <Name>DominioSKD</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExcepcionesSKD\ExcepcionesSKD.csproj">
+      <Project>{fe3043f3-9ca4-4c6a-a975-98aee7a8e189}</Project>
+      <Name>ExcepcionesSKD</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DAO\Modulo16\RecursosBDModulo16.resx">
@@ -76,6 +81,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>RecursoGeneralDAO.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,6 +8,8 @@ using LogicaNegociosSKD.Comandos;
 using DominioSKD.Entidades.Modulo16;
 using DominioSKD;
 
+ 
+
 namespace LogicaNegociosSKD.Comandos.Fabrica
 {
    public class FabricaComandos
@@ -27,6 +29,10 @@ namespace LogicaNegociosSKD.Comandos.Fabrica
            return new ComandoAgregarItem();
        }
 
+       public static Comando<bool> CrearComandoeliminarItem()
+       {
+           return new ComandoeliminarItem();
+       }
        #endregion
    }
 }
