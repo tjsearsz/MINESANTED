@@ -28,8 +28,7 @@ namespace LogicaNegociosSKD.Comandos.Modulo16
 
             try
             {
-                FabricaDAOSqlServer laFabrica = new FabricaDAOSqlServer();
-                IdaoCarrito daoCarrito = laFabrica.ObtenerDAOCarrito();
+                IdaoCarrito daoCarrito = FabricaDAOSqlServer.ObtenerdaoCarrito();
  
                 Persona  p = FabricaEntidades.ObtenerPersona() as Persona;
             

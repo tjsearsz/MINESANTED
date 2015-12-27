@@ -7,6 +7,10 @@ using DatosSKD.InterfazDAO.Modulo16;
 using DatosSKD.DAO.Modulo16;
 using DominioSKD.Fabrica;
 using DominioSKD;
+using DominioSKD.Entidades.Modulo16;
+using ExcepcionesSKD;
+using ExcepcionesSKD.Modulo16;
+using System.Data;
 
 namespace DatosSKD.DAO.Modulo16
 {
@@ -26,6 +30,7 @@ namespace DatosSKD.DAO.Modulo16
         #endregion
 
         #region Metodos
+        #region AgregarItem
         /// <summary>
         /// Metodo que agrega un item al carrito de una persona en Base de Datos
         /// </summary>
@@ -130,10 +135,13 @@ namespace DatosSKD.DAO.Modulo16
 
                  //Retorno la respuesta
                  return exito;
-           // }
-           /* catch (LoggerException e)
+            // catch (LoggerException e)
+           }
+        #endregion
+
         #region VerCarrito
-         
+        #endregion
+
         #region EliminarItem
         /// <summary>
         /// Metodo que elimina un objeto que haya en el carrito del usuario en la Base de Datos
@@ -145,14 +153,13 @@ namespace DatosSKD.DAO.Modulo16
         public bool eliminarItem(int tipoObjeto, int objetoBorrar, Entidad parametro)
         {
             Persona laPersona;
-            
+
             try
             {
-
                 laPersona = (Persona)FabricaEntidades.ObtenerPersona();
                 //Escribo en el logger la entrada a este metodo
-               Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
-                    RecursosBDModulo16.MENSAJE_ENTRADA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                     RecursosBDModulo16.MENSAJE_ENTRADA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
 
                 //Creo la lista de los parametros para el stored procedure y los anexo
                 List<Parametro> parametros = new List<Parametro>();
@@ -172,13 +179,13 @@ namespace DatosSKD.DAO.Modulo16
                 conexion.EjecutarStoredProcedure(RecursosBDModulo16.PROCEDIMIENTO_ELIMINAR_ITEM, parametros);
 
                 //Escribo en el logger la salida a este metodo
-              Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
-                  RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                    RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
 
                 return true;
             }
 
-          
+
             catch (LoggerException e)
             {
                 Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
@@ -186,7 +193,7 @@ namespace DatosSKD.DAO.Modulo16
             }
             catch (ArgumentNullException e)
             {
-              //  Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
                 throw new ParseoVacioException(RecursosBDModulo16.CODIGO_EXCEPCION_ARGUMENTO_NULO,
                     RecursosBDModulo16.MENSAJE_EXCEPCION_ARGUMENTO_NULO, e);
             }
@@ -223,12 +230,10 @@ namespace DatosSKD.DAO.Modulo16
                 throw new ExceptionSKD(RecursosBDModulo16.CODIGO_EXCEPCION_GENERICO,
                     RecursosBDModulo16.MENSAJE_EXCEPCION_GENERICO, e);
             }
-            catch(Exception e)
-            {
-                throw e;
-            }*/
         }
+        #endregion
 
+        #region RegistrarPago
         /// <summary>
         /// Metodo que registra el pago de los productos de una persona en la Base de Datos
         /// </summary>
@@ -283,10 +288,9 @@ namespace DatosSKD.DAO.Modulo16
             {
                 Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
                 throw e;
-            } 
+            } */
         }
-
-
+        #endregion
 
         public List<Entidad> ConsultarTodos()
         {
@@ -296,8 +300,8 @@ namespace DatosSKD.DAO.Modulo16
             List<Parametro> parametros = new List<Parametro>();
             Evento elEvento;
 
-            try
-            {
+          //  try
+         //   {
                 resultado = EjecutarStoredProcedureTuplas(RecursosBDModulo16.CONSULTAR_EVENTOS,
                     parametros);
 
@@ -313,10 +317,10 @@ namespace DatosSKD.DAO.Modulo16
                 }
 
                 return laLista;
-
-            }
+        
+           // }
             #region catches
-            catch (Exception ex)
+         /*   catch (Exception ex)
             {
                 Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
                 throw new ParseoVacioException(RecursosBDModulo16.CODIGO_EXCEPCION_ARGUMENTO_NULO,
@@ -356,6 +360,7 @@ namespace DatosSKD.DAO.Modulo16
                     RecursosBDModulo16.MENSAJE_EXCEPCION_GENERICO, e);
             }*/
         }
+            #endregion
         #endregion
     }
 }
