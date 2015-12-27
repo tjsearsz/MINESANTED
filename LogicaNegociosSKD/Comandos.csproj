@@ -41,10 +41,18 @@
   <ItemGroup>
     <Compile Include="Comando.cs" />
     <Compile Include="Comandos\Modulo16\ComandoConsultarTodosEventos.cs" />
+    <Compile Include="Comandos\Modulo16\ComandoeliminarItem.cs" />
+    <Compile Include="Comandos\Modulo16\RecursosLogicaModulo16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecursosLogicaModulo16.resx</DependentUpon>
+    </Compile>
     <Compile Include="Fabrica\FabricaComandos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Contratos\Contratos.csproj">
       <Project>{1767095a-3b32-4cdb-84e5-c407649a0cda}</Project>
@@ -66,6 +74,12 @@
       <Project>{f5dcae55-28b6-4798-9d65-cc88d45f1f62}</Project>
       <Name>PruebasUnitariasSKD</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Comandos\Modulo16\RecursosLogicaModulo16.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RecursosLogicaModulo16.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

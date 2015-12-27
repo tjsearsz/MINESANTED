@@ -15,6 +15,13 @@ namespace DatosSKD.FabricaDAO
            return new DatosSKD.DAO.Modulo16.DaoEvento();
        }
 
+
+         public InterfazDAO.Modulo16.IdaoCarrito ObtenerDAOCarrito()
+            {
+                return new DatosSKD.DAO.Modulo16.DaoCarrito();
+            }
+
+
        #endregion
    }
 }

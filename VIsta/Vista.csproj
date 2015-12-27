@@ -39,18 +39,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ActiproSoftware.Shared.Net20, Version=1.0.102.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86" />
-    <Reference Include="CKEditor.NET">
-      <HintPath>..\..\SANDRA\Programas\CKEditor.NET.dll</HintPath>
-    </Reference>
-    <Reference Include="itextsharp">
-      <HintPath>..\itextsharp.dll</HintPath>
-      <HintPath>..\..\..\Downloads\CKEditor.NET.dll</HintPath>
-      <HintPath>..\..\Downloads\CKEditor.NET.dll</HintPath>
-    </Reference>
     <!--<Reference Include="itextsharp">
       <HintPath>..\..\..\Downloads\itextsharp.dll</HintPath>-->
+    <Reference Include="CKEditor.NET">
+      <HintPath>..\Presentadores\CKEditor.NET.dll</HintPath>
+    </Reference>
     <Reference Include="itextsharp">
       <HintPath>..\..\SANDRA\Programas\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\Presentadores\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -78,12 +76,9 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include=".jshintrc" />
-    <Content Include="App_Data\BaseDeDatosSKD.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="App_Data\BaseDeDatosSKD.mdf" />
     <Content Include="App_Data\BaseDeDatosSKD_log.ldf">
       <DependentUpon>BaseDeDatosSKD.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="bootstrap\css\bootstrap.css.map" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />

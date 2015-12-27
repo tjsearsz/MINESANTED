@@ -18,6 +18,13 @@ namespace LogicaNegociosSKD.Comandos.Fabrica
            return new ComandoConsultarTodosEventos();
        }
 
+       public static Comando<bool> CrearComandoeliminarItem()
+       {
+           return new ComandoeliminarItem();
+       }
+
+
+
        #endregion
    }
 }

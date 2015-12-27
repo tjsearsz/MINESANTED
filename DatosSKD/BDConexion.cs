@@ -1,4 +1,5 @@
 ﻿using ExcepcionesSKD;
+using DatosSKD.DAO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -29,7 +30,7 @@ namespace DatosSKD
 
             try
             {
-                strConexion = ConfigurationManager.ConnectionStrings[RecursoGeneralDAO.NombreBD].ConnectionString;
+                strConexion = ConfigurationManager.ConnectionStrings[RecursoGeneralDAO.Nombre_Base_Datos].ConnectionString;
                 if (conexion == null)
                 {
                     conexion = new SqlConnection(strConexion);
