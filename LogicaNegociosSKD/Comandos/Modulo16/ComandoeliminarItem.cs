@@ -8,17 +8,14 @@ using ExcepcionesSKD.Modulo16.ExcepcionesDeDatos;
 using ExcepcionesSKD.Modulo16;
 using ExcepcionesSKD;
 using DatosSKD.DAO.Modulo16;
-using ComandosSKD.Modulo16;
-
+ 
  
 
-namespace ComandosSKD.Modulo16
+namespace LogicaNegociosSKD.Comandos.Modulo16
 {
     class ComandoeliminarItem : Comando<bool>
     {
-
-
-        
+          
 
         /// <summary>
         /// Comando que ejecuta la logica para eliminar un item del carrito
@@ -86,12 +83,7 @@ namespace ComandosSKD.Modulo16
                 Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
                 throw e;
             }
-            catch (Exception e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw new ExceptionSKDConexionBD(RecursosLogicaModulo16.CODIGO_EXCEPCION_GENERICO,
-                    RecursosLogicaModulo16.MENSAJE_EXCEPCION_GENERICO, e);
-            }
+        
 
             #endregion
 
