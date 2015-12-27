@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,10 +40,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modulo16\PruebaComandoAgregarItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Modulo16\" />
+    <ProjectReference Include="..\DatosSKD\DatosSKD.csproj">
+      <Project>{33096d4d-7f6b-46c0-af9a-d28b4b0380c0}</Project>
+      <Name>DatosSKD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DominioSKD\DominioSKD.csproj">
+      <Project>{b946df89-40a8-46e9-9827-e0cf67f5a0e5}</Project>
+      <Name>DominioSKD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExcepcionesSKD\ExcepcionesSKD.csproj">
+      <Project>{fe3043f3-9ca4-4c6a-a975-98aee7a8e189}</Project>
+      <Name>ExcepcionesSKD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogicaNegociosSKD\Comandos.csproj">
+      <Project>{d56f2dce-d833-4254-a650-f5ea5fe09315}</Project>
+      <Name>Comandos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

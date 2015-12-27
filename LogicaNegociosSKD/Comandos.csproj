@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comando.cs" />
+    <Compile Include="Comandos\Modulo16\ComandoAgregarItem.cs" />
     <Compile Include="Comandos\Modulo16\ComandoConsultarTodosEventos.cs" />
+    <Compile Include="Comandos\Modulo16\Comandoregistrarpago.cs" />
     <Compile Include="Fabrica\FabricaComandos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -61,10 +63,6 @@
     <ProjectReference Include="..\ExcepcionesSKD\ExcepcionesSKD.csproj">
       <Project>{fe3043f3-9ca4-4c6a-a975-98aee7a8e189}</Project>
       <Name>ExcepcionesSKD</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PruebasUnitariasSKD\PruebasUnitariasSKD.csproj">
-      <Project>{f5dcae55-28b6-4798-9d65-cc88d45f1f62}</Project>
-      <Name>PruebasUnitariasSKD</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

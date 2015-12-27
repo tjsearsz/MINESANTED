@@ -18,6 +18,15 @@ namespace LogicaNegociosSKD.Comandos.Fabrica
            return new ComandoConsultarTodosEventos();
        }
 
+       /// <summary>
+       /// Metodo de la fabrica que instancia el comando ComandoAgregarItem
+       /// </summary>
+       /// <returns>El ComandoAgregarItem</returns>
+       public static Comando<bool> CrearComandoAgregarItem()
+       {
+           return new ComandoAgregarItem();
+       }
+
        #endregion
    }
 }

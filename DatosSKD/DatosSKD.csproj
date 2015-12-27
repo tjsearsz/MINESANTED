@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DAOGeneral.cs" />
+    <Compile Include="DAO\Modulo16\DaoCarrito.cs" />
     <Compile Include="DAO\Modulo16\DaoEvento.cs" />
     <Compile Include="DAO\Modulo16\RecursosBDModulo16.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -56,6 +57,7 @@
     <Compile Include="DAO\Resultado.cs" />
     <Compile Include="FabricaDAO\FabricaDAOSqlServer.cs" />
     <Compile Include="InterfazDAO\IDao.cs" />
+    <Compile Include="InterfazDAO\Modulo16\IdaoCarrito.cs" />
     <Compile Include="InterfazDAO\Modulo16\IdaoEvento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

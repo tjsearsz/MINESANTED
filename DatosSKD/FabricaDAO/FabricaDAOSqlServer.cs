@@ -15,6 +15,14 @@ namespace DatosSKD.FabricaDAO
            return new DatosSKD.DAO.Modulo16.DaoEvento();
        }
 
+       /// <summary>
+       /// Metodo de la fabrica que instancia el DAO del carrito
+       /// </summary>
+       /// <returns>el DaoCarrito</returns>
+       public static InterfazDAO.Modulo16.IdaoCarrito ObtenerdaoCarrito()
+       {
+           return new DatosSKD.DAO.Modulo16.DaoCarrito();
+       }
        #endregion
    }
 }

@@ -7,7 +7,7 @@ using DominioSKD.Entidades.Modulo16;
 
 namespace DominioSKD
 {
-    public class Inventario
+    public class Inventario: Entidad
     {
         #region Atributos
 

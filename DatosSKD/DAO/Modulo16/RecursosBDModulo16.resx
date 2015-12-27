@@ -391,4 +391,7 @@
   <data name="PARAMETRO_IDMATRICULA2" xml:space="preserve">
     <value>@idMatricula</value>
   </data>
+  <data name="PARAMETRO_IDEVENTO2" xml:space="preserve">
+    <value>@idEvento</value>
+  </data>
 </root>

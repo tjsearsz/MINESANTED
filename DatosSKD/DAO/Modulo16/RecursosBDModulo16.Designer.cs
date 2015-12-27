@@ -466,6 +466,15 @@ namespace DatosSKD.DAO.Modulo16 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to @idEvento.
+        /// </summary>
+        internal static string PARAMETRO_IDEVENTO2 {
+            get {
+                return ResourceManager.GetString("PARAMETRO_IDEVENTO2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to idImplemento.
         /// </summary>
         internal static string PARAMETRO_IDIMPLEMENTO {
