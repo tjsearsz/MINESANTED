@@ -8,8 +8,6 @@ using LogicaNegociosSKD.Comandos;
 using DominioSKD.Entidades.Modulo16;
 using DominioSKD;
 
- 
-
 namespace LogicaNegociosSKD.Comandos.Fabrica
 {
    public class FabricaComandos

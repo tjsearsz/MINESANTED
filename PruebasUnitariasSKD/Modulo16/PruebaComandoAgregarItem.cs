@@ -16,22 +16,25 @@ namespace PruebasUnitariasSKD.Modulo16
     /// <summary>
     /// Prueba unitaria del Caso de Uso Agregar Item
     /// </summary>
+    [TestFixture]
     public class PruebaComandoAgregarItem
     {
         #region Atributos
         //Atributos pertinentes a usar
-        public ComandoAgregarItem pruebaComando;
-        public Comando<List<Entidad>> eventos;
-        public Entidad persona;
-        public Entidad persona2;
-        public Entidad persona3;
-        public Implemento implemento;
-        public Implemento implemento2;
-       // List<Entidad> listaEventos;
-        public Matricula matricula;
-        public Matricula matricula2;
-        public Evento evento;
-        public Evento evento2;
+        private Comando<bool> Comando;
+        private ComandoAgregarItem pruebaComando;
+       // public Comando<List<Entidad>> eventos;
+        private ComandoConsultarTodosEventos eventos;
+        private Entidad persona;
+        private Entidad persona2;
+        private Entidad persona3;
+        private Implemento implemento;
+        private Implemento implemento2;
+        private List<Entidad> listaEventos;
+        private Matricula matricula;
+        private Matricula matricula2;
+        private Evento evento;
+        private Evento evento2;
         #endregion
 
         /// <summary>
@@ -55,7 +58,8 @@ namespace PruebasUnitariasSKD.Modulo16
 
             //Eventos
            // this.eventos = FabricaComandos.CrearComandoConsultarTodosEventos();
-            //this.listaEventos = this.eventos.Ejecutar();
+            this.eventos = new ComandoConsultarTodosEventos();
+            this.listaEventos = this.eventos.Ejecutar();
             this.evento = new Evento();
             this.evento.Id = 1;
             this.evento.Costo = 0;
@@ -72,7 +76,9 @@ namespace PruebasUnitariasSKD.Modulo16
             this.matricula2.Id = 2;
             this.matricula2.Costo = 4500;
 
-            this.pruebaComando = new ComandoAgregarItem();
+            //Obtengo el comando y lo casteo
+            this.Comando = FabricaComandos.CrearComandoAgregarItem();
+            this.pruebaComando = (ComandoAgregarItem)this.Comando;
                      
         }
 
@@ -203,7 +209,7 @@ namespace PruebasUnitariasSKD.Modulo16
             this.persona = null;
             this.implemento = null;
             this.implemento2 = null;
-     //       this.listaEventos = null;
+            this.listaEventos = null;
             this.matricula = null;
             this.matricula2 = null;
         }
