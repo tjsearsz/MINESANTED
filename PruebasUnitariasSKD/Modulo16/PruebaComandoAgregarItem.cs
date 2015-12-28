@@ -20,10 +20,20 @@ namespace PruebasUnitariasSKD.Modulo16
     {
         #region Atributos
         //Atributos pertinentes a usar
-        private Comando<bool> Comando;
         private ComandoAgregarItem pruebaComando;
-       // public Comando<List<Entidad>> eventos;
-        private ComandoConsultarTodosEventos eventos;
+        private ComandoAgregarItem pruebaComandoImplemento1;
+        private ComandoAgregarItem pruebaComandoImplemento2;
+        private ComandoAgregarItem pruebaComandoImplemento3;
+        private ComandoAgregarItem pruebaComandoImplemento4;
+        private ComandoAgregarItem pruebaComandoEvento1;
+        private ComandoAgregarItem pruebaComandoEvento2;
+        private ComandoAgregarItem pruebaComandoEvento3;
+        private ComandoAgregarItem pruebaComandoEvento4;
+        private ComandoAgregarItem pruebaComandoMatricula1;
+        private ComandoAgregarItem pruebaComandoMatricula2;
+        private ComandoAgregarItem pruebaComandoMatricula3;
+        private ComandoAgregarItem pruebaComandoMatricula4;
+        private Comando<List<Entidad>> eventos;
         private Entidad persona;
         private Entidad persona2;
         private Entidad persona3;
@@ -43,9 +53,12 @@ namespace PruebasUnitariasSKD.Modulo16
         public void Iniciar()
         {
             //La persona
-            this.persona = new Persona(11);
-            this.persona2 = new Persona(12);
-            this.persona3 = new Persona(13);
+            this.persona = new Persona();
+            this.persona.Id = 11;
+            this.persona2 = new Persona();
+            this.persona2.Id = 12;
+            this.persona3 = new Persona();
+            this.persona3.Id = 13;
 
             //Dos implementos distintos
             this.implemento =  new Implemento();
@@ -56,8 +69,7 @@ namespace PruebasUnitariasSKD.Modulo16
             this.implemento2.Precio_Implemento = 3000;
 
             //Eventos
-           // this.eventos = FabricaComandos.CrearComandoConsultarTodosEventos();
-            this.eventos = new ComandoConsultarTodosEventos();
+            this.eventos = FabricaComandos.CrearComandoConsultarTodosEventos();
             this.listaEventos = this.eventos.Ejecutar();
             this.evento = new Evento();
             this.evento.Id = 1;
@@ -75,10 +87,84 @@ namespace PruebasUnitariasSKD.Modulo16
             this.matricula2.Id = 2;
             this.matricula2.Costo = 4500;
 
-            //Obtengo el comando y lo casteo
-            this.Comando = FabricaComandos.CrearComandoAgregarItem();
-            this.pruebaComando = (ComandoAgregarItem)this.Comando;
-                     
+            //Obtengo el comando
+            this.pruebaComando = (ComandoAgregarItem)FabricaComandos.CrearComandoAgregarItem();
+
+            //Diferentes valores para Agregar un Implemento
+            this.pruebaComandoImplemento1 = (ComandoAgregarItem)FabricaComandos.CrearComandoAgregarItem();
+            this.pruebaComandoImplemento1.Persona = this.persona;
+            this.pruebaComandoImplemento1.Objeto = this.implemento;
+            this.pruebaComandoImplemento1.TipoObjeto = 1;
+            this.pruebaComandoImplemento1.Cantidad = 10;
+
+            this.pruebaComandoImplemento2 = (ComandoAgregarItem)FabricaComandos.CrearComandoAgregarItem();
+            this.pruebaComandoImplemento2.Persona = this.persona;
+            this.pruebaComandoImplemento2.Objeto = this.implemento;
+            this.pruebaComandoImplemento2.TipoObjeto = 1;
+            this.pruebaComandoImplemento2.Cantidad = 11;
+
+            this.pruebaComandoImplemento3 = (ComandoAgregarItem)FabricaComandos.CrearComandoAgregarItem();
+            this.pruebaComandoImplemento3.Persona = this.persona;
+            this.pruebaComandoImplemento3.Objeto = this.implemento2;
+            this.pruebaComandoImplemento3.TipoObjeto = 1;
+            this.pruebaComandoImplemento3.Cantidad = 30;
+
+            this.pruebaComandoImplemento4 = (ComandoAgregarItem)FabricaComandos.CrearComandoAgregarItem();
+            this.pruebaComandoImplemento4.Persona = this.persona;
+            this.pruebaComandoImplemento4.Objeto = this.evento;
+            this.pruebaComandoImplemento4.TipoObjeto = 2;
+            this.pruebaComandoImplemento4.Cantidad = 20;
+
+            //Diferentes valores para Agregar un Evento
+            this.pruebaComandoEvento1 = (ComandoAgregarItem)FabricaComandos.CrearComandoAgregarItem();
+            this.pruebaComandoEvento1.Persona = this.persona2;
+            this.pruebaComandoEvento1.Objeto = this.evento;
+            this.pruebaComandoEvento1.TipoObjeto = 2;
+            this.pruebaComandoEvento1.Cantidad = 10;
+
+            this.pruebaComandoEvento2 = (ComandoAgregarItem)FabricaComandos.CrearComandoAgregarItem();
+            this.pruebaComandoEvento2.Persona = this.persona2;
+            this.pruebaComandoEvento2.Objeto = this.evento;
+            this.pruebaComandoEvento2.TipoObjeto = 2;
+            this.pruebaComandoEvento2.Cantidad = 11;
+
+            this.pruebaComandoEvento3 = (ComandoAgregarItem)FabricaComandos.CrearComandoAgregarItem();
+            this.pruebaComandoEvento3.Persona = this.persona2;
+            this.pruebaComandoEvento3.Objeto = this.evento2;
+            this.pruebaComandoEvento3.TipoObjeto = 2;
+            this.pruebaComandoEvento3.Cantidad = 30;
+
+            this.pruebaComandoEvento4 = (ComandoAgregarItem)FabricaComandos.CrearComandoAgregarItem();
+            this.pruebaComandoEvento4.Persona = this.persona2;
+            this.pruebaComandoEvento4.Objeto = this.matricula;
+            this.pruebaComandoEvento4.TipoObjeto = 3;
+            this.pruebaComandoEvento4.Cantidad = 20;
+
+            //Diferentes valores para Agregar una Matricula
+            this.pruebaComandoMatricula1 = (ComandoAgregarItem)FabricaComandos.CrearComandoAgregarItem();
+            this.pruebaComandoMatricula1.Persona = this.persona3;
+            this.pruebaComandoMatricula1.Objeto = this.matricula;
+            this.pruebaComandoMatricula1.TipoObjeto = 3;
+            this.pruebaComandoMatricula1.Cantidad = 10;
+
+            this.pruebaComandoMatricula2 = (ComandoAgregarItem)FabricaComandos.CrearComandoAgregarItem();
+            this.pruebaComandoMatricula2.Persona = this.persona3;
+            this.pruebaComandoMatricula2.Objeto = this.matricula;
+            this.pruebaComandoMatricula2.TipoObjeto = 3;
+            this.pruebaComandoMatricula2.Cantidad = 11;
+
+            this.pruebaComandoMatricula3 = (ComandoAgregarItem)FabricaComandos.CrearComandoAgregarItem();
+            this.pruebaComandoMatricula3.Persona = this.persona3;
+            this.pruebaComandoMatricula3.Objeto = this.matricula2;
+            this.pruebaComandoMatricula3.TipoObjeto = 3;
+            this.pruebaComandoMatricula3.Cantidad = 30;
+
+            this.pruebaComandoMatricula4 = (ComandoAgregarItem)FabricaComandos.CrearComandoAgregarItem();
+            this.pruebaComandoMatricula4.Persona = this.persona3;
+            this.pruebaComandoMatricula4.Objeto = this.implemento;
+            this.pruebaComandoMatricula4.TipoObjeto = 1;
+            this.pruebaComandoMatricula4.Cantidad = 20;
+            
         }
 
         /// <summary>
@@ -97,33 +183,16 @@ namespace PruebasUnitariasSKD.Modulo16
         public void pruebaAgregarImplemento()
         {
             //Agrego un implemento al carrito vacio de una persona
-            this.pruebaComando.Persona = this.persona;
-            this.pruebaComando.Objeto = this.implemento;
-            this.pruebaComando.TipoObjeto = 1;
-            this.pruebaComando.Cantidad = 10;
-            Assert.IsTrue(this.pruebaComando.Ejecutar());
+            Assert.IsTrue(this.pruebaComandoImplemento1.Ejecutar());
 
             //Agrego el mismo implemento pero con cantidad diferente
-            this.pruebaComando.Persona = this.persona;
-            this.pruebaComando.Objeto = this.implemento;
-            this.pruebaComando.TipoObjeto = 1;
-            this.pruebaComando.Cantidad = 11;
-            Assert.IsTrue(this.pruebaComando.Ejecutar());
+            Assert.IsTrue(this.pruebaComandoImplemento2.Ejecutar());
 
             //Agrego un implemento diferente
-            this.pruebaComando.Persona = this.persona;
-            this.pruebaComando.Objeto = this.implemento2;
-            this.pruebaComando.TipoObjeto = 1;
-            this.pruebaComando.Cantidad = 30;
-            Assert.IsTrue(this.pruebaComando.Ejecutar());
+            Assert.IsTrue(this.pruebaComandoImplemento3.Ejecutar());
 
             //Agrego un item diferente al carrito
-            this.pruebaComando.Persona = this.persona;
-            this.pruebaComando.Objeto = this.evento;
-            this.pruebaComando.TipoObjeto = 2;
-            this.pruebaComando.Cantidad = 20;
-            Assert.IsTrue(this.pruebaComando.Ejecutar());
-
+            Assert.IsTrue(this.pruebaComandoImplemento4.Ejecutar());
         }
 
         /// <summary>
@@ -133,32 +202,16 @@ namespace PruebasUnitariasSKD.Modulo16
         public void pruebaAgregarEvento()
         {
             //Agrego un Evento al carrito vacio de una persona
-            this.pruebaComando.Persona = this.persona2;
-            this.pruebaComando.Objeto = this.evento;
-            this.pruebaComando.TipoObjeto = 2;
-            this.pruebaComando.Cantidad = 10;
-            Assert.IsTrue(this.pruebaComando.Ejecutar());
+            Assert.IsTrue(this.pruebaComandoEvento1.Ejecutar());
 
             //Agrego el mismo evento pero con cantidad diferente
-            this.pruebaComando.Persona = this.persona2;
-            this.pruebaComando.Objeto = this.evento;
-            this.pruebaComando.TipoObjeto = 2;
-            this.pruebaComando.Cantidad = 11;
-            Assert.IsTrue(this.pruebaComando.Ejecutar());
+            Assert.IsTrue(this.pruebaComandoEvento2.Ejecutar());
 
             //Agrego un evento diferente
-            this.pruebaComando.Persona = this.persona2;
-            this.pruebaComando.Objeto = this.evento2;
-            this.pruebaComando.TipoObjeto = 2;
-            this.pruebaComando.Cantidad = 30;
-            Assert.IsTrue(this.pruebaComando.Ejecutar());
+            Assert.IsTrue(this.pruebaComandoEvento3.Ejecutar());
 
             //Agrego un item diferente al carrito
-            this.pruebaComando.Persona = this.persona2;
-            this.pruebaComando.Objeto = this.matricula;
-            this.pruebaComando.TipoObjeto = 3;
-            this.pruebaComando.Cantidad = 20;
-            Assert.IsTrue(this.pruebaComando.Ejecutar());
+            Assert.IsTrue(this.pruebaComandoEvento4.Ejecutar());
 
         }
 
@@ -169,32 +222,16 @@ namespace PruebasUnitariasSKD.Modulo16
         public void PruebaAgregarMatricula()
         {
             //Agrego una matricula al carrito vacio de una persona
-            this.pruebaComando.Persona = this.persona3;
-            this.pruebaComando.Objeto = this.matricula;
-            this.pruebaComando.TipoObjeto = 3;
-            this.pruebaComando.Cantidad = 10;
-            Assert.IsTrue(this.pruebaComando.Ejecutar());
+            Assert.IsTrue(this.pruebaComandoMatricula1.Ejecutar());
 
             //Agrego la misma matricula pero con cantidad diferente
-            this.pruebaComando.Persona = this.persona3;
-            this.pruebaComando.Objeto = this.matricula;
-            this.pruebaComando.TipoObjeto = 3;
-            this.pruebaComando.Cantidad = 11;
-            Assert.IsTrue(this.pruebaComando.Ejecutar());
+            Assert.IsTrue(this.pruebaComandoMatricula2.Ejecutar());
 
             //Agrego una matricula diferente
-            this.pruebaComando.Persona = this.persona3;
-            this.pruebaComando.Objeto = this.matricula2;
-            this.pruebaComando.TipoObjeto = 3;
-            this.pruebaComando.Cantidad = 30;
-            Assert.IsTrue(this.pruebaComando.Ejecutar());
+            Assert.IsTrue(this.pruebaComandoMatricula3.Ejecutar());
 
             //Agrego un item diferente al carrito
-            this.pruebaComando.Persona = this.persona3;
-            this.pruebaComando.Objeto = this.implemento;
-            this.pruebaComando.TipoObjeto = 1;
-            this.pruebaComando.Cantidad = 20;
-            Assert.IsTrue(this.pruebaComando.Ejecutar());
+            Assert.IsTrue(this.pruebaComandoMatricula4.Ejecutar());
         }
 
         /// <summary>
@@ -204,13 +241,29 @@ namespace PruebasUnitariasSKD.Modulo16
         public void Limpiar()
         {
             this.pruebaComando = null;
+            this.pruebaComandoImplemento1 = null;
+            this.pruebaComandoImplemento2 = null;
+            this.pruebaComandoImplemento3 = null;
+            this.pruebaComandoImplemento4 = null;
+            this.pruebaComandoEvento1 = null;
+            this.pruebaComandoEvento2 = null;
+            this.pruebaComandoEvento3 = null;
+            this.pruebaComandoEvento4 = null;
+            this.pruebaComandoMatricula1 = null;
+            this.pruebaComandoMatricula2 = null;
+            this.pruebaComandoMatricula3 = null;
+            this.pruebaComandoMatricula4 = null;
             this.eventos = null;
             this.persona = null;
+            this.persona2 = null;
+            this.persona3 = null;
             this.implemento = null;
             this.implemento2 = null;
             this.listaEventos = null;
             this.matricula = null;
             this.matricula2 = null;
+            this.evento = null;
+            this.evento2 = null;
         }
     }
 }

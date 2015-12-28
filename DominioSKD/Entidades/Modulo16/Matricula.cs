@@ -75,11 +75,6 @@ namespace DominioSKD.Entidades.Modulo16
             get { return this._id; }
         }
 
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
         public String Identificador
         {
             set

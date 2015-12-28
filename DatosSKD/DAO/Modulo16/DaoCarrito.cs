@@ -85,6 +85,7 @@ namespace DatosSKD.DAO.Modulo16
                     //Si es un Evento
                     parametro = new Parametro(RecursosBDModulo16.PARAMETRO_IDEVENTO2,
                         SqlDbType.Int, objeto.Id.ToString(), false);
+                    parametros.Add(parametro);
                     parametro = new Parametro(RecursosBDModulo16.PARAMETRO_CANTIDAD,
                         SqlDbType.Int, cantidad.ToString(), false);
                     parametros.Add(parametro);
@@ -98,13 +99,14 @@ namespace DatosSKD.DAO.Modulo16
 
                     //Ejecuto la operacion a Base de Datos
                     result = EjecutarStoredProcedure
-                        (RecursosBDModulo16.StoreProcedureAgregareventoaCarrito, parametros);
+                        (RecursosBDModulo16.PROCEDIMIENTO_AGREGAR_EVENTO_CARRITO, parametros);
                 }
                 else
                 {
                     //Si es una Matricula
                     parametro = new Parametro(RecursosBDModulo16.PARAMETRO_IDMATRICULA2,
                         SqlDbType.Int, objeto.Id.ToString(), false);
+                    parametros.Add(parametro);
                     parametro = new Parametro(RecursosBDModulo16.PARAMETRO_CANTIDAD,
                         SqlDbType.Int, cantidad.ToString(), false);
                     parametros.Add(parametro);
@@ -118,7 +120,7 @@ namespace DatosSKD.DAO.Modulo16
 
                     //Ejecuto la operacion a Base de Datos
                     result = EjecutarStoredProcedure
-                        (RecursosBDModulo16.StoreProcedureAgregarmatriculaaCarrito, parametros);
+                        (RecursosBDModulo16.PROCEDIMIENTO_AGREGAR_MATRICULA_CARRITO, parametros);
                 }
                                 
                  //Recorro cada una de las respuestas en la lista
