@@ -10,7 +10,6 @@ using LogicaNegociosSKD.Comandos.Modulo16;
 using LogicaNegociosSKD.Comandos;
 using LogicaNegociosSKD.Comandos.Fabrica;
 
-
 namespace PruebasUnitariasSKD.Modulo16
 {
     /// <summary>

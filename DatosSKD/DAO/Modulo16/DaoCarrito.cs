@@ -41,11 +41,11 @@ namespace DatosSKD.DAO.Modulo16
         /// <returns>El exito o fallo del proceso</returns>
         public bool agregarItem(Entidad persona, Entidad objeto, int tipoObjeto, int cantidad)
         {
-           // try
-          //  {
+            try
+            {
                 //Escribo en el logger la entrada a este metodo
-              //  Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
-                 //   RecursosBDModulo16.MENSAJE_ENTRADA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                    RecursosBDModulo16.MENSAJE_ENTRADA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
 
                 //Preparamos la respuesta del Stored procedure y el exito o fallo del proceso
                 int respuesta = 0;
@@ -130,12 +130,56 @@ namespace DatosSKD.DAO.Modulo16
                  }
 
                  //Escribo en el logger la salida a este metodo
-                // Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
-                    // RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                 Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                     RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
 
                  //Retorno la respuesta
                  return exito;
-            // catch (LoggerException e)
+            }
+            catch (LoggerException e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw e;
+            }
+            catch (ArgumentNullException e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw new ParseoVacioException(RecursosBDModulo16.CODIGO_EXCEPCION_ARGUMENTO_NULO,
+                    RecursosBDModulo16.MENSAJE_EXCEPCION_ARGUMENTO_NULO, e);
+            }
+            catch (FormatException e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw new ParseoFormatoInvalidoException(RecursosBDModulo16.CODIGO_EXCEPCION_FORMATO_INVALIDO,
+                    RecursosBDModulo16.MENSAJE_EXCEPCION_FORMATO_INVALIDO, e);
+            }
+            catch (OverflowException e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw new ParseoEnSobrecargaException(RecursosBDModulo16.CODIGO_EXCEPCION_SOBRECARGA,
+                    RecursosBDModulo16.MENSAJE_EXCEPCION_SOBRECARGA, e);
+            }
+            catch (ParametroInvalidoException e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw e;
+            }
+            catch (ExceptionSKDConexionBD e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw e;
+            }
+            catch (ExceptionSKD e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw e;
+            }
+            catch (Exception e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw new ExceptionSKD(RecursosBDModulo16.CODIGO_EXCEPCION_GENERICO,
+                    RecursosBDModulo16.MENSAJE_EXCEPCION_GENERICO, e);
+            }   
            }
         #endregion
 
@@ -243,11 +287,12 @@ namespace DatosSKD.DAO.Modulo16
         public bool RegistrarPago(Entidad persona, String tipoPago)
         {
             //Procedo a intentar registrar el pago en Base de Datos
-           // try
-           // {
+            try
+            {
                 //Escribo en el logger la entrada a este metodo
-              //  Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
-               //     RecursosBDModulo16.MENSAJE_ENTRADA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                    RecursosBDModulo16.MENSAJE_ENTRADA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+
                 //Preparamos la respuesta del Stored procedure y el exito o fallo del proceso
                 int respuesta = 0;
                 bool exito = false;
@@ -278,17 +323,56 @@ namespace DatosSKD.DAO.Modulo16
                 }
 
                 //Escribo en el logger la salida a este metodo
-               // Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
-                 //   RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                    RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
 
                 //Retorno la Respuesta
                 return exito;
-          //  }
-           /* catch (LoggerException e)
+            }
+            catch (LoggerException e)
             {
                 Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
                 throw e;
-            } */
+            }
+            catch (ArgumentNullException e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw new ParseoVacioException(RecursosBDModulo16.CODIGO_EXCEPCION_ARGUMENTO_NULO,
+                    RecursosBDModulo16.MENSAJE_EXCEPCION_ARGUMENTO_NULO, e);
+            }
+            catch (FormatException e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw new ParseoFormatoInvalidoException(RecursosBDModulo16.CODIGO_EXCEPCION_FORMATO_INVALIDO,
+                    RecursosBDModulo16.MENSAJE_EXCEPCION_FORMATO_INVALIDO, e);
+            }
+            catch (OverflowException e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw new ParseoEnSobrecargaException(RecursosBDModulo16.CODIGO_EXCEPCION_SOBRECARGA,
+                    RecursosBDModulo16.MENSAJE_EXCEPCION_SOBRECARGA, e);
+            }
+            catch (ParametroInvalidoException e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw e;
+            }
+            catch (ExceptionSKDConexionBD e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw e;
+            }
+            catch (ExceptionSKD e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw e;
+            }
+            catch (Exception e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw new ExceptionSKD(RecursosBDModulo16.CODIGO_EXCEPCION_GENERICO,
+                    RecursosBDModulo16.MENSAJE_EXCEPCION_GENERICO, e);
+            }
         }
         #endregion
 

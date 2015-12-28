@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using DatosSKD.InterfazDAO.Modulo16;
 using DatosSKD.FabricaDAO;
 using DominioSKD;
-
+using ExcepcionesSKD;
+using ExcepcionesSKD.Modulo16;
 
 namespace LogicaNegociosSKD.Comandos.Modulo16
 {
@@ -124,15 +125,68 @@ namespace LogicaNegociosSKD.Comandos.Modulo16
         {
             try
             {
+                //Escribo en el logger la entrada a este metodo
+                Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                    RecursosLogicaModulo16.MENSAJE_ENTRADA_LOGGER,
+                    System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+                //Respuesta a obtener en el DAO
+                bool Respuesta = false;
+
                 //Instancio el DAO de Carrito
                 IdaoCarrito daoCarrito = FabricaDAOSqlServer.ObtenerdaoCarrito();
 
                 //Ejecuto Agregar item y retorno el resultado
-                return daoCarrito.agregarItem(persona,objeto,this.tipoObjeto,this.cantidad);
+                Respuesta = daoCarrito.agregarItem(persona,objeto,this.tipoObjeto,this.cantidad);
+
+                //Escribo en el logger la salida a este metodo
+                Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                    RecursosLogicaModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+                //retorno la respuesta de donde sea llamado
+                return Respuesta;
+
+            }
+            catch (LoggerException e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw e;
+            }
+            catch (ParseoVacioException e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw e;
+            }
+            catch (ParseoFormatoInvalidoException e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw e;
+            }
+            catch (ParseoEnSobrecargaException e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw e;
+            }
+            catch (ParametroInvalidoException e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw e;
+            }
+            catch (ExceptionSKDConexionBD e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw e;
+            }
+            catch (ExceptionSKD e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw e;
             }
             catch (Exception e)
             {
-                throw e;
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw new ExceptionSKDConexionBD(RecursosLogicaModulo16.CODIGO_EXCEPCION_GENERICO,
+                    RecursosLogicaModulo16.MENSAJE_EXCEPCION_GENERICO, e);
             }
         }
     }
