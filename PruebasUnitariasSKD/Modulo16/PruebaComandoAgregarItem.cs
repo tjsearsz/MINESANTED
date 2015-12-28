@@ -42,8 +42,6 @@ namespace PruebasUnitariasSKD.Modulo16
         private List<Entidad> listaEventos;
         private Matricula matricula;
         private Matricula matricula2;
-        private Evento evento;
-        private Evento evento2;
         #endregion
 
         /// <summary>
@@ -71,14 +69,7 @@ namespace PruebasUnitariasSKD.Modulo16
             //Eventos
             this.eventos = FabricaComandos.CrearComandoConsultarTodosEventos();
             this.listaEventos = this.eventos.Ejecutar();
-            this.evento = new Evento();
-            this.evento.Id = 1;
-            this.evento.Costo = 0;
-            this.evento2 = new Evento();
-            this.evento2.Id = 2;
-            this.evento2.Costo = 2000;
-
-
+            
             //Dos matriculas distintas
             this.matricula = new Matricula();
             this.matricula.Id = 1;
@@ -111,26 +102,26 @@ namespace PruebasUnitariasSKD.Modulo16
 
             this.pruebaComandoImplemento4 = (ComandoAgregarItem)FabricaComandos.CrearComandoAgregarItem();
             this.pruebaComandoImplemento4.Persona = this.persona;
-            this.pruebaComandoImplemento4.Objeto = this.evento;
+            this.pruebaComandoImplemento4.Objeto = this.listaEventos[0];
             this.pruebaComandoImplemento4.TipoObjeto = 2;
             this.pruebaComandoImplemento4.Cantidad = 20;
 
             //Diferentes valores para Agregar un Evento
             this.pruebaComandoEvento1 = (ComandoAgregarItem)FabricaComandos.CrearComandoAgregarItem();
             this.pruebaComandoEvento1.Persona = this.persona2;
-            this.pruebaComandoEvento1.Objeto = this.evento;
+            this.pruebaComandoEvento1.Objeto = this.listaEventos[0];
             this.pruebaComandoEvento1.TipoObjeto = 2;
             this.pruebaComandoEvento1.Cantidad = 10;
 
             this.pruebaComandoEvento2 = (ComandoAgregarItem)FabricaComandos.CrearComandoAgregarItem();
             this.pruebaComandoEvento2.Persona = this.persona2;
-            this.pruebaComandoEvento2.Objeto = this.evento;
+            this.pruebaComandoEvento2.Objeto = this.listaEventos[0];
             this.pruebaComandoEvento2.TipoObjeto = 2;
             this.pruebaComandoEvento2.Cantidad = 11;
 
             this.pruebaComandoEvento3 = (ComandoAgregarItem)FabricaComandos.CrearComandoAgregarItem();
             this.pruebaComandoEvento3.Persona = this.persona2;
-            this.pruebaComandoEvento3.Objeto = this.evento2;
+            this.pruebaComandoEvento3.Objeto = this.listaEventos[1];
             this.pruebaComandoEvento3.TipoObjeto = 2;
             this.pruebaComandoEvento3.Cantidad = 30;
 
@@ -261,9 +252,7 @@ namespace PruebasUnitariasSKD.Modulo16
             this.implemento2 = null;
             this.listaEventos = null;
             this.matricula = null;
-            this.matricula2 = null;
-            this.evento = null;
-            this.evento2 = null;
+            this.matricula2 = null;           
         }
     }
 }

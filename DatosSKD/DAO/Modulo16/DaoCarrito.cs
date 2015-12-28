@@ -82,9 +82,10 @@ namespace DatosSKD.DAO.Modulo16
                 }
                 else if (tipoObjeto == 2)
                 {
-                    //Si es un Evento
+                    //Si es un Evento casteamos el objeto y lo tratamos como tal
+                    Evento elEvento = objeto as Evento;
                     parametro = new Parametro(RecursosBDModulo16.PARAMETRO_IDEVENTO2,
-                        SqlDbType.Int, objeto.Id.ToString(), false);
+                        SqlDbType.Int, elEvento.Id_evento.ToString(), false);
                     parametros.Add(parametro);
                     parametro = new Parametro(RecursosBDModulo16.PARAMETRO_CANTIDAD,
                         SqlDbType.Int, cantidad.ToString(), false);
