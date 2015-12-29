@@ -394,4 +394,26 @@
   <data name="PARAMETRO_IDEVENTO2" xml:space="preserve">
     <value>@idEvento</value>
   </data>
+  <data name="CODIGO_EXCEPCION_ITEM_ERRONEO" xml:space="preserve">
+    <value>S_16_09</value>
+  </data>
+  <data name="MENSAJE_EXCEPTION_ITEM_ERRONEO" xml:space="preserve">
+    <value>Error al transmitirse un tipo de item no valido</value>
+  </data>
+  <data name="OPCION_EVENTO" xml:space="preserve">
+    <value>2</value>
+    <comment>Valor que indica que se trata de un evento</comment>
+  </data>
+  <data name="OPCION_IMPLEMENTO" xml:space="preserve">
+    <value>1</value>
+    <comment>Valor que indica que se trata de un implemento</comment>
+  </data>
+  <data name="OPCION_MATRICULA" xml:space="preserve">
+    <value>3</value>
+    <comment>Valor que indica que se trata de una matricula</comment>
+  </data>
+  <data name="PROCEDIMIENTO_MODIFICAR_CANTIDAD_EVENTO" xml:space="preserve">
+    <value>M16_MODIFICAR_CANTIDAD_EVENTO</value>
+    <comment>Stored procedure que modifica la cantidad de implementos que se tengan en el carrito</comment>
+  </data>
 </root>

@@ -169,6 +169,15 @@ namespace DatosSKD.DAO.Modulo16 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to S_16_09.
+        /// </summary>
+        internal static string CODIGO_EXCEPCION_ITEM_ERRONEO {
+            get {
+                return ResourceManager.GetString("CODIGO_EXCEPCION_ITEM_ERRONEO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to S_16_08.
         /// </summary>
         internal static string CODIGO_EXCEPCION_SOBRECARGA {
@@ -358,11 +367,47 @@ namespace DatosSKD.DAO.Modulo16 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error al transmitirse un tipo de item no valido.
+        /// </summary>
+        internal static string MENSAJE_EXCEPTION_ITEM_ERRONEO {
+            get {
+                return ResourceManager.GetString("MENSAJE_EXCEPTION_ITEM_ERRONEO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Saliendo del metodo.
         /// </summary>
         internal static string MENSAJE_SALIDA_LOGGER {
             get {
                 return ResourceManager.GetString("MENSAJE_SALIDA_LOGGER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2.
+        /// </summary>
+        internal static string OPCION_EVENTO {
+            get {
+                return ResourceManager.GetString("OPCION_EVENTO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.
+        /// </summary>
+        internal static string OPCION_IMPLEMENTO {
+            get {
+                return ResourceManager.GetString("OPCION_IMPLEMENTO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3.
+        /// </summary>
+        internal static string OPCION_MATRICULA {
+            get {
+                return ResourceManager.GetString("OPCION_MATRICULA", resourceCulture);
             }
         }
         
@@ -705,6 +750,15 @@ namespace DatosSKD.DAO.Modulo16 {
         internal static string PROCEDIMIENTO_MATRICULAS_PAGADAS {
             get {
                 return ResourceManager.GetString("PROCEDIMIENTO_MATRICULAS_PAGADAS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to M16_MODIFICAR_CANTIDAD_EVENTO.
+        /// </summary>
+        internal static string PROCEDIMIENTO_MODIFICAR_CANTIDAD_EVENTO {
+            get {
+                return ResourceManager.GetString("PROCEDIMIENTO_MODIFICAR_CANTIDAD_EVENTO", resourceCulture);
             }
         }
         

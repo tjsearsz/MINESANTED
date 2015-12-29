@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DatosSKD.InterfazDAO.Modulo16;
 using DatosSKD.FabricaDAO;
+using DatosSKD.InterfazDAO.Modulo16;
 using DominioSKD;
-using ExcepcionesSKD;
 using ExcepcionesSKD.Modulo16;
+using ExcepcionesSKD;
 
 namespace LogicaNegociosSKD.Comandos.Modulo16
 {
-    /// <summary>
-    /// Comando que ejecuta la accion de agregar un item al carrito
-    /// </summary>
-    public class ComandoAgregarItem : Comando<bool>
+
+    public class ComandoModificarCarrito: Comando<bool>
     {
         #region Atributos
         /// <summary>
@@ -30,94 +28,29 @@ namespace LogicaNegociosSKD.Comandos.Modulo16
         /// <summary>
         /// Constructor vacio del comando
         /// </summary>
-        public ComandoAgregarItem()
+        public ComandoModificarCarrito()
         {
 
         }
 
         /// <summary>
-        /// Constructor del comando con todos los datos requeridos para agregar
+        /// Constructor del comando con todos los datos requeridos para modificar
         /// </summary>
-        /// <param name="persona">La persona a la que se le agregara al carrito</param>
-        /// <param name="objeto">El item que se agregara al carrito de la persona</param>
-        /// <param name="tipoObjeto">Indica a que tipo de item nos estamos refiriendo para Agregar</param>
-        /// <param name="cantidad">la cantidad que se esta agregando del objeto</param>
-        public ComandoAgregarItem(Entidad persona, Entidad objeto, int tipoObjeto, int cantidad)
+        /// <param name="persona">La persona a la que se le modificara el carrito</param>
+        /// <param name="objeto">El item que se modificara del carrito de la persona</param>
+        /// <param name="tipoObjeto">Indica a que tipo de item nos estamos refiriendo para Modificar</param>
+        /// <param name="cantidad">la cantidad nueva que se quiere del objeto</param>
+        public ComandoModificarCarrito(Entidad persona, Entidad objeto, int tipoObjeto, int cantidad)
         {
             this.persona = persona;
             this.objeto = objeto;
             this.tipoObjeto = tipoObjeto;
             this.cantidad = cantidad;            
-        }
-        #endregion
-
-        #region Propiedades
-        /// <summary>
-        /// Propiedad del atributo Persona
-        /// </summary>
-        public Entidad Persona
-        {
-            get
-            {
-                return this.persona;
-            }
-
-            set
-            {
-                this.persona = value;
-            }
-        }
-
-        /// <summary>
-        /// Propiedad del atributo Objeto
-        /// </summary>
-        public Entidad Objeto
-        {
-            get
-            {
-                return this.objeto;
-            }
-
-            set
-            {
-                this.objeto = value;
-            }
-        }
-
-        /// <summary>
-        /// Propiedad del atributo tipoObjeto
-        /// </summary>
-        public int TipoObjeto
-        {
-            get
-            {
-                return this.tipoObjeto;
-            }
-
-            set
-            {
-                this.tipoObjeto = value;
-            }
-        }
-
-        /// <summary>
-        /// Propiedad del atributo Cantidad
-        /// </summary>
-        public int Cantidad
-        {
-            get
-            {
-                return this.cantidad;
-            }
-            set
-            {
-                this.cantidad = value;
-            }
-        }        
+        } 
         #endregion
 
         /// <summary>
-        /// Metodo que ejecuta la accion de agregarItem
+        /// Metodo que ejecuta la accion de ModificarCarrito
         /// </summary>
         /// <returns>el exito o fallo del proceso</returns>
         public override bool Ejecutar()
@@ -135,8 +68,8 @@ namespace LogicaNegociosSKD.Comandos.Modulo16
                 //Instancio el DAO de Carrito
                 IdaoCarrito daoCarrito = FabricaDAOSqlServer.ObtenerdaoCarrito();
 
-                //Ejecuto Agregar item y retorno el resultado
-                Respuesta = daoCarrito.agregarItem(persona,objeto, this.tipoObjeto, this.cantidad);
+                //Ejecuto ModificarCarrito y retorno el resultado
+                Respuesta = daoCarrito.ModificarCarrito(this.persona, this.objeto, this.tipoObjeto, this.cantidad);
 
                 //Escribo en el logger la salida a este metodo
                 Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
@@ -144,7 +77,12 @@ namespace LogicaNegociosSKD.Comandos.Modulo16
 
                 //retorno la respuesta de donde sea llamado
                 return Respuesta;
-
+                
+            }
+            catch(OpcionItemErroneoException e)
+            {
+                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw e;
             }
             catch (LoggerException e)
             {
