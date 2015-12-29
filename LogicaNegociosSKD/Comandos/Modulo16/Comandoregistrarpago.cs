@@ -28,7 +28,7 @@ namespace LogicaNegociosSKD.Comandos.Modulo16
         /// <summary>
         /// Propiedad del atributo TipoPago
         /// </summary>
-        public string TipoPago
+        public String TipoPago
         {
             get
             {
@@ -55,6 +55,25 @@ namespace LogicaNegociosSKD.Comandos.Modulo16
             {
                 this.persona = value;
             }
+        }
+        #endregion
+
+        #region Constructores
+        /// <summary>
+        /// Constructor vacio del comando
+        /// </summary>
+        public ComandoRegistrarPago()
+        {
+
+        }
+
+        /// <summary>
+        /// Constructor con los datos a insertar del comando
+        /// </summary>
+        public ComandoRegistrarPago(Entidad persona, String TipoPago)
+        {
+            this.persona = persona;
+            this.tipoPago = TipoPago;
         }
         #endregion
 

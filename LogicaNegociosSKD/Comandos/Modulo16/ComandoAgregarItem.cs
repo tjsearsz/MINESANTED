@@ -38,11 +38,10 @@ namespace LogicaNegociosSKD.Comandos.Modulo16
         /// <summary>
         /// Constructor del comando con todos los datos requeridos para agregar
         /// </summary>
-        /// <param name="idUsuario">el ID del usuario al que se le agregaran items</param>
-        /// <param name="tipoObjeto">el tipo de objeto que se esta agregando</param>
-        /// <param name="objetoBorrar">el ID del objeto como tal</param>
+        /// <param name="persona">La persona a la que se le agregara al carrito</param>
+        /// <param name="objeto">el item que se agregara al carrit ode la persona</param>
+        /// <param name="tipoObjeto">Indica a que tipo de item nos estamos refiriendo para Agregar</param>
         /// <param name="cantidad">la cantidad que se esta agregando del objeto</param>
-        /// <param name="precio">el precio del objeto</param>
         public ComandoAgregarItem(Entidad persona, Entidad objeto, int tipoObjeto, int cantidad)
         {
             this.persona = persona;
@@ -137,7 +136,7 @@ namespace LogicaNegociosSKD.Comandos.Modulo16
                 IdaoCarrito daoCarrito = FabricaDAOSqlServer.ObtenerdaoCarrito();
 
                 //Ejecuto Agregar item y retorno el resultado
-                Respuesta = daoCarrito.agregarItem(persona,objeto,this.tipoObjeto,this.cantidad);
+                Respuesta = daoCarrito.agregarItem(persona,objeto, this.tipoObjeto, this.cantidad);
 
                 //Escribo en el logger la salida a este metodo
                 Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
