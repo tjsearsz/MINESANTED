@@ -30,6 +30,8 @@ namespace PruebasUnitariasSKD.Modulo16
         private List<Entidad> listaEventos;
         private Matricula matricula;
         private Matricula matricula2;
+        
+
         #endregion
 
         /// <summary>
@@ -78,6 +80,7 @@ namespace PruebasUnitariasSKD.Modulo16
             Assert.IsNotNull(this.daoPrueba);
         }
 
+        #region AgregarItem
         /// <summary>
         /// Prueba unitaria que trabaja sobre el metodo de AgregarItem para agregar implementos
         /// </summary>
@@ -119,7 +122,7 @@ namespace PruebasUnitariasSKD.Modulo16
         }
 
         /// <summary>
-        /// Prueba unitaria que trabaja sobre el Ejecutar del comando AgregarItem para agregar matriculas
+        /// Prueba unitaria que trabaja sobre el metodo de AgregarItem para agregar matriculas
         /// </summary>
         [Test]
         public void PruebaAgregarMatricula()
@@ -137,6 +140,53 @@ namespace PruebasUnitariasSKD.Modulo16
             Assert.IsTrue(this.daoPrueba.agregarItem(this.persona3, this.implemento, 1, 20));
             
         }
+        #endregion
+
+        #region ModificarCarrito
+        /// <summary>
+        /// Prueba unitaria que trabaja sobre el metodo de ModificarCarrito para modificar cantidades
+        /// de items en diferentes carritos que existan y que la cantidad deseada de implementos este en stock
+        /// </summary>
+        [Test]
+        public void PruebaModificarCarritosNormales()
+        {
+            //Agrego y Modifico un carrito en el que solo hay implementos
+            this.daoPrueba.agregarItem(this.persona, this.implemento, 1, 20);
+            Assert.IsTrue(this.daoPrueba.ModificarCarrito(this.persona, this.implemento, 1, 7));
+            
+            //Agrego y Modifico un carrito en el que solo hay eventos
+            this.daoPrueba.agregarItem(this.persona2, this.listaEventos[0], 2, 10);
+            Assert.IsTrue(this.daoPrueba.ModificarCarrito(this.persona2, this.listaEventos[0], 2, 7));
+
+            //Agrego y Modifico un carrito en el que hay Implementos, eventos y matriculas
+            this.daoPrueba.agregarItem(this.persona3, this.implemento, 1, 20);
+            this.daoPrueba.agregarItem(this.persona3, this.listaEventos[0], 2, 10);
+            this.daoPrueba.agregarItem(this.persona3, this.matricula, 3, 20);
+            Assert.IsTrue(this.daoPrueba.ModificarCarrito(this.persona3, this.implemento, 1, 7));
+            Assert.IsTrue(this.daoPrueba.ModificarCarrito(this.persona3, this.listaEventos[0], 2, 7));
+        }
+
+        /// <summary>
+        /// Prueba unitaria que trabaja sobre el metodo de ModificarCarrito para modificar cantidad deseada 
+        /// de implementos y que esta cantidad nueva no se encuentre en stock
+        /// </summary>
+        [Test]
+        public void PruebaModificarCarritosExceso()
+        {
+            /*Agrego Modifico un carrito en el que solo hay implementos poniendole una cantidad inexistente 
+            en en el stock*/
+            this.daoPrueba.agregarItem(this.persona, this.implemento, 1, 20);
+            Assert.IsFalse(this.daoPrueba.ModificarCarrito(this.persona, this.implemento, 1, 8000));
+            
+            /*Modifico un carrito en hay implementos, eventos y matriculas, poniendole al implemento una cantidad
+            inexistente en el stock */
+            this.daoPrueba.agregarItem(this.persona3, this.implemento, 1, 20);
+            this.daoPrueba.agregarItem(this.persona3, this.listaEventos[0], 2, 10);
+            this.daoPrueba.agregarItem(this.persona3, this.matricula, 3, 20);
+            Assert.IsFalse(this.daoPrueba.ModificarCarrito(this.persona3, this.implemento, 1, 8000));
+
+        }
+        #endregion
 
         /// <summary>
         /// Elimina todos los atributos utilizados al probar

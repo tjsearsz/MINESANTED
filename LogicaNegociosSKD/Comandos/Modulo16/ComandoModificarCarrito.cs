@@ -24,6 +24,70 @@ namespace LogicaNegociosSKD.Comandos.Modulo16
         private int cantidad;
         #endregion
 
+        #region Propiedades
+        /// <summary>
+        /// Propiedad del Atributo Persona
+        /// </summary>
+        public Entidad Persona
+        {
+            get
+            {
+                return this.persona;
+            }
+
+            set
+            {
+                this.persona = value;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad del Atributo Objeto
+        /// </summary>
+        public Entidad Objeto
+        {
+            get
+            {
+                return this.objeto;
+            }
+
+            set
+            {
+                this.objeto = value;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad del atributo tipoObjeto
+        /// </summary>
+        public int TipoObjeto
+        {
+            get
+            {
+                return this.tipoObjeto;
+            }
+            set
+            {
+                this.tipoObjeto = value;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad del atributo cantidad
+        /// </summary>
+        public int Cantidad
+        {
+            get
+            {
+                return this.cantidad;
+            }
+            set
+            {
+                this.cantidad = value;
+            }
+        }
+        #endregion
+
         #region Constructores
         /// <summary>
         /// Constructor vacio del comando

@@ -52,6 +52,11 @@ namespace PruebasUnitariasSKD.Modulo16
         [SetUp]
         public void Iniciar()
         {
+            //Dos implementos distintos
+            this.implemento = new Implemento();
+            this.implemento.Id = 1;
+            this.implemento.Precio_Implemento = 4500;
+
             //Iniciamos los atributos para la prueba de vacio
             this.persona = FabricaEntidades.ObtenerPersona();
             this.PruebaComandoVacio = FabricaComandos.CrearComandoRegistrarPago();
