@@ -166,10 +166,11 @@ namespace PruebasUnitariasSKD.Modulo16
         }
 
         /// <summary>
-        /// Prueba Unitaria que trabaja sobre el ejecutar del ComandoRegistrarPago para registrar el pago de un carrtio
+        /// Prueba Unitaria que trabaja sobre el ejecutar del ComandoRegistrarPago para registrar el pago de carritos
+        /// sin implementos o con implementos en los que su cantidad demandada puede ser llenada
         /// </summary>
         [Test]
-        public void PruebaRegistrarPagos()
+        public void PruebaRegistrarPagosNormales()
         {
             //Registramos el pago en un carrito donde solo hay Implementos y su cantidad se puede satisfacer
             Assert.IsTrue(this.ComandoRegistrarPago.Ejecutar());
