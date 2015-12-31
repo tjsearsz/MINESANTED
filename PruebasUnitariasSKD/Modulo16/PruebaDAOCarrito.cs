@@ -25,6 +25,9 @@ namespace PruebasUnitariasSKD.Modulo16
         private Entidad persona;
         private Entidad persona2;
         private Entidad persona3;
+        private Entidad persona4;
+        private Entidad persona5;
+        private Entidad persona6;
         private Implemento implemento;
         private Implemento implemento2;
         private List<Entidad> listaEventos;
@@ -50,6 +53,12 @@ namespace PruebasUnitariasSKD.Modulo16
             this.persona2.Id = 12;
             this.persona3 = new Persona();
             this.persona3.Id = 13;
+            this.persona4 = new Persona();
+            this.persona4.Id = 14;
+            this.persona5 = new Persona();
+            this.persona5.Id = 15;
+            this.persona6 = new Persona();
+            this.persona6.Id = 16;
 
             //Dos implementos distintos
             this.implemento = new Implemento();
@@ -185,6 +194,72 @@ namespace PruebasUnitariasSKD.Modulo16
             this.daoPrueba.agregarItem(this.persona3, this.matricula, 3, 20);
             Assert.IsFalse(this.daoPrueba.ModificarCarrito(this.persona3, this.implemento, 1, 8000));
 
+        }
+        #endregion
+
+        #region RegistrarPago
+        /// <summary>
+        /// Prueba unitaria que trabaja sobre el metodo de RegistrarPago para registrar el pago de carritos sin
+        /// implementos o con implementos en los que su su cantidad demandada puede ser llenada
+        /// </summary>
+        [Test]
+        public void RegistrarPagosNormales()
+        {
+            /*Agregamos y Registramos el pago en un carrito 
+            donde solo hay Implementos y su cantidad se puede satisfacer*/
+            this.daoPrueba.agregarItem(this.persona, this.implemento, 1, 20);
+            Assert.IsTrue(this.daoPrueba.RegistrarPago(this.persona,"Tarjeta"));
+
+            //Agregamos y Registramos el pago en un carrito donde solo hay eventos
+            this.daoPrueba.agregarItem(this.persona2, this.listaEventos[0], 2, 10);
+            Assert.IsTrue(this.daoPrueba.RegistrarPago(this.persona2, "Deposito"));
+
+            //Agregamos y Registramos el pago en un carrito donde solo hay matriculas
+            this.daoPrueba.agregarItem(this.persona4, this.matricula, 3, 1);
+            Assert.IsTrue(this.daoPrueba.RegistrarPago(this.persona4, "Transferencia"));
+
+            //Agregamos y Registramos el pago de un carrito donde hay Implementos, eventos y matirculas
+            this.daoPrueba.agregarItem(this.persona3, this.implemento, 1, 20);
+            this.daoPrueba.agregarItem(this.persona3, this.listaEventos[0], 2, 10);
+            this.daoPrueba.agregarItem(this.persona3, this.matricula, 3, 20);
+            Assert.IsTrue(this.daoPrueba.RegistrarPago(this.persona3,"Tarjeta"));
+        }
+
+
+        /// <summary>
+        /// Prueba Unitaria que trabaja sobre el metodo de RegistrarPago para intentar Registrar el pago 
+        /// de un carrito donde la cantidad de implementos demandada no existe en el inventario
+        /// </summary>
+        [Test]
+        public void RegistarPagosImplementosExcesos()
+        {
+            //Se agrega y se trata de registrar el pago de un carrito donde solo hay implementos
+            this.daoPrueba.agregarItem(this.persona5, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona5, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona5, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona5, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona5, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona5, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona5, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona5, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona5, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona5, this.implemento, 1, 10);
+            Assert.IsFalse(this.daoPrueba.RegistrarPago(this.persona5, "Deposito"));
+
+            //Se agrega y se trata de registrar el pago de un carrito donde hay cualquier otro producto
+            this.daoPrueba.agregarItem(this.persona6, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona6, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona6, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona6, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona6, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona6, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona6, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona6, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona6, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona6, this.implemento, 1, 10);
+            this.daoPrueba.agregarItem(this.persona6, this.listaEventos[0], 2, 20);
+            this.daoPrueba.agregarItem(this.persona6, this.matricula, 3, 1);
+            Assert.IsFalse(this.daoPrueba.RegistrarPago(this.persona6, "Transferencia"));
         }
         #endregion
 

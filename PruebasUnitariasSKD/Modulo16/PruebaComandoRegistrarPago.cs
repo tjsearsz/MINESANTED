@@ -145,6 +145,7 @@ namespace PruebasUnitariasSKD.Modulo16
             this.ComandoAgregarItem.Ejecutar();
             this.ComandoAgregarItem.Ejecutar();
             this.ComandoAgregarItem.Ejecutar();
+
             this.ComandoAgregarItem = FabricaComandos.CrearComandoAgregarItem
                 (this.persona6, this.listaEventos[0], 2, 10);
             this.ComandoAgregarItem.Ejecutar();
@@ -180,7 +181,7 @@ namespace PruebasUnitariasSKD.Modulo16
             //Registramos el pago en un carrito donde solo hay Implementos y su cantidad se puede satisfacer
             Assert.IsTrue(this.ComandoRegistrarPago.Ejecutar());
             
-            //Reigstramos el pago en un carrito donde solo hay eventos
+            //Registramos el pago en un carrito donde solo hay eventos
             Assert.IsTrue(this.ComandoRegistrarPago2.Ejecutar());
 
             //Registramos el pago en un carrito donde solo hay matriculas
