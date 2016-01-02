@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Presentadores.Modulo16{
+namespace Presentadores.Modulo16 {
     using System;
     
     
@@ -120,6 +120,15 @@ namespace Presentadores.Modulo16{
         internal static string BOTON_AGREGAR_EVENTO_CARRITO {
             get {
                 return ResourceManager.GetString("BOTON_AGREGAR_EVENTO_CARRITO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;a class=&quot;btn btn-success glyphicon glyphicon-shopping-cart&quot; href=&quot;M16_ConsultarEvento.aspx?accion=1&amp;numero=1&amp;precio=0&quot; id=&quot;.
+        /// </summary>
+        internal static string BOTON_AGREGAR_EVENTO_CARRITO2 {
+            get {
+                return ResourceManager.GetString("BOTON_AGREGAR_EVENTO_CARRITO2", resourceCulture);
             }
         }
         
@@ -255,6 +264,15 @@ namespace Presentadores.Modulo16{
         internal static string BOTON_MODIFICAR {
             get {
                 return ResourceManager.GetString("BOTON_MODIFICAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot; /&gt;.
+        /// </summary>
+        internal static string CERRAR_ASP_BUTTON {
+            get {
+                return ResourceManager.GetString("CERRAR_ASP_BUTTON", resourceCulture);
             }
         }
         

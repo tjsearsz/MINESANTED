@@ -124,6 +124,15 @@ namespace templateApp.GUI.Modulo16 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;asp:Button class=&quot;btn btn-success glyphicon glyphicon-shopping-cart&quot; runat=&quot;server&quot; onclick =&quot;AgregarCarrito&quot; ID=&quot;.
+        /// </summary>
+        internal static string BOTON_AGREGAR_EVENTO_CARRITO2 {
+            get {
+                return ResourceManager.GetString("BOTON_AGREGAR_EVENTO_CARRITO2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;a class=&quot;btn btn-success glyphicon glyphicon-shopping-cart&quot; data-toggle=&quot;modal&quot; data-target=&quot;#modal-info&quot;  onclick=&quot;prueba3(this);&quot; id=&quot;.
         /// </summary>
         internal static string BOTON_AGREGAR_IMPLEMENTO_CARRITO_2 {
@@ -255,6 +264,15 @@ namespace templateApp.GUI.Modulo16 {
         internal static string BOTON_MODIFICAR {
             get {
                 return ResourceManager.GetString("BOTON_MODIFICAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot; /&gt;.
+        /// </summary>
+        internal static string CERRAR_ASP_BUTTON {
+            get {
+                return ResourceManager.GetString("CERRAR_ASP_BUTTON", resourceCulture);
             }
         }
         

@@ -138,6 +138,9 @@
   <data name="BOTON_AGREGAR_EVENTO_CARRITO" xml:space="preserve">
     <value>&lt;a class="btn btn-success glyphicon glyphicon-shopping-cart" data-toggle="modal" data-target="#modal-info"  onclick="prueba3(this);" id="</value>
   </data>
+  <data name="BOTON_AGREGAR_EVENTO_CARRITO2" xml:space="preserve">
+    <value>&lt;asp:Button class="btn btn-success glyphicon glyphicon-shopping-cart" runat="server" onclick ="AgregarCarrito" ID="</value>
+  </data>
   <data name="BOTON_AGREGAR_IMPLEMENTO_CARRITO_2" xml:space="preserve">
     <value>&lt;a class="btn btn-success glyphicon glyphicon-shopping-cart" data-toggle="modal" data-target="#modal-info"  onclick="prueba3(this);" id="</value>
   </data>
@@ -189,6 +192,9 @@
   <data name="CERRARFINCABEZATAG" xml:space="preserve">
     <value>"&gt;"</value>
     <comment>Tag final para cerrar la cabecera de la tabla</comment>
+  </data>
+  <data name="CERRAR_ASP_BUTTON" xml:space="preserve">
+    <value>" /&gt;</value>
   </data>
   <data name="CERRAR_COMBO" xml:space="preserve">
     <value>'&gt;&lt;option value=1&gt;1&lt;/option&gt;&lt;option value=2&gt;2&lt;/option&gt;&lt;option value=3&gt;3&lt;/option&gt;&lt;option value=4&gt;4&lt;/option&gt;&lt;option value=5&gt;5&lt;/option&gt;&lt;option value=6&gt;6&lt;/option&gt;&lt;option value=7&gt;7&lt;/option&gt;&lt;option value=8&gt;8&lt;/option&gt;&lt;option value=9&gt;9&lt;/option&gt;&lt;option value=10&gt;10&lt;/option&gt;
