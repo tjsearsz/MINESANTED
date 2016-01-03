@@ -178,6 +178,24 @@ namespace DatosSKD.DAO.Modulo16 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to S_16_11.
+        /// </summary>
+        internal static string CODIGO_EXCEPCION_ITEM_INVALIDO {
+            get {
+                return ResourceManager.GetString("CODIGO_EXCEPCION_ITEM_INVALIDO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to S_16_10.
+        /// </summary>
+        internal static string CODIGO_EXCEPCION_PERSONA_INVALIDA {
+            get {
+                return ResourceManager.GetString("CODIGO_EXCEPCION_PERSONA_INVALIDA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to S_16_08.
         /// </summary>
         internal static string CODIGO_EXCEPCION_SOBRECARGA {
@@ -318,6 +336,24 @@ namespace DatosSKD.DAO.Modulo16 {
         internal static string MENSAJE_EXCEPCION_GENERICO {
             get {
                 return ResourceManager.GetString("MENSAJE_EXCEPCION_GENERICO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error al encontrarse un item vacio o invalido.
+        /// </summary>
+        internal static string MENSAJE_EXCEPCION_ITEM_INVALIDO {
+            get {
+                return ResourceManager.GetString("MENSAJE_EXCEPCION_ITEM_INVALIDO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error al encontrarse una persona vacia o invalida.
+        /// </summary>
+        internal static string MENSAJE_EXCEPCION_PERSONA_INVALIDA {
+            get {
+                return ResourceManager.GetString("MENSAJE_EXCEPCION_PERSONA_INVALIDA", resourceCulture);
             }
         }
         

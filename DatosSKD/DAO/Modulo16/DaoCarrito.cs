@@ -41,153 +41,179 @@ namespace DatosSKD.DAO.Modulo16
         /// <returns>El exito o fallo del proceso</returns>
         public bool agregarItem(Entidad persona, Entidad objeto, int tipoObjeto, int cantidad)
         {
-            try
+            //Nos aseguramos que realmente sea una persona valida
+            if (persona is Persona)
             {
-                //Escribo en el logger la entrada a este metodo
-                Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
-                    RecursosBDModulo16.MENSAJE_ENTRADA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
-
-                //Preparamos la respuesta del Stored procedure y el exito o fallo del proceso
-                int respuesta = 0;
-                bool exito = false;
-                List<Resultado> result;
-
-                //Creo la lista de los parametros para el stored procedure y los anexo
-                List<Parametro> parametros = new List<Parametro>();
-                Parametro parametro = new Parametro(RecursosBDModulo16.PARAMETRO_ID_PERSONA,
-                    SqlDbType.Int, persona.Id.ToString(), false);
-                parametros.Add(parametro);
-
-                switch(tipoObjeto)
+                try
                 {
-                    case 1:
-                        //Si es un implemento
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_IDIMPLEMENTO2,
-                        SqlDbType.Int, objeto.Id.ToString(), false);
-                        parametros.Add(parametro);
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_CANTIDAD,
-                            SqlDbType.Int, cantidad.ToString(), false);
-                        parametros.Add(parametro);
-                        Implemento elImplemento = objeto as Implemento;
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_PRECIO2,
-                                SqlDbType.Int, elImplemento.Precio_Implemento.ToString(), false);
-                        parametros.Add(parametro);
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_EXITO,
-                        SqlDbType.Int, respuesta.ToString(), true);
-                        parametros.Add(parametro);
+                    //Escribo en el logger la entrada a este metodo
+                    Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                        RecursosBDModulo16.MENSAJE_ENTRADA_LOGGER,
+                        System.Reflection.MethodBase.GetCurrentMethod().Name);
 
-                        //Ejecuto la operacion a Base de Datos
-                        result = EjecutarStoredProcedure
-                            (RecursosBDModulo16.StoreProcedureAgregarinventarioaCarrito, parametros);
-                        break;
+                    //Preparamos la respuesta del Stored procedure y el exito o fallo del proceso
+                    int respuesta = 0;
+                    bool exito = false;
+                    List<Resultado> result;
 
-                    case 2:
-                        //Si es un Evento casteamos el objeto y lo tratamos como tal
-                        Evento elEvento = objeto as Evento;
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_IDEVENTO2,
-                            SqlDbType.Int, elEvento.Id_evento.ToString(), false);
-                        parametros.Add(parametro);
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_CANTIDAD,
-                            SqlDbType.Int, cantidad.ToString(), false);
-                        parametros.Add(parametro);
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_PRECIO2,
-                                SqlDbType.Int, elEvento.Costo.ToString(), false);
-                        parametros.Add(parametro);
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_EXITO,
-                        SqlDbType.Int, respuesta.ToString(), true);
-                        parametros.Add(parametro);
+                    //Creo la lista de los parametros para el stored procedure y los anexo
+                    List<Parametro> parametros = new List<Parametro>();
+                    Parametro parametro = new Parametro(RecursosBDModulo16.PARAMETRO_ID_PERSONA,
+                        SqlDbType.Int, persona.Id.ToString(), false);
+                    parametros.Add(parametro);
 
-                        //Ejecuto la operacion a Base de Datos
-                        result = EjecutarStoredProcedure
-                            (RecursosBDModulo16.PROCEDIMIENTO_AGREGAR_EVENTO_CARRITO, parametros);
-                        break;
-
-                    case 3:
-                        //Si es una Matricula
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_IDMATRICULA2,
+                    switch (tipoObjeto)
+                    {
+                        case 1:
+                            //Si es un implemento
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_IDIMPLEMENTO2,
                             SqlDbType.Int, objeto.Id.ToString(), false);
-                        parametros.Add(parametro);
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_CANTIDAD,
-                            SqlDbType.Int, cantidad.ToString(), false);
-                        parametros.Add(parametro);
-                        Matricula laMatricula = objeto as Matricula;
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_PRECIO2,
-                                SqlDbType.Int, laMatricula.Costo.ToString(), false);
-                        parametros.Add(parametro);
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_EXITO,
-                        SqlDbType.Int, respuesta.ToString(), true);
-                        parametros.Add(parametro);
+                            parametros.Add(parametro);
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_CANTIDAD,
+                                SqlDbType.Int, cantidad.ToString(), false);
+                            parametros.Add(parametro);
+                            Implemento elImplemento = objeto as Implemento;
 
-                        //Ejecuto la operacion a Base de Datos
-                        result = EjecutarStoredProcedure
-                            (RecursosBDModulo16.PROCEDIMIENTO_AGREGAR_MATRICULA_CARRITO, parametros);
-                        break;
+                            //Lanzamos una excepcion si no es un implemento o si esta en vacio
+                            if (elImplemento == null)
+                                //De Igual Forma Aca
+                                throw new ItemInvalidoException(RecursosBDModulo16.MENSAJE_EXCEPCION_ITEM_INVALIDO);
 
-                    default:
-                        //MEJORAR ESTA EXCEPTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        //Sino es ninguna de las opciones posibles lanzamos un error
-                        throw new OpcionItemErroneoException(RecursosBDModulo16.MENSAJE_EXCEPTION_ITEM_ERRONEO);                        
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_PRECIO2,
+                                    SqlDbType.Int, elImplemento.Precio_Implemento.ToString(), false);
+                            parametros.Add(parametro);
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_EXITO,
+                            SqlDbType.Int, respuesta.ToString(), true);
+                            parametros.Add(parametro);
+
+                            //Ejecuto la operacion a Base de Datos
+                            result = EjecutarStoredProcedure
+                                (RecursosBDModulo16.StoreProcedureAgregarinventarioaCarrito, parametros);
+                            break;
+
+                        case 2:
+                            //Si es un Evento casteamos el objeto y lo tratamos como tal
+                            Evento elEvento = objeto as Evento;
+
+                            //Lanzamos una excepcion si no es un implemento o si esta en vacio
+                            if (elEvento == null)
+                                //De Igual Forma Aca
+                                throw new ItemInvalidoException(RecursosBDModulo16.MENSAJE_EXCEPCION_ITEM_INVALIDO);
+
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_IDEVENTO2,
+                                SqlDbType.Int, elEvento.Id_evento.ToString(), false);
+                            parametros.Add(parametro);
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_CANTIDAD,
+                                SqlDbType.Int, cantidad.ToString(), false);
+                            parametros.Add(parametro);
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_PRECIO2,
+                                    SqlDbType.Int, elEvento.Costo.ToString(), false);
+                            parametros.Add(parametro);
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_EXITO,
+                            SqlDbType.Int, respuesta.ToString(), true);
+                            parametros.Add(parametro);
+
+                            //Ejecuto la operacion a Base de Datos
+                            result = EjecutarStoredProcedure
+                                (RecursosBDModulo16.PROCEDIMIENTO_AGREGAR_EVENTO_CARRITO, parametros);
+                            break;
+
+                        case 3:
+                            //Si es una Matricula
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_IDMATRICULA2,
+                                SqlDbType.Int, objeto.Id.ToString(), false);
+                            parametros.Add(parametro);
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_CANTIDAD,
+                                SqlDbType.Int, cantidad.ToString(), false);
+                            parametros.Add(parametro);
+                            Matricula laMatricula = objeto as Matricula;
+
+                            //Lanzamos una excepcion si no es un implemento o si esta en vacio
+                            if (laMatricula == null)
+                                //De Igual Forma Aca
+                                throw new ItemInvalidoException(RecursosBDModulo16.MENSAJE_EXCEPCION_ITEM_INVALIDO);
+
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_PRECIO2,
+                                    SqlDbType.Int, laMatricula.Costo.ToString(), false);
+                            parametros.Add(parametro);
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_EXITO,
+                            SqlDbType.Int, respuesta.ToString(), true);
+                            parametros.Add(parametro);
+
+                            //Ejecuto la operacion a Base de Datos
+                            result = EjecutarStoredProcedure
+                                (RecursosBDModulo16.PROCEDIMIENTO_AGREGAR_MATRICULA_CARRITO, parametros);
+                            break;
+
+                        default:
+                            //MEJORAR ESTA EXCEPTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                            //Sino es ninguna de las opciones posibles lanzamos un error
+                            throw new OpcionItemErroneoException(RecursosBDModulo16.MENSAJE_EXCEPTION_ITEM_ERRONEO);
+                    }
+
+                    //Recorro cada una de las respuestas en la lista
+                    foreach (Resultado aux in result)
+                    {
+                        //Si el valor retornado del Stored Procedure es 1 la operacion se realizo con exito
+                        if (aux.valor == "1")
+                            exito = true;
+                    }
+
+                    //Escribo en el logger la salida a este metodo
+                    Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                        RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+                    //Retorno la respuesta
+                    return exito;
                 }
-                                              
-                 //Recorro cada una de las respuestas en la lista
-                 foreach (Resultado aux in result)
-                 {
-                     //Si el valor retornado del Stored Procedure es 1 la operacion se realizo con exito
-                     if (aux.valor == "1")
-                         exito = true;
-                 }
-
-                 //Escribo en el logger la salida a este metodo
-                 Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
-                     RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
-
-                 //Retorno la respuesta
-                 return exito;
+                catch (LoggerException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ArgumentNullException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoVacioException(RecursosBDModulo16.CODIGO_EXCEPCION_ARGUMENTO_NULO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_ARGUMENTO_NULO, e);
+                }
+                catch (FormatException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoFormatoInvalidoException(RecursosBDModulo16.CODIGO_EXCEPCION_FORMATO_INVALIDO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_FORMATO_INVALIDO, e);
+                }
+                catch (OverflowException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoEnSobrecargaException(RecursosBDModulo16.CODIGO_EXCEPCION_SOBRECARGA,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_SOBRECARGA, e);
+                }
+                catch (ParametroInvalidoException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ExceptionSKDConexionBD e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ExceptionSKD e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (Exception e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ExceptionSKD(RecursosBDModulo16.CODIGO_EXCEPCION_GENERICO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_GENERICO, e);
+                }
             }
-            catch (LoggerException e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw e;
-            }
-            catch (ArgumentNullException e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw new ParseoVacioException(RecursosBDModulo16.CODIGO_EXCEPCION_ARGUMENTO_NULO,
-                    RecursosBDModulo16.MENSAJE_EXCEPCION_ARGUMENTO_NULO, e);
-            }
-            catch (FormatException e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw new ParseoFormatoInvalidoException(RecursosBDModulo16.CODIGO_EXCEPCION_FORMATO_INVALIDO,
-                    RecursosBDModulo16.MENSAJE_EXCEPCION_FORMATO_INVALIDO, e);
-            }
-            catch (OverflowException e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw new ParseoEnSobrecargaException(RecursosBDModulo16.CODIGO_EXCEPCION_SOBRECARGA,
-                    RecursosBDModulo16.MENSAJE_EXCEPCION_SOBRECARGA, e);
-            }
-            catch (ParametroInvalidoException e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw e;
-            }
-            catch (ExceptionSKDConexionBD e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw e;
-            }
-            catch (ExceptionSKD e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw e;
-            }
-            catch (Exception e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw new ExceptionSKD(RecursosBDModulo16.CODIGO_EXCEPCION_GENERICO,
-                    RecursosBDModulo16.MENSAJE_EXCEPCION_GENERICO, e);
-            }   
+            else
+                //Arreglar tambien aqui
+                throw new PersonaNoValidaException(RecursosBDModulo16.MENSAJE_EXCEPCION_PERSONA_INVALIDA);
          }
         #endregion
 
@@ -292,93 +318,99 @@ namespace DatosSKD.DAO.Modulo16
         /// <returns>El exito o fallo del proceso</returns>
         public bool RegistrarPago(Entidad persona, String tipoPago)
         {
-            //Procedo a intentar registrar el pago en Base de Datos
-            try
+            //Nos aseguramos que realmente sea una persona valida
+            if (persona is Persona)
             {
-                //Escribo en el logger la entrada a este metodo
-                Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
-                    RecursosBDModulo16.MENSAJE_ENTRADA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
-
-                //Preparamos la respuesta del Stored procedure y el exito o fallo del proceso
-                int respuesta = 0;
-                bool exito = false;
-                List<Resultado> result;
-
-                //Creo la lista de los parametros para el stored procedure y los anexo
-                List<Parametro> parametros = new List<Parametro>();
-                Parametro parametro = new Parametro();
-                parametro = new Parametro(RecursosBDModulo16.PARAMETRO_USUARIO,
-                    SqlDbType.Int, persona.Id.ToString(), false);
-                parametros.Add(parametro);
-                parametro = new Parametro(RecursosBDModulo16.PARAMETRO_PAGO,
-                    SqlDbType.VarChar, tipoPago, false);
-                parametros.Add(parametro);
-                parametro = new Parametro(RecursosBDModulo16.PARAMETRO_EXITO,
-                    SqlDbType.Int, respuesta.ToString(), true);
-                parametros.Add(parametro);
-
-                //Ejecuto el Stored Procedure
-                result = EjecutarStoredProcedure(RecursosBDModulo16.PROCEDIMIENTO_REGISTRAR_PAGO, parametros);
-
-                //Recorro cada una de las respuestas en la lista
-                foreach (Resultado aux in result)
+                //Procedo a intentar registrar el pago en Base de Datos
+                try
                 {
-                    //Si el valor retornado del Stored Procedure es 1 la operacion se realizo con exito
-                    if (aux.valor == "1")
-                        exito = true;
+                    //Escribo en el logger la entrada a este metodo
+                    Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                        RecursosBDModulo16.MENSAJE_ENTRADA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+                    //Preparamos la respuesta del Stored procedure y el exito o fallo del proceso
+                    int respuesta = 0;
+                    bool exito = false;
+                    List<Resultado> result;
+
+                    //Creo la lista de los parametros para el stored procedure y los anexo
+                    List<Parametro> parametros = new List<Parametro>();
+                    Parametro parametro = new Parametro();
+                    parametro = new Parametro(RecursosBDModulo16.PARAMETRO_USUARIO,
+                        SqlDbType.Int, persona.Id.ToString(), false);
+                    parametros.Add(parametro);
+                    parametro = new Parametro(RecursosBDModulo16.PARAMETRO_PAGO,
+                        SqlDbType.VarChar, tipoPago, false);
+                    parametros.Add(parametro);
+                    parametro = new Parametro(RecursosBDModulo16.PARAMETRO_EXITO,
+                        SqlDbType.Int, respuesta.ToString(), true);
+                    parametros.Add(parametro);
+
+                    //Ejecuto el Stored Procedure
+                    result = EjecutarStoredProcedure(RecursosBDModulo16.PROCEDIMIENTO_REGISTRAR_PAGO, parametros);
+
+                    //Recorro cada una de las respuestas en la lista
+                    foreach (Resultado aux in result)
+                    {
+                        //Si el valor retornado del Stored Procedure es 1 la operacion se realizo con exito
+                        if (aux.valor == "1")
+                            exito = true;
+                    }
+
+                    //Escribo en el logger la salida a este metodo
+                    Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                        RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+                    //Retorno la Respuesta
+                    return exito;
                 }
-
-                //Escribo en el logger la salida a este metodo
-                Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
-                    RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
-
-                //Retorno la Respuesta
-                return exito;
+                catch (LoggerException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ArgumentNullException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoVacioException(RecursosBDModulo16.CODIGO_EXCEPCION_ARGUMENTO_NULO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_ARGUMENTO_NULO, e);
+                }
+                catch (FormatException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoFormatoInvalidoException(RecursosBDModulo16.CODIGO_EXCEPCION_FORMATO_INVALIDO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_FORMATO_INVALIDO, e);
+                }
+                catch (OverflowException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoEnSobrecargaException(RecursosBDModulo16.CODIGO_EXCEPCION_SOBRECARGA,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_SOBRECARGA, e);
+                }
+                catch (ParametroInvalidoException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ExceptionSKDConexionBD e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ExceptionSKD e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (Exception e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ExceptionSKD(RecursosBDModulo16.CODIGO_EXCEPCION_GENERICO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_GENERICO, e);
+                }
             }
-            catch (LoggerException e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw e;
-            }
-            catch (ArgumentNullException e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw new ParseoVacioException(RecursosBDModulo16.CODIGO_EXCEPCION_ARGUMENTO_NULO,
-                    RecursosBDModulo16.MENSAJE_EXCEPCION_ARGUMENTO_NULO, e);
-            }
-            catch (FormatException e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw new ParseoFormatoInvalidoException(RecursosBDModulo16.CODIGO_EXCEPCION_FORMATO_INVALIDO,
-                    RecursosBDModulo16.MENSAJE_EXCEPCION_FORMATO_INVALIDO, e);
-            }
-            catch (OverflowException e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw new ParseoEnSobrecargaException(RecursosBDModulo16.CODIGO_EXCEPCION_SOBRECARGA,
-                    RecursosBDModulo16.MENSAJE_EXCEPCION_SOBRECARGA, e);
-            }
-            catch (ParametroInvalidoException e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw e;
-            }
-            catch (ExceptionSKDConexionBD e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw e;
-            }
-            catch (ExceptionSKD e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw e;
-            }
-            catch (Exception e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw new ExceptionSKD(RecursosBDModulo16.CODIGO_EXCEPCION_GENERICO,
-                    RecursosBDModulo16.MENSAJE_EXCEPCION_GENERICO, e);
-            }
+            else
+                throw new PersonaNoValidaException(RecursosBDModulo16.MENSAJE_EXCEPCION_PERSONA_INVALIDA);
         }
         #endregion
 
@@ -393,126 +425,146 @@ namespace DatosSKD.DAO.Modulo16
         /// <returns>El exito o fallo del proceso</returns>
         public bool ModificarCarrito(Entidad persona, Entidad objeto, int tipoObjeto, int cantidad)
         {
-            try
-            {        
-                //Escribo en el logger la entrada a este metodo
-                Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
-                    RecursosBDModulo16.MENSAJE_ENTRADA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
-
-                //Preparamos la respuesta del Stored procedure y el exito o fallo del proceso
-                int respuesta = 0;
-                bool exito = false;
-                List<Resultado> result;
-
-                //Creo la lista de los parametros para el stored procedure y los anexo
-                List<Parametro> parametros = new List<Parametro>();
-                Parametro parametro = new Parametro(RecursosBDModulo16.PARAMETRO_ID_PERSONA,
-                    SqlDbType.Int, persona.Id.ToString(), false);
-                parametros.Add(parametro);
-
-                //Determinamos que tipo de objeto es
-                switch (tipoObjeto)
+            //Nos aseguramos que realmente sea una persona valida
+            if (persona is Persona)
+            {
+                try
                 {
-                    case 1:
-                        //Si es un implemento
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_IDIMPLEMENTO2,
-                            SqlDbType.Int, objeto.Id.ToString(), false);
-                        parametros.Add(parametro);
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_CANTIDAD,
-                            SqlDbType.Int, cantidad.ToString(), false);
-                        parametros.Add(parametro);
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_EXITO,
-                            SqlDbType.Int, respuesta.ToString(), true);
-                        parametros.Add(parametro);
+                    //Escribo en el logger la entrada a este metodo
+                    Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                        RecursosBDModulo16.MENSAJE_ENTRADA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
 
-                        //Ejecuto la operacion a Base de Datos
-                        result = EjecutarStoredProcedure
-                            (RecursosBDModulo16.PROCEDIMIENTO_MODIFICAR_CANTIDAD_IMPLEMENTO, parametros);
-                        break;
+                    //Preparamos la respuesta del Stored procedure y el exito o fallo del proceso
+                    int respuesta = 0;
+                    bool exito = false;
+                    List<Resultado> result;
 
-                    case 2:
-                        //Si es un Evento casteamos el objeto y lo tratamos como tal
-                        Evento elEvento = objeto as Evento;
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_IDEVENTO2,
-                            SqlDbType.Int, elEvento.Id_evento.ToString(), false);
-                        parametros.Add(parametro);
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_CANTIDAD,
-                            SqlDbType.Int, cantidad.ToString(), false);
-                        parametros.Add(parametro);
-                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_EXITO,
-                            SqlDbType.Int, respuesta.ToString(), true);
-                        parametros.Add(parametro);
+                    //Creo la lista de los parametros para el stored procedure y los anexo
+                    List<Parametro> parametros = new List<Parametro>();
+                    Parametro parametro = new Parametro(RecursosBDModulo16.PARAMETRO_ID_PERSONA,
+                        SqlDbType.Int, persona.Id.ToString(), false);
+                    parametros.Add(parametro);
 
-                        //Ejecuto la operacion a Base de Datos
-                        result = EjecutarStoredProcedure
-                            (RecursosBDModulo16.PROCEDIMIENTO_MODIFICAR_CANTIDAD_EVENTO, parametros);
-                        break;
+                    //Determinamos que tipo de objeto es
+                    switch (tipoObjeto)
+                    {
+                        case 1:
+                            //Casteo el objeto a implemento
+                            Implemento elImplemento = objeto as Implemento;
 
-                    default:
-                        //MEJORAR ESTA EXCEPTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        //Sino es ninguna de las opciones posibles lanzamos un error
-                        throw new OpcionItemErroneoException(RecursosBDModulo16.MENSAJE_EXCEPTION_ITEM_ERRONEO);
-                }                
+                            //Lanzamos una excepcion si no es un implemento o si esta en vacio
+                            if (elImplemento == null)
+                                //De Igual Forma Aca
+                                throw new ItemInvalidoException(RecursosBDModulo16.MENSAJE_EXCEPCION_ITEM_INVALIDO);
 
-                //Recorro cada una de las respuestas en la lista
-                foreach (Resultado aux in result)
-                {
-                    //Si el valor retornado del Stored Procedure es 1 la operacion se realizo con exito
-                    if (aux.valor == "1")
-                        exito = true;
+                            //Si es un implemento
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_IDIMPLEMENTO2,
+                                SqlDbType.Int, objeto.Id.ToString(), false);
+                            parametros.Add(parametro);
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_CANTIDAD,
+                                SqlDbType.Int, cantidad.ToString(), false);
+                            parametros.Add(parametro);
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_EXITO,
+                                SqlDbType.Int, respuesta.ToString(), true);
+                            parametros.Add(parametro);
+
+                            //Ejecuto la operacion a Base de Datos
+                            result = EjecutarStoredProcedure
+                                (RecursosBDModulo16.PROCEDIMIENTO_MODIFICAR_CANTIDAD_IMPLEMENTO, parametros);
+                            break;
+
+                        case 2:
+                            //Si es un Evento casteamos el objeto y lo tratamos como tal
+                            Evento elEvento = objeto as Evento;
+
+                            //Lanzamos una excepcion si no es un Evento o si esta en vacio
+                            if (elEvento == null)
+                                //De Igual Forma Aca
+                                throw new ItemInvalidoException(RecursosBDModulo16.MENSAJE_EXCEPCION_ITEM_INVALIDO);
+
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_IDEVENTO2,
+                                SqlDbType.Int, elEvento.Id_evento.ToString(), false);
+                            parametros.Add(parametro);
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_CANTIDAD,
+                                SqlDbType.Int, cantidad.ToString(), false);
+                            parametros.Add(parametro);
+                            parametro = new Parametro(RecursosBDModulo16.PARAMETRO_EXITO,
+                                SqlDbType.Int, respuesta.ToString(), true);
+                            parametros.Add(parametro);
+
+                            //Ejecuto la operacion a Base de Datos
+                            result = EjecutarStoredProcedure
+                                (RecursosBDModulo16.PROCEDIMIENTO_MODIFICAR_CANTIDAD_EVENTO, parametros);
+                            break;
+
+                        default:
+                            //MEJORAR ESTA EXCEPTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                            //Sino es ninguna de las opciones posibles lanzamos un error
+                            throw new OpcionItemErroneoException(RecursosBDModulo16.MENSAJE_EXCEPTION_ITEM_ERRONEO);
+                    }
+
+                    //Recorro cada una de las respuestas en la lista
+                    foreach (Resultado aux in result)
+                    {
+                        //Si el valor retornado del Stored Procedure es 1 la operacion se realizo con exito
+                        if (aux.valor == "1")
+                            exito = true;
+                    }
+
+                    //Escribo en el logger la salida a este metodo
+                    Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                        RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+                    //Retorno la respuesta
+                    return exito;
                 }
-
-                //Escribo en el logger la salida a este metodo
-                Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
-                    RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
-
-                //Retorno la respuesta
-                return exito;
+                catch (LoggerException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ArgumentNullException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoVacioException(RecursosBDModulo16.CODIGO_EXCEPCION_ARGUMENTO_NULO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_ARGUMENTO_NULO, e);
+                }
+                catch (FormatException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoFormatoInvalidoException(RecursosBDModulo16.CODIGO_EXCEPCION_FORMATO_INVALIDO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_FORMATO_INVALIDO, e);
+                }
+                catch (OverflowException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoEnSobrecargaException(RecursosBDModulo16.CODIGO_EXCEPCION_SOBRECARGA,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_SOBRECARGA, e);
+                }
+                catch (ParametroInvalidoException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ExceptionSKDConexionBD e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ExceptionSKD e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (Exception e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ExceptionSKDConexionBD(RecursosBDModulo16.CODIGO_EXCEPCION_GENERICO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_GENERICO, e);
+                }
             }
-            catch (LoggerException e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw e;
-            }
-            catch (ArgumentNullException e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw new ParseoVacioException(RecursosBDModulo16.CODIGO_EXCEPCION_ARGUMENTO_NULO,
-                    RecursosBDModulo16.MENSAJE_EXCEPCION_ARGUMENTO_NULO, e);
-            }
-            catch (FormatException e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw new ParseoFormatoInvalidoException(RecursosBDModulo16.CODIGO_EXCEPCION_FORMATO_INVALIDO,
-                    RecursosBDModulo16.MENSAJE_EXCEPCION_FORMATO_INVALIDO, e);
-            }
-            catch (OverflowException e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw new ParseoEnSobrecargaException(RecursosBDModulo16.CODIGO_EXCEPCION_SOBRECARGA,
-                    RecursosBDModulo16.MENSAJE_EXCEPCION_SOBRECARGA, e);
-            }
-            catch (ParametroInvalidoException e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw e;
-            }
-            catch (ExceptionSKDConexionBD e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw e;
-            }
-            catch (ExceptionSKD e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw e;
-            }
-            catch (Exception e)
-            {
-                Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
-                throw new ExceptionSKDConexionBD(RecursosBDModulo16.CODIGO_EXCEPCION_GENERICO,
-                    RecursosBDModulo16.MENSAJE_EXCEPCION_GENERICO, e);
-            }    
+            else
+                throw new PersonaNoValidaException(RecursosBDModulo16.MENSAJE_EXCEPCION_PERSONA_INVALIDA);
         }
         #endregion
 

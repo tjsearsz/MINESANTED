@@ -68,12 +68,14 @@
     <Compile Include="Modulo16\CarritoSinEventoException.cs" />
     <Compile Include="Modulo16\CarritoSinInventarioException.cs" />
     <Compile Include="Modulo16\ErrorEnHTTPException.cs" />
+    <Compile Include="Modulo16\ItemInvalidoException.cs" />
     <Compile Include="Modulo16\LogicaagregarEventoaCarritoException.cs" />
     <Compile Include="Modulo16\OpcionItemErroneoException.cs" />
     <Compile Include="Modulo16\ParametroIncorrectoException.cs" />
     <Compile Include="Modulo16\ParseoEnSobrecargaException.cs" />
     <Compile Include="Modulo16\ParseoFormatoInvalidoException.cs" />
     <Compile Include="Modulo16\ParseoVacioException.cs" />
+    <Compile Include="Modulo16\PersonaNoValidaException.cs" />
     <Compile Include="Modulo16\ReferenciaNulaException.cs" />
     <Compile Include="ParametroInvalidoException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

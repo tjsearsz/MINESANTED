@@ -416,4 +416,16 @@
     <value>M16_MODIFICAR_CANTIDAD_EVENTO</value>
     <comment>Stored procedure que modifica la cantidad de implementos que se tengan en el carrito</comment>
   </data>
+  <data name="CODIGO_EXCEPCION_PERSONA_INVALIDA" xml:space="preserve">
+    <value>S_16_10</value>
+  </data>
+  <data name="MENSAJE_EXCEPCION_PERSONA_INVALIDA" xml:space="preserve">
+    <value>Error al encontrarse una persona vacia o invalida</value>
+  </data>
+  <data name="CODIGO_EXCEPCION_ITEM_INVALIDO" xml:space="preserve">
+    <value>S_16_11</value>
+  </data>
+  <data name="MENSAJE_EXCEPCION_ITEM_INVALIDO" xml:space="preserve">
+    <value>Error al encontrarse un item vacio o invalido</value>
+  </data>
 </root>
