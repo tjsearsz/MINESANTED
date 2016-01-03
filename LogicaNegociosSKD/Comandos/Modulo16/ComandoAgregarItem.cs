@@ -26,31 +26,6 @@ namespace LogicaNegociosSKD.Comandos.Modulo16
         private int cantidad;
         #endregion
 
-        #region Constructores
-        /// <summary>
-        /// Constructor vacio del comando
-        /// </summary>
-        public ComandoAgregarItem()
-        {
-
-        }
-
-        /// <summary>
-        /// Constructor del comando con todos los datos requeridos para agregar
-        /// </summary>
-        /// <param name="persona">La persona a la que se le agregara al carrito</param>
-        /// <param name="objeto">El item que se agregara al carrito de la persona</param>
-        /// <param name="tipoObjeto">Indica a que tipo de item nos estamos refiriendo para Agregar</param>
-        /// <param name="cantidad">la cantidad que se esta agregando del objeto</param>
-        public ComandoAgregarItem(Entidad persona, Entidad objeto, int tipoObjeto, int cantidad)
-        {
-            this.persona = persona;
-            this.objeto = objeto;
-            this.tipoObjeto = tipoObjeto;
-            this.cantidad = cantidad;            
-        }
-        #endregion
-
         #region Propiedades
         /// <summary>
         /// Propiedad del atributo Persona
@@ -113,9 +88,34 @@ namespace LogicaNegociosSKD.Comandos.Modulo16
             {
                 this.cantidad = value;
             }
-        }        
+        }
         #endregion
 
+        #region Constructores
+        /// <summary>
+        /// Constructor vacio del comando
+        /// </summary>
+        public ComandoAgregarItem()
+        {
+
+        }
+
+        /// <summary>
+        /// Constructor del comando con todos los datos requeridos para agregar
+        /// </summary>
+        /// <param name="persona">La persona a la que se le agregara al carrito</param>
+        /// <param name="objeto">El item que se agregara al carrito de la persona</param>
+        /// <param name="tipoObjeto">Indica a que tipo de item nos estamos refiriendo para Agregar</param>
+        /// <param name="cantidad">la cantidad que se esta agregando del objeto</param>
+        public ComandoAgregarItem(Entidad persona, Entidad objeto, int tipoObjeto, int cantidad)
+        {
+            this.persona = persona;
+            this.objeto = objeto;
+            this.tipoObjeto = tipoObjeto;
+            this.cantidad = cantidad;            
+        }
+        #endregion
+        
         /// <summary>
         /// Metodo que ejecuta la accion de agregarItem
         /// </summary>
@@ -149,6 +149,10 @@ namespace LogicaNegociosSKD.Comandos.Modulo16
             catch (LoggerException e)
             {
                 Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                throw e;
+            }
+            catch(OpcionItemErroneoException e)
+            {
                 throw e;
             }
             catch (ParseoVacioException e)

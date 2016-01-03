@@ -30,7 +30,6 @@ namespace PruebasUnitariasSKD.Modulo16
         private Entidad persona6;
         private Matricula matricula;
         private Implemento implemento;
-        private Entidad TipoPago;
         private List<Entidad> listaEventos;
         private Comando<List<Entidad>> eventos;
         private Comando<bool> PruebaComandoVacio;
@@ -219,7 +218,6 @@ namespace PruebasUnitariasSKD.Modulo16
             this.persona6 = null;
             this.matricula = null;
             this.implemento = null;
-            this.TipoPago = null;
             this.listaEventos = null;
             this.eventos = null;
             this.PruebaComandoVacio = null;
