@@ -45,6 +45,7 @@
     <Compile Include="Comandos\Modulo16\Comandoregistrarpago.cs" />
     <Compile Include="Comandos\Modulo16\ComandoeliminarItem.cs" />
     <Compile Include="Comandos\Modulo16\ComandoModificarCarrito.cs" />
+    <Compile Include="Comandos\Modulo16\ComandoVerCarrito.cs" />
     <Compile Include="Comandos\Modulo16\RecursosLogicaModulo16.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -41,9 +41,28 @@ namespace DatosSKD.InterfazDAO.Modulo16
         /// <returns>El exito o fallo del proceso</returns>
         bool ModificarCarrito(Entidad persona, Entidad objeto, int tipoObjeto, int cantidad);
 
-        bool eliminarItem(int tipoObjeto, int objetoBorrar, Entidad parametro);
-  //      void getEvento(Entidad idusuario);
-  //      void getImplemento(Entidad idusuario);
-  //      void getMatricula(Entidad idusuario);    
+        /// <summary>
+        /// Metodo que obtiene todos los implementos del carrito de una persona en Base de Datos
+        /// </summary>
+        /// <param name="persona">La persona a la que se desea saber todos sus implementos</param>
+        /// <returns>Lista cont todos los implementos de la persona</returns>
+        List<Entidad> getImplemento(Entidad persona);
+
+        /// <summary>
+        /// Metodo que obtiene todos los eventos del carrito de una persona en Base de Datos
+        /// </summary>
+        /// <param name="persona">La persona a la que se desea saber todos sus eventos</param>
+        /// <returns>Lista cont todos los eventos de la persona</returns>
+        List<Entidad> getEvento(Entidad persona);
+
+        /// <summary>
+        /// Metodo que obtiene todas las matriculas del carrito de una persona en Base de Datos
+        /// </summary>
+        /// <param name="persona">La persona a la que se desea saber todas sus matriculas</param>
+        /// <returns>Lista cont todas las matriculas de la persona</returns>
+        List<Entidad> getMatricula(Entidad persona);
+
+        bool eliminarItem(int tipoObjeto, int objetoBorrar, Entidad parametro);        
+  
     }
 }

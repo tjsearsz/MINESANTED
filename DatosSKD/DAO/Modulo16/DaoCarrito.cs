@@ -161,7 +161,7 @@ namespace DatosSKD.DAO.Modulo16
 
                     //Escribo en el logger la salida a este metodo
                     Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
-                        RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                       RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
 
                     //Retorno la respuesta
                     return exito;
@@ -218,6 +218,347 @@ namespace DatosSKD.DAO.Modulo16
         #endregion
 
         #region VerCarrito
+        /// <summary>
+        /// Metodo que obtiene todos los items de implementos en el carrito del usuario de la Base de Datos
+        /// </summary>
+        /// <param name="persona">La persona a la cual se desea ver su carrito</param>
+        /// <returns>Lista de Implementos encontrados en el carrito de la persona</returns>
+        public List<Entidad> getImplemento(Entidad persona)
+        {
+            if (persona is Persona)
+            {
+                try
+                {
+                    //Escribo en el logger la entrada a este metodo
+                    Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                        RecursosBDModulo16.MENSAJE_ENTRADA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+                    //Creo la lista que sera la respuesta de la consulta
+                    List<Entidad> laLista = new List<Entidad>();
+
+                    //Creo la lista de los parametros para el stored procedure y los anexo
+                    List<Parametro> parametros = new List<Parametro>();
+                    Parametro parametro = new Parametro(RecursosBDModulo16.PARAMETRO_USUARIO,
+                        SqlDbType.Int, persona.Id.ToString(), false);
+                    parametros.Add(parametro);
+
+                    //Ejecuto el Stored Procedure                    
+                    DataTable dt = EjecutarStoredProcedureTuplas
+                        (RecursosBDModulo16.PROCEDIMIENTO_SELECCIONAR_ID_INVENTARIO, parametros);
+
+                    //Obtengo todos los ids que estan en carrito de los Inventario
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        //Me creo el Implemento
+                        Implemento elImplemento = (Implemento)FabricaEntidades.ObtenerImplemento();
+
+                        //Preparo para obtener los datos de ese Inventario
+                        parametros = new List<Parametro>();
+                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_ITEM, SqlDbType.Int,
+                            row[RecursosBDModulo16.PARAMETRO_IDIMPLEMENTO].ToString(), false);
+                        parametros.Add(parametro);
+
+                        //Seteamos el id del implemento
+                        elImplemento.Id_Implemento = int.Parse(row[RecursosBDModulo16.PARAMETRO_IDIMPLEMENTO].ToString());
+
+                        //Obtengo la informacion de los implementos                        
+                        DataTable dt2 = EjecutarStoredProcedureTuplas
+                            (RecursosBDModulo16.PROCEDIMIENTO_CONSULTAR_INVENTARIO_ID, parametros);
+
+                        //Por cada ID obtengo su informacion correspondiente
+                        foreach (DataRow row2 in dt2.Rows)
+                        {
+                            elImplemento.Imagen_implemento = row2[RecursosBDModulo16.PARAMETRO_IMAGEN].ToString();
+                            elImplemento.Nombre_Implemento = row2[RecursosBDModulo16.PARAMETRO_NOMBRE].ToString();
+                            elImplemento.Tipo_Implemento = row2[RecursosBDModulo16.PARAMETRO_TIPO].ToString();
+                            elImplemento.Marca_Implemento = row2[RecursosBDModulo16.PARAMETRO_MARCA].ToString();
+                            elImplemento.Precio_Implemento = int.Parse(
+                                row2[RecursosBDModulo16.PARAMETRO_PRECIO].ToString());
+
+                            //Agrego a la lista
+                            laLista.Add(elImplemento);
+                        }
+                    }
+
+                    //Escribo en el logger la salida a este metodo
+                    Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                        RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+                    //Retorno la lista
+                    return laLista;
+                }
+                catch (LoggerException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ArgumentNullException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoVacioException(RecursosBDModulo16.CODIGO_EXCEPCION_ARGUMENTO_NULO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_ARGUMENTO_NULO, e);
+                }
+                catch (FormatException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoFormatoInvalidoException(RecursosBDModulo16.CODIGO_EXCEPCION_FORMATO_INVALIDO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_FORMATO_INVALIDO, e);
+                }
+                catch (OverflowException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoEnSobrecargaException(RecursosBDModulo16.CODIGO_EXCEPCION_SOBRECARGA,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_SOBRECARGA, e);
+                }
+                catch (ParametroInvalidoException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ExceptionSKDConexionBD e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ExceptionSKD e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (Exception e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ExceptionSKDConexionBD(RecursosBDModulo16.CODIGO_EXCEPCION_GENERICO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_GENERICO, e);
+                }
+            }
+            else throw new PersonaNoValidaException(RecursosBDModulo16.MENSAJE_EXCEPCION_PERSONA_INVALIDA);        
+        }
+
+        /// <summary>
+        /// Metodo que obtiene todos los items de Eventos en el carrito del usuario de la Base de Datos
+        /// </summary>
+        /// <param name="persona">La persona a la cual se desea ver su carrito</param>
+        /// <returns>Lista de Eventos encontrados en el carrito de la persona</returns>
+        public List<Entidad> getEvento(Entidad persona)
+        {
+            if (persona is Persona)
+            {
+                try
+                {
+                    //Escribo en el logger la entrada a este metodo
+                    Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                        RecursosBDModulo16.MENSAJE_ENTRADA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+                    //Creo la lista que sera la respuesta
+                    List<Entidad> laLista = new List<Entidad>();
+
+                    //Creo la lista de los parametros para el stored procedure y los anexo
+                    List<Parametro> parametros = new List<Parametro>();
+                    Parametro parametro = new Parametro(RecursosBDModulo16.PARAMETRO_USUARIO,
+                        SqlDbType.Int, persona.Id.ToString(), false);
+                    parametros.Add(parametro);
+
+                    //Ejecuto el Stored Procedure
+                    DataTable dt = EjecutarStoredProcedureTuplas
+                        (RecursosBDModulo16.PROCEDIMIENTO_SELECCIONAR_ID_EVENTO, parametros);
+
+                    //Obtengo todos los ids que estan en carrito de los eventos
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        //Preparo para obtener los datos de ese evento
+                        parametros = new List<Parametro>();
+                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_ITEM, SqlDbType.Int,
+                            row[RecursosBDModulo16.PARAMETRO_IDEVENTO].ToString(), false);
+                        parametros.Add(parametro);
+
+                        //Obtengo la informacion de los eventos
+                        DataTable dt2 = EjecutarStoredProcedureTuplas
+                            (RecursosBDModulo16.PROCEDIMIENTO_CONSULTAR_EVENTO_ID, parametros);
+
+                        //Por cada ID obtengo su informacion correspondiente
+                        foreach (DataRow row2 in dt2.Rows)
+                        {
+                            //Me creo el evento
+                            FabricaEntidades fabrica = new FabricaEntidades();
+                            Evento elEvento = (Evento)fabrica.ObtenerEvento();
+                            elEvento.Id_evento = int.Parse(row[RecursosBDModulo16.PARAMETRO_IDEVENTO].ToString());
+                            elEvento.Nombre = row2[RecursosBDModulo16.PARAMETRO_NOMBRE].ToString();
+                            elEvento.Costo = int.Parse(row2[RecursosBDModulo16.PARAMETRO_PRECIO].ToString());
+
+                            //Agrego a la lista
+                            laLista.Add(elEvento);
+                        }
+                    }
+
+                    //Escribo en el logger la salida a este metodo
+                    Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                        RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+                    //Retorno la lista
+                    return laLista;
+                }
+                catch (LoggerException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ArgumentNullException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoVacioException(RecursosBDModulo16.CODIGO_EXCEPCION_ARGUMENTO_NULO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_ARGUMENTO_NULO, e);
+                }
+                catch (FormatException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoFormatoInvalidoException(RecursosBDModulo16.CODIGO_EXCEPCION_FORMATO_INVALIDO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_FORMATO_INVALIDO, e);
+                }
+                catch (OverflowException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoEnSobrecargaException(RecursosBDModulo16.CODIGO_EXCEPCION_SOBRECARGA,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_SOBRECARGA, e);
+                }
+                catch (ParametroInvalidoException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ExceptionSKDConexionBD e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ExceptionSKD e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (Exception e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ExceptionSKDConexionBD(RecursosBDModulo16.CODIGO_EXCEPCION_GENERICO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_GENERICO, e);
+                }
+
+            }
+            else throw new PersonaNoValidaException(RecursosBDModulo16.MENSAJE_EXCEPCION_PERSONA_INVALIDA);       
+        }
+
+        /// <summary>
+        /// Metodo que obtiene todos los items de Matriculas en el carrito del usuario de la Base de Datos
+        /// </summary>
+        /// <param name="persona">La persona a la cual se desea ver su carrito</param>
+        /// <returns>Lista de Matriculas encontradas en el carrito de la persona</returns>
+        public List<Entidad> getMatricula(Entidad persona)
+        {
+            if (persona is Persona)
+            {
+                try
+                {
+                    //Escribo en el logger la entrada de este metodo
+                    List<Entidad> laLista = new List<Entidad>();
+
+                    //Escribo en el logger la entrada a este metodo
+                    Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                        RecursosBDModulo16.MENSAJE_ENTRADA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+                    //Creo la lista de los parametros para el stored procedure y los anexo
+                    List<Parametro> parametros = new List<Parametro>();
+                    Parametro parametro = new Parametro(RecursosBDModulo16.PARAMETRO_USUARIO,
+                        SqlDbType.Int, persona.Id.ToString(), false);
+                    parametros.Add(parametro);
+
+                    //Ejecuto el Stored Procedure                    
+                    DataTable dt = EjecutarStoredProcedureTuplas
+                        (RecursosBDModulo16.PROCEDIMIENTO_SELECCIONAR_ID_MATRICULA, parametros);
+
+                    //Obtengo todos los ids que estan en carrito de los eventos
+                    foreach (DataRow row in dt.Rows)
+                    {
+
+                        //Preparo para obtener los datos de ese evento
+                        parametros = new List<Parametro>();
+                        parametro = new Parametro(RecursosBDModulo16.PARAMETRO_ITEM, SqlDbType.Int,
+                            row[RecursosBDModulo16.PARAMETRO_IDMATRICULA].ToString(), false);
+                        parametros.Add(parametro);
+
+                        //Obtengo la informacion de los eventos                       
+                        DataTable dt2 = EjecutarStoredProcedureTuplas
+                            (RecursosBDModulo16.PROCEDIMIENTO_CONSULTAR_MATRICULA_ID, parametros);
+
+                        //Por cada ID obtengo su informacion correspondiente
+                        foreach (DataRow row2 in dt2.Rows)
+                        {
+                            //Me creo la matricula
+                            Matricula laMatricula = (Matricula)FabricaEntidades.ObtenerMatricula();
+                            laMatricula.Id = int.Parse(row[RecursosBDModulo16.PARAMETRO_IDMATRICULA].ToString());
+                            laMatricula.Identificador = (row2[RecursosBDModulo16.aliasIdentificadorMatricula].ToString());
+                            laMatricula.FechaCreacion = DateTime.Parse(row2[RecursosBDModulo16.aliasFechainicio].ToString());
+                            laMatricula.UltimaFechaPago = DateTime.Parse(row2[RecursosBDModulo16.aliasFechatope].ToString());
+                            
+                            //Agrego a la lista
+                            laLista.Add(laMatricula);
+                        }
+
+                    }
+
+                    //Escribo en el logger la salida a este metodo
+                    Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
+                        RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+                    //Retorno la lista
+                    return laLista;
+                }
+                catch (LoggerException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ArgumentNullException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoVacioException(RecursosBDModulo16.CODIGO_EXCEPCION_ARGUMENTO_NULO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_ARGUMENTO_NULO, e);
+                }
+                catch (FormatException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoFormatoInvalidoException(RecursosBDModulo16.CODIGO_EXCEPCION_FORMATO_INVALIDO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_FORMATO_INVALIDO, e);
+                }
+                catch (OverflowException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ParseoEnSobrecargaException(RecursosBDModulo16.CODIGO_EXCEPCION_SOBRECARGA,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_SOBRECARGA, e);
+                }
+                catch (ParametroInvalidoException e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ExceptionSKDConexionBD e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (ExceptionSKD e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw e;
+                }
+                catch (Exception e)
+                {
+                    Logger.EscribirError(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name, e);
+                    throw new ExceptionSKDConexionBD(RecursosBDModulo16.CODIGO_EXCEPCION_GENERICO,
+                        RecursosBDModulo16.MENSAJE_EXCEPCION_GENERICO, e);
+                }
+            }
+            else throw new PersonaNoValidaException(RecursosBDModulo16.MENSAJE_EXCEPCION_PERSONA_INVALIDA);            
+        }
         #endregion
 
         #region EliminarItem
@@ -359,7 +700,7 @@ namespace DatosSKD.DAO.Modulo16
 
                     //Escribo en el logger la salida a este metodo
                     Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
-                        RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                       RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
 
                     //Retorno la Respuesta
                     return exito;
@@ -513,7 +854,7 @@ namespace DatosSKD.DAO.Modulo16
 
                     //Escribo en el logger la salida a este metodo
                     Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
-                        RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                       RecursosBDModulo16.MENSAJE_SALIDA_LOGGER, System.Reflection.MethodBase.GetCurrentMethod().Name);
 
                     //Retorno la respuesta
                     return exito;
@@ -637,6 +978,6 @@ namespace DatosSKD.DAO.Modulo16
             }*/
         }
             #endregion
-        #endregion
+        #endregion       
     }
 }
