@@ -33,8 +33,10 @@ namespace PruebasUnitariasSKD.Modulo16
         private List<Entidad> listaEventos;
         private Matricula matricula;
         private Matricula matricula2;
-        
-
+        private List<Entidad> ImplementosCarrito;
+        private List<Entidad> EventosCarrito;
+        private List<Entidad> MatriculasCarrito;
+        private Evento evento;
         #endregion
 
         /// <summary>
@@ -263,6 +265,125 @@ namespace PruebasUnitariasSKD.Modulo16
         }
         #endregion
 
+        #region VerCarritos
+        /// <summary>
+        /// Prueba unitaria del Ejecutar del ComandoVerCarrito que permite ver el carrito de una persona que solo
+        /// tiene implementos
+        /// </summary>
+        [Test]
+        public void PruebaCarritoSoloImplementos()
+        {
+            //Agregamos implementos en el carrito de la persona
+            this.daoPrueba.agregarItem(this.persona, this.implemento, 1, 5);
+
+            //Ejecutamos los metodos correspondientes para ver los items
+            this.ImplementosCarrito = this.daoPrueba.getImplemento(this.persona);
+            this.EventosCarrito = this.daoPrueba.getEvento(this.persona);
+            this.MatriculasCarrito = this.daoPrueba.getMatricula(this.persona);
+
+            //Revisamos que solo hayan Implementos y efectivamente haya solo uno agregado
+            Assert.IsTrue(this.ImplementosCarrito.Count == 1);
+            Assert.IsTrue(this.EventosCarrito.Count == 0);
+            Assert.IsTrue(this.MatriculasCarrito.Count == 0);
+
+            //Obtenemos el implemento y verificamos sus valores
+            this.implemento = this.ImplementosCarrito[0] as Implemento;
+            Assert.AreEqual(this.implemento.Id_Implemento, 1);
+            Assert.AreEqual(this.implemento.Precio_Implemento, 4500);
+        }
+
+        /// <summary>
+        /// Prueba unitaria del Ejecutar del ComandoVerCarrito que permite ver el carrito de una persona que solo
+        /// tiene Eventos
+        /// </summary>
+        [Test]
+        public void PruebaCarritoSoloEventos()
+        {
+            //Agregamos Eventos en el carrito de la persona
+            this.daoPrueba.agregarItem(this.persona2, this.listaEventos[0], 2, 6);
+
+            //Ejecutamos los metodos correspondientes para ver los items
+            this.ImplementosCarrito = this.daoPrueba.getImplemento(this.persona2);
+            this.EventosCarrito = this.daoPrueba.getEvento(this.persona2);
+            this.MatriculasCarrito = this.daoPrueba.getMatricula(this.persona2);
+
+            //Revisamos que solo hayan Eventos y efectivamente haya solo uno agregado
+            Assert.IsTrue(this.ImplementosCarrito.Count == 0);
+            Assert.IsTrue(this.EventosCarrito.Count == 1);
+            Assert.IsTrue(this.MatriculasCarrito.Count == 0);
+
+            //Obtenemos el Evento y verificamos sus valores
+            this.evento = this.EventosCarrito[0] as Evento;
+            Assert.AreEqual(this.evento.Id_evento, 1);
+            Assert.AreEqual(this.evento.Costo, 0);
+        }
+
+        /// <summary>
+        /// Prueba unitaria del Ejecutar del ComandoVerCarrito que permite ver el carrito de una persona que solo
+        /// tiene Matriculas
+        /// </summary>
+        [Test]
+        public void PruebaCarritoSoloMatriculas()
+        {
+            //Agregamos Matriculas en el carrito de la persona
+            this.daoPrueba.agregarItem(this.persona3, this.matricula, 3, 1);
+
+            //Ejecutamos los metodos correspondientes para ver los items
+            this.ImplementosCarrito = this.daoPrueba.getImplemento(this.persona3);
+            this.EventosCarrito = this.daoPrueba.getEvento(this.persona3);
+            this.MatriculasCarrito = this.daoPrueba.getMatricula(this.persona3);
+
+            //Revisamos que solo hayan Matriculas y efectivamente haya solo una agregada
+            Assert.IsTrue(this.ImplementosCarrito.Count == 0);
+            Assert.IsTrue(this.EventosCarrito.Count == 0);
+            Assert.IsTrue(this.MatriculasCarrito.Count == 1);
+
+            //Obtenemos la Matricula y verificamos sus valores
+            this.matricula = this.MatriculasCarrito[0] as Matricula;
+            Assert.AreEqual(this.matricula.Id, 1);
+            //Assert.AreEqual(this.matricula.Costo, 5000);
+            //PILAS CON EL COSTO ARREGLAR
+        }
+
+        /// <summary>
+        /// Prueba unitaria del Ejecutar del ComandoVerCarrito que permite ver el carrito de una persona que tiene
+        /// implementos, eventos y matriculas
+        /// </summary>
+        [Test]
+        public void PruebaCarritoVariosItems()
+        {
+            //Agregamos todos los items en el carrito de una persona
+            this.daoPrueba.agregarItem(this.persona4, this.implemento, 1, 5);
+            this.daoPrueba.agregarItem(this.persona4, this.listaEventos[0], 2, 6);
+            this.daoPrueba.agregarItem(this.persona4, this.matricula, 3, 1);
+
+            //Ejecutamos los metodos correspondientes para ver los items
+            this.ImplementosCarrito = this.daoPrueba.getImplemento(this.persona4);
+            this.EventosCarrito = this.daoPrueba.getEvento(this.persona4);
+            this.MatriculasCarrito = this.daoPrueba.getMatricula(this.persona4);
+
+            /*Revisamos que hayan Implementos, Eventos y matriculas, ademas,
+              que efectivamente haya solo uno agregado de cada uno de ellos*/
+            Assert.IsTrue(this.ImplementosCarrito.Count == 1);
+            Assert.IsTrue(this.EventosCarrito.Count == 1);
+            Assert.IsTrue(this.MatriculasCarrito.Count == 1);
+
+            //Obtenemos los items y verificamos sus valores            
+            this.implemento = this.ImplementosCarrito[0] as Implemento;
+            Assert.AreEqual(this.implemento.Id_Implemento, 1);
+            Assert.AreEqual(this.implemento.Precio_Implemento, 4500);
+
+            this.evento = this.EventosCarrito[0] as Evento;
+            Assert.AreEqual(this.evento.Id_evento, 1);
+            Assert.AreEqual(this.evento.Costo, 0);
+
+            this.matricula = this.MatriculasCarrito[0] as Matricula;
+            Assert.AreEqual(this.matricula.Id, 1);
+            //Assert.AreEqual(this.matricula.Costo, 5000);
+            //PILAS CON EL COSTO ARREGLAR
+        }
+        #endregion
+
         /// <summary>
         /// Elimina todos los atributos utilizados al probar
         /// </summary>
@@ -273,11 +394,18 @@ namespace PruebasUnitariasSKD.Modulo16
             this.persona = null;
             this.persona2 = null;
             this.persona3 = null;
+            this.persona4 = null;
+            this.persona5 = null;
+            this.persona6 = null;
             this.implemento = null;
             this.implemento2 = null;
             this.listaEventos = null;
             this.matricula = null;
             this.matricula2 = null;
+            this.ImplementosCarrito = null;
+            this.EventosCarrito = null;
+            this.MatriculasCarrito = null;
+            this.evento = null;
         }
     }
 }
