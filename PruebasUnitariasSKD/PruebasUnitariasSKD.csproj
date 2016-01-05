@@ -43,6 +43,7 @@
     <Compile Include="Modulo16\PruebaComandoAgregarItem.cs" />
     <Compile Include="Modulo16\PruebaComandoModificarCarrito.cs" />
     <Compile Include="Modulo16\PruebaComandoRegistrarPago.cs" />
+    <Compile Include="Modulo16\PruebaComandoVerCarrito.cs" />
     <Compile Include="Modulo16\PruebaDAOCarrito.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -84,6 +84,25 @@ namespace LogicaNegociosSKD.Comandos.Fabrica
            return new ComandoModificarCarrito(persona, objeto, tipoObjeto, cantidad);
        }
 
+       /// <summary>
+       /// Metodo de la fabrica que instancia el comando ComandoVerCarrito Vacio
+       /// </summary>
+       /// <returns>El ComandoVerCarrito vacio</returns>
+       public static Comando<Entidad> CrearComandoVerCarrito()
+       {
+           return new ComandoVerCarrito();
+       }
+
+       /// <summary>
+       /// Metodo de la fabrica que instancia el ComandoVerCarrito con sus datos llenos
+       /// </summary>
+       /// <param name="persona">La persona a la que se le vera su carrito</param>
+       /// <returns>El carrito de la persona con todos los items que contiene</returns>
+       public static Comando<Entidad> CrearComandoVerCarrito(Entidad persona)
+       {
+           return new ComandoVerCarrito(persona);
+       }
+
        public static Comando<bool> CrearComandoeliminarItem()
        {
            return new ComandoeliminarItem();

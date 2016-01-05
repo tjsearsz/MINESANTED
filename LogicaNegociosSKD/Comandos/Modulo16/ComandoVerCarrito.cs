@@ -83,8 +83,8 @@ namespace LogicaNegociosSKD.Comandos.Modulo16
                 //Obtengo todos los items del carrito de la persona
                carrito = FabricaEntidades.ObtenerCarrito
                    (daocarrito.getImplemento(this.persona), 
-                   daocarrito.getMatricula(this.persona), 
-                   daocarrito.getImplemento(this.persona));
+                   daocarrito.getEvento(this.persona), 
+                   daocarrito.getMatricula(this.persona));
 
                //Escribo en el logger la salida a este metodo
                Logger.EscribirInfo(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.Name,
