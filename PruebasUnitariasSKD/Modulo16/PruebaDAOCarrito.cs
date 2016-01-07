@@ -33,9 +33,9 @@ namespace PruebasUnitariasSKD.Modulo16
         private List<Entidad> listaEventos;
         private Matricula matricula;
         private Matricula matricula2;
-        private List<Entidad> ImplementosCarrito;
-        private List<Entidad> EventosCarrito;
-        private List<Entidad> MatriculasCarrito;
+        private Dictionary<Entidad, int> ImplementosCarrito;
+        private Dictionary<Entidad, int> EventosCarrito;
+        private Dictionary<Entidad, int> MatriculasCarrito;
         private Evento evento;
         #endregion
 
@@ -287,9 +287,10 @@ namespace PruebasUnitariasSKD.Modulo16
             Assert.IsTrue(this.MatriculasCarrito.Count == 0);
 
             //Obtenemos el implemento y verificamos sus valores
-            this.implemento = this.ImplementosCarrito[0] as Implemento;
+            this.implemento = this.ImplementosCarrito.ElementAt(0).Key as Implemento;
             Assert.AreEqual(this.implemento.Id_Implemento, 1);
             Assert.AreEqual(this.implemento.Precio_Implemento, 4500);
+            Assert.AreEqual(this.ImplementosCarrito.ElementAt(0).Value, 5);
         }
 
         /// <summary>
@@ -313,9 +314,10 @@ namespace PruebasUnitariasSKD.Modulo16
             Assert.IsTrue(this.MatriculasCarrito.Count == 0);
 
             //Obtenemos el Evento y verificamos sus valores
-            this.evento = this.EventosCarrito[0] as Evento;
+            this.evento = this.EventosCarrito.ElementAt(0).Key as Evento;
             Assert.AreEqual(this.evento.Id_evento, 1);
             Assert.AreEqual(this.evento.Costo, 0);
+            Assert.AreEqual(this.EventosCarrito.ElementAt(0).Value, 6);
         }
 
         /// <summary>
@@ -339,10 +341,11 @@ namespace PruebasUnitariasSKD.Modulo16
             Assert.IsTrue(this.MatriculasCarrito.Count == 1);
 
             //Obtenemos la Matricula y verificamos sus valores
-            this.matricula = this.MatriculasCarrito[0] as Matricula;
+            this.matricula = this.MatriculasCarrito.ElementAt(0).Key as Matricula;
             Assert.AreEqual(this.matricula.Id, 1);
             //Assert.AreEqual(this.matricula.Costo, 5000);
             //PILAS CON EL COSTO ARREGLAR
+            Assert.AreEqual(this.MatriculasCarrito.ElementAt(0).Value, 1);
         }
 
         /// <summary>
@@ -369,18 +372,21 @@ namespace PruebasUnitariasSKD.Modulo16
             Assert.IsTrue(this.MatriculasCarrito.Count == 1);
 
             //Obtenemos los items y verificamos sus valores            
-            this.implemento = this.ImplementosCarrito[0] as Implemento;
+            this.implemento = this.ImplementosCarrito.ElementAt(0).Key as Implemento;
             Assert.AreEqual(this.implemento.Id_Implemento, 1);
             Assert.AreEqual(this.implemento.Precio_Implemento, 4500);
+            Assert.AreEqual(this.ImplementosCarrito.ElementAt(0).Value, 5);
 
-            this.evento = this.EventosCarrito[0] as Evento;
+            this.evento = this.EventosCarrito.ElementAt(0).Key as Evento;
             Assert.AreEqual(this.evento.Id_evento, 1);
             Assert.AreEqual(this.evento.Costo, 0);
+            Assert.AreEqual(this.EventosCarrito.ElementAt(0).Value, 6);
 
-            this.matricula = this.MatriculasCarrito[0] as Matricula;
+            this.matricula = this.MatriculasCarrito.ElementAt(0).Key as Matricula;
             Assert.AreEqual(this.matricula.Id, 1);
             //Assert.AreEqual(this.matricula.Costo, 5000);
             //PILAS CON EL COSTO ARREGLAR
+            Assert.AreEqual(this.MatriculasCarrito.ElementAt(0).Value, 1);
         }
         #endregion
 

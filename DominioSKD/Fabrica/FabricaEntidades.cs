@@ -29,8 +29,8 @@ namespace DominioSKD.Fabrica
         /// <param name="eventos">Lista con todos los eventos del carrito</param>
         /// <param name="matriculas">Lisita con todas las matriculas del carrito</param>
         /// <returns>La entidad carrito con todos sus datos llenos</returns>
-        public static Entidad ObtenerCarrito
-            (List<Entidad> implementos, List<Entidad> eventos, List<Entidad> matriculas)
+        public static Entidad ObtenerCarrito(
+           Dictionary<Entidad, int> implementos, Dictionary<Entidad, int> eventos, Dictionary<Entidad, int> matriculas)
         {
             return new Entidades.Modulo16.Carrito(implementos, eventos, matriculas);
         }

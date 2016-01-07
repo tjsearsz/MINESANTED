@@ -457,6 +457,15 @@ namespace DatosSKD.DAO.Modulo16 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to cantidad.
+        /// </summary>
+        internal static string PARAMETRO_CANTIDAD2 {
+            get {
+                return ResourceManager.GetString("PARAMETRO_CANTIDAD2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to impColor.
         /// </summary>
         internal static string PARAMETRO_COLOR {

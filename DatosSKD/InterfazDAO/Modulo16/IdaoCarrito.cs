@@ -46,21 +46,21 @@ namespace DatosSKD.InterfazDAO.Modulo16
         /// </summary>
         /// <param name="persona">La persona a la que se desea saber todos sus implementos</param>
         /// <returns>Lista cont todos los implementos de la persona</returns>
-        List<Entidad> getImplemento(Entidad persona);
+        Dictionary<Entidad, int> getImplemento(Entidad persona);
 
         /// <summary>
         /// Metodo que obtiene todos los eventos del carrito de una persona en Base de Datos
         /// </summary>
         /// <param name="persona">La persona a la que se desea saber todos sus eventos</param>
         /// <returns>Lista cont todos los eventos de la persona</returns>
-        List<Entidad> getEvento(Entidad persona);
+        Dictionary<Entidad, int> getEvento(Entidad persona);
 
         /// <summary>
         /// Metodo que obtiene todas las matriculas del carrito de una persona en Base de Datos
         /// </summary>
         /// <param name="persona">La persona a la que se desea saber todas sus matriculas</param>
         /// <returns>Lista cont todas las matriculas de la persona</returns>
-        List<Entidad> getMatricula(Entidad persona);
+        Dictionary<Entidad, int> getMatricula(Entidad persona);
 
         bool eliminarItem(int tipoObjeto, int objetoBorrar, Entidad parametro);        
   

@@ -428,4 +428,8 @@
   <data name="MENSAJE_EXCEPCION_ITEM_INVALIDO" xml:space="preserve">
     <value>Error al encontrarse un item vacio o invalido</value>
   </data>
+  <data name="PARAMETRO_CANTIDAD2" xml:space="preserve">
+    <value>cantidad</value>
+    <comment>Parametro que se recibe cuando se consulta los querys de seleccionar</comment>
+  </data>
 </root>

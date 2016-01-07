@@ -130,9 +130,10 @@ namespace PruebasUnitariasSKD.Modulo16
             Assert.IsTrue(this.Carrito.Listamatricula.Count == 0);
 
             //Obtenemos el implemento y verificamos sus valores
-            this.implemento = this.Carrito.ListaImplemento[0] as Implemento;
+            this.implemento = this.Carrito.ListaImplemento.ElementAt(0).Key as Implemento;
             Assert.AreEqual(this.implemento.Id_Implemento, 1);
             Assert.AreEqual(this.implemento.Precio_Implemento, 4500);
+            Assert.AreEqual(this.Carrito.ListaImplemento.ElementAt(0).Value, 5);
         }
 
         /// <summary>
@@ -151,9 +152,10 @@ namespace PruebasUnitariasSKD.Modulo16
             Assert.IsTrue(this.Carrito.Listamatricula.Count == 0);
 
             //Obtenemos el Evento y verificamos sus valores
-            this.evento = this.Carrito.Listaevento[0] as Evento;
+            this.evento = this.Carrito.Listaevento.ElementAt(0).Key as Evento;
             Assert.AreEqual(this.evento.Id_evento, 1);
             Assert.AreEqual(this.evento.Costo, 0);
+            Assert.AreEqual(this.Carrito.Listaevento.ElementAt(0).Value, 6);
         }
 
         /// <summary>
@@ -172,10 +174,11 @@ namespace PruebasUnitariasSKD.Modulo16
             Assert.IsTrue(this.Carrito.Listamatricula.Count == 1);
 
             //Obtenemos la Matricula y verificamos sus valores
-            this.matricula = this.Carrito.Listamatricula[0] as Matricula;
+            this.matricula = this.Carrito.Listamatricula.ElementAt(0).Key as Matricula;
             Assert.AreEqual(this.matricula.Id, 1);
             //Assert.AreEqual(this.matricula.Costo, 5000);
             //PILAS CON EL COSTO ARREGLAR
+            Assert.AreEqual(this.Carrito.Listamatricula.ElementAt(0).Value, 1);
         }
 
         /// <summary>
@@ -195,18 +198,21 @@ namespace PruebasUnitariasSKD.Modulo16
             Assert.IsTrue(this.Carrito.Listamatricula.Count == 1);
 
             //Obtenemos los items y verificamos sus valores            
-            this.implemento = this.Carrito.ListaImplemento[0] as Implemento;
+            this.implemento = this.Carrito.ListaImplemento.ElementAt(0).Key as Implemento;
             Assert.AreEqual(this.implemento.Id_Implemento, 1);
             Assert.AreEqual(this.implemento.Precio_Implemento, 4500);
+            Assert.AreEqual(this.Carrito.ListaImplemento.ElementAt(0).Value, 5);
 
-            this.evento = this.Carrito.Listaevento[0] as Evento;
+            this.evento = this.Carrito.Listaevento.ElementAt(0).Key as Evento;
             Assert.AreEqual(this.evento.Id_evento, 1);
             Assert.AreEqual(this.evento.Costo, 0);
+            Assert.AreEqual(this.Carrito.Listaevento.ElementAt(0).Value, 6);
 
-            this.matricula = this.Carrito.Listamatricula[0] as Matricula;
+            this.matricula = this.Carrito.Listamatricula.ElementAt(0).Key as Matricula;
             Assert.AreEqual(this.matricula.Id, 1);
             //Assert.AreEqual(this.matricula.Costo, 5000);
             //PILAS CON EL COSTO ARREGLAR
+            Assert.AreEqual(this.Carrito.Listamatricula.ElementAt(0).Value, 1);
         }
 
         /// <summary>

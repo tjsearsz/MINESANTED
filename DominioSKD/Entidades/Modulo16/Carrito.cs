@@ -17,16 +17,16 @@ namespace DominioSKD.Entidades.Modulo16
         /// <summary>
         /// Atributos de la clase Carrito
         /// </summary>
-        List<Entidad> listaImplemento;
-        List<Entidad> listaEvento;
-        List<Entidad> listaMatricula;
+        private Dictionary<Entidad, int> listaImplemento;
+        private Dictionary<Entidad, int> listaEvento;
+        private Dictionary<Entidad, int> listaMatricula;
         #endregion
 
         #region Propiedades
         /// <summary>
         /// Propiedad del atributo listaInventario
         /// </summary>
-        public List<Entidad> ListaImplemento
+        public Dictionary<Entidad, int> ListaImplemento
         {
             get
             {
@@ -42,7 +42,7 @@ namespace DominioSKD.Entidades.Modulo16
         /// <summary>
         /// Propiedad del atributo listaEvento
         /// </summary>
-        public List<Entidad> Listaevento
+        public Dictionary<Entidad, int> Listaevento
         {
             get
             {
@@ -57,7 +57,7 @@ namespace DominioSKD.Entidades.Modulo16
         /// <summary>
         /// Propiedad del atributo listaMatricula
         /// </summary>
-        public List<Entidad> Listamatricula
+        public Dictionary<Entidad, int> Listamatricula
         {
             get
             {
@@ -91,7 +91,8 @@ namespace DominioSKD.Entidades.Modulo16
         /// <param name="implementos">Lista con todos los implementos del carrito</param>
         /// <param name="eventos">Lista con todos los eventos del carrito</param>
         /// <param name="matriculas">Lista con todas las matriculas del carrito</param>
-        public Carrito(List<Entidad> implementos, List<Entidad> eventos, List<Entidad> matriculas)
+        public Carrito(Dictionary<Entidad, int> implementos,
+            Dictionary<Entidad, int> eventos, Dictionary<Entidad, int> matriculas)
         {
             this.listaImplemento = implementos;
             this.listaEvento = eventos;
@@ -100,49 +101,6 @@ namespace DominioSKD.Entidades.Modulo16
         #endregion
 
         #region Metodos
-        /// <summary>
-        /// Metodo que elimina un item especifico del carrito del usuario
-        /// </summary>
-        /// <param name="tipoObjeto">Especifica si se trata de un inventario, matricula o evento</param>
-        /// <param name="objetoBorrar">Elimina el objeto en especifico del carrito</param>
-        /// <returns>El exito o fallo del proceso</returns>
-        public bool eliminarItem(int tipoObjeto, int objetoBorrar)
-        {
-            //Preparamos la respuesta del proceso
-            bool respuesta = false;
-
-            //Si queremos borrar un implemento 
-            if (tipoObjeto == 1)
-            {
-                //Buscamos en la lista ese implemento que tenga ese id y borramos
-                foreach (Implemento aux in this.ListaImplemento.Reverse<Entidad>())
-                    if (aux.Id_Implemento == objetoBorrar)
-                        this.ListaImplemento.Remove(aux);
-                respuesta = true;
-            }
-            //Si queremos borrar una matricula
-            else if (tipoObjeto == 2)
-            {
-                //Buscamos en la lista esa matricula que tenga ese id y borramos
-                foreach (Matricula aux2 in this.listaMatricula.Reverse<Entidad>())
-                    if (aux2.ID == objetoBorrar)
-                        this.listaMatricula.Remove(aux2);
-                respuesta = true;
-            }
-            //Si queremos borrar un evento
-            else
-            {
-                //Buscamos en la lista ese evento que tenga ese id y borramos
-                foreach (Evento aux3 in this.listaEvento.Reverse<Entidad>())
-                    if (aux3.Id_evento == objetoBorrar)
-                        this.listaEvento.Remove(aux3);
-                respuesta = true;
-            }
-
-            //Retornamos la respuesta
-            return respuesta;
-        }
-
         /// <summary>
         /// Borra todos los items que existan en el carrito
         /// </summary>
