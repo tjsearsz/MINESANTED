@@ -181,6 +181,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="GUI\Modulo16\M16_ConsultarEvento.aspx" />
+    <Content Include="GUI\Modulo16\M16_VerCarrito.aspx" />
     <Content Include="GUI\Modulo16\M16_Prueba.aspx" />
     <Content Include="plugins\ckeditor\CHANGES.md" />
     <Content Include="plugins\ckeditor\LICENSE.md" />
@@ -1381,6 +1382,15 @@
     <Compile Include="GUI\Modulo16\M16_ConsultarEvento.aspx.designer.cs">
       <DependentUpon>M16_ConsultarEvento.aspx</DependentUpon>
     </Compile>
+    
+      <Compile Include="GUI\Modulo16\M16_VerCarrito.aspx.cs">
+      <DependentUpon>M16_VerCarrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\Modulo16\M16_VerCarrito.aspx.designer.cs">
+      <DependentUpon>M16_VerCarrito.aspx</DependentUpon>
+    </Compile>
+      
     <Compile Include="GUI\Modulo16\M16_Prueba.aspx.cs">
       <DependentUpon>M16_Prueba.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
