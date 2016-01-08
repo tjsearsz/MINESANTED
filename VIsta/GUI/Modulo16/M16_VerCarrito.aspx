@@ -44,28 +44,32 @@
         </div><!-- /.box-header -->
 
     <div class="box-body table-responsive">
-        <table id="tablainventario" class="table table-bordered table-striped dataTable">
-        <thead>
-				<tr>
-					
-					<th style="text-align:left">Producto</th>
-					<th style="text-align:left">Precio Unitario</th>           
-                    
-					<th style="text-align:left">Acciones</th>
-				</tr>
-			</thead>
-			<tbody>
-                <asp:Literal runat="server" ID="laTabla1"></asp:Literal>
-		    </tbody>
-            </table>
-           </div>
+       <asp:Table ID="Table1" runat="server" CssClass="table table-bordered table-striped dataTable">
+           <asp:TableHeaderRow>
+               <asp:TableHeaderCell>
+                   Producto
+               </asp:TableHeaderCell>
+               <asp:TableHeaderCell>
+                   Cantidad
+               </asp:TableHeaderCell>
+               <asp:TableHeaderCell>
+                   Precio
+               </asp:TableHeaderCell>
+               <asp:TableHeaderCell>
+                   Acciones
+               </asp:TableHeaderCell>
+           </asp:TableHeaderRow>           
+         </asp:Table>
+        </div>
        </div>
     </div>
 </div>
 
+        
+
          <div class="row">
             <div class="col-xs-12">
-              <div class="box">
+              <div class="box">                  
         <div class="box-header">
                       <h3 class="box-title">Matricula</h3>
         </div><!-- /.box-header -->
@@ -74,9 +78,9 @@
         <table id="tablamatricula" class="table table-bordered table-striped dataTable">
         <thead>
 				<tr>
-					<th style="text-align:left">Identificador de Matricula</th>
-					<th style="text-align:left">Fecha de Creacion</th>           
-                    <th style="text-align:left">Ultima Fecha de Pago</th>
+					<th>Identificador de Matricula</th>
+					<th >Fecha de Creacion</th>           
+                    <th>Ultima Fecha de Pago</th>
                     
 					<th style="text-align:left">Acciones</th>
 				</tr>
@@ -321,7 +325,7 @@
 		    <div class="box-footer">
 			<%--<button id="Boton1" style="align-content:flex-end" runat="server" Disabled="disabled" class="btn btn-primary" type="button" onclick="$('#modal-info').modal('hide'); $('#prueba1').show(); $('#example').DataTable().clear().draw(); " >Registrar Pago</button>--%>
                <%--  <asp:Button id="Boton1" style="align-content:flex-end" OnClick="registrarPago" runat="server" Disabled="disabled" class="btn btn-primary" Text="Registrar Pago" type ="submit" /> --%>
-                <asp:Button ID="Boton1" runat="server" Text="Procesar Pago" OnClick ="registrarPago" class="btn btn-primary" style="align-content:flex-end"/>
+              <%--  <asp:Button ID="Boton1" runat="server" Text="Procesar Pago" OnClick ="registrarPago" class="btn btn-primary" style="align-content:flex-end"/> --%>
                 <a class="btn btn-default" href="M16_VerCarrito.aspx">Cancelar</a>
 			</div>
 	    </div>
@@ -332,7 +336,7 @@
 
 
 <!--VALIDACION PARA EL MODAL DE PAGO-->
-    <script src="js/Validacion.js"></script>
+  <%--  <script src="js/Validacion.js"></script>
     <script>
 
         function example() {
@@ -652,6 +656,6 @@
 
            });
 
-        </script>
+        </script>--%>
 
 </asp:Content>

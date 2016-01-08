@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 
 namespace Contratos.Modulo16
 {
@@ -25,5 +26,7 @@ namespace Contratos.Modulo16
         /// Tabla donde se colocaran todas las matriculas que hay en el carrito del usuario
         /// </summary>
         Literal tablaMatricula { get; }
+
+        Table tabla1 { get; }
     }
 }

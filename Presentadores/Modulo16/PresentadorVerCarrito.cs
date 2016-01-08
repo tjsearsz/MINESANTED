@@ -68,7 +68,7 @@ namespace Presentadores.Modulo16
                 tablaImplementosHTML += M16_Recursointerfaz.CERRAR_TR;
             }
             laVista.tablaImplemento.Text = tablaImplementosHTML;
-
+/*
             //Obtenemos los eventos del carrito de una persona para añadir sus datos al codigo HTML
             string tablaEventosHTML = "";
             foreach (KeyValuePair<Entidad, int> aux in elCarrito.Listaevento)
@@ -125,7 +125,7 @@ namespace Presentadores.Modulo16
                 tablaImplementosHTML += M16_Recursointerfaz.CERRAR_TD;
                 tablaImplementosHTML += M16_Recursointerfaz.CERRAR_TR;
             }
-            laVista.tablaMatricula.Text = tablaMatriculasHTML;
+            laVista.tablaMatricula.Text = tablaMatriculasHTML;*/
         }
 
         /// <summary>

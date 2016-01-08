@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="IContratoMasterPage.cs" />
     <Compile Include="Modulo16\IContratoListarEvento.cs" />
+    <Compile Include="Modulo16\IContratoVerCarrito.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
