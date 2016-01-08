@@ -26,41 +26,11 @@ namespace templateApp.GUI.Modulo16
 
         #region Propiedades
         /// <summary>
-        /// Propiedad del literal Implemento
+        /// Propiedad de la tablaImplemento
         /// </summary>
-        public Literal tablaImplemento
+        public Table tablaImplemento
         {
-            get
-            {
-
-               throw new NotImplementedException();
-            }
-        }
-
-        /// <summary>
-        /// Propiedad del literal Evento
-        /// </summary>
-        public Literal tablaEvento
-        {
-            get
-            {
-
-                return this.laTabla2;
-
-            }
-        }
-
-        /// <summary>
-        /// Propiedad del literal Matricula 
-        /// </summary>
-        public Literal tablaMatricula
-        {
-            get
-            {
-
-                return this.laTabla3;
-
-            }
+            get { return this.TablaImplemento; }
         }
         #endregion
 
@@ -76,6 +46,45 @@ namespace templateApp.GUI.Modulo16
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Persona de prueba que ya tiene cosas en el carrito
+            Entidad persona = FabricaEntidades.ObtenerPersona();
+            persona.Id = 11;
+
+            //Lleno la tabla
+            this.elPresentador.LlenarTabla(persona);
+
+            //Nos indica si hubo alguna accion de agregar, modificar o eliminar
+            String accion = Request.QueryString["accion"];
+
+            //Revisamos si es alguno de los casos a continuacion
+            switch(accion)
+            {
+                //Si se viene de un modificar obtenemos esta alerta
+                case "1":
+                    //Obtenemos el exito o fallo del proceso
+                    String exito = Request.QueryString["exito"];
+
+                    if (exito.Equals("1"))
+                    {
+                        //Si el modificar fue exitoso mostramos esta alerta
+                         alert.Attributes["class"] = "alert alert-success alert-dismissible";
+                         alert.Attributes["role"] = "alert";
+                         alert.InnerHtml = "<div><button type=\"button\" class=\"close\" data-dismiss=\"alert\""+
+                             " aria-la"+"bel=\"Close\"><span aria-hidden=\"true\">&times;</span></button>"+
+                             "Cantidad modificada exitosamente</div>";
+                     }
+                    else
+                    {
+                        //Si el modificar fue fallido mostramos esta alerta
+                        alert.Attributes["class"] = "alert alert-danger alert-dismissible";
+                        alert.Attributes["role"] = "alert";
+                        alert.InnerHtml = "<div><button type=\"button\" class=\"close\" data-dismiss=\"alert\"" +
+                            " aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>" +
+                            "No existe tal cantidad en el inventario</div>";
+                    }
+                    break;            }
+
+            /*
             Button boton = new Button();
             boton.Click += Prueba_click;
             boton.CssClass = "btn btn-success glyphicon glyphicon-shopping-cart";
@@ -106,7 +115,7 @@ namespace templateApp.GUI.Modulo16
             celda.Controls.Add(boton);
             fila.Cells.Add(celda);            
             
-            this.tabla1.Rows.Add(fila);
+            this.tablaImplemento.Rows.Add(fila);
 
             boton = new Button();
             boton.Click += Prueba_click;
@@ -137,16 +146,17 @@ namespace templateApp.GUI.Modulo16
             celda = new TableCell();
             celda.Controls.Add(boton);
             fila.Cells.Add(celda);
-            this.tabla1.Rows.Add(fila);
+            this.tablaImplemento.Rows.Add(fila);
 
             //Obtengo el Carrito de la Persona
-            //this.elPresentador.LlenarTabla(persona);
+            //this.elPresentador.LlenarTabla(persona);*/
 
             //Verificamos si estamos ingresando a la pagina web sin ser redireccionamiento a ella misma
             // if (!IsPostBack)
 
         }
 
+        /*
         public void Prueba_click(object sender, EventArgs e)
         {
             Button aux2 = (Button)sender;
@@ -167,12 +177,6 @@ namespace templateApp.GUI.Modulo16
                 }
                 
             }
-        }
-
-
-        public Table tabla1
-        {
-            get { return this.Table1; }
-        }
+        }*/
     }        
 }

@@ -13,20 +13,8 @@ namespace Contratos.Modulo16
     public interface IcontratoVerCarrito
     {
         /// <summary>
-        /// Tabla donde se colocaran todos los implementos que hay en el carrito del usuario
+        /// Tabla donde se mostrara todos los implementos del carrito
         /// </summary>
-        Literal tablaImplemento { get; }
-
-        /// <summary>
-        /// Tabla donde se colocaran todos los eventos que hay en el carrito del usuario
-        /// </summary>
-        Literal tablaEvento { get; }
-
-        /// <summary>
-        /// Tabla donde se colocaran todas las matriculas que hay en el carrito del usuario
-        /// </summary>
-        Literal tablaMatricula { get; }
-
-        Table tabla1 { get; }
+        Table tablaImplemento { get; }
     }
 }

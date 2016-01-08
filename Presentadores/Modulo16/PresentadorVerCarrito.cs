@@ -8,6 +8,9 @@ using DominioSKD;
 using LogicaNegociosSKD.Comandos;
 using LogicaNegociosSKD.Comandos.Fabrica;
 using DominioSKD.Entidades.Modulo16;
+using System.Web.UI.WebControls;
+using DominioSKD.Fabrica;
+using System.Web;
 
 namespace Presentadores.Modulo16
 {
@@ -39,35 +42,69 @@ namespace Presentadores.Modulo16
             //Instancio el comando para ver el carrito, obtengo el carrito de la persona y casteo
             Comando<Entidad> VerCarrito = FabricaComandos.CrearComandoVerCarrito(persona);
             Carrito elCarrito = (Carrito)VerCarrito.Ejecutar();
-
-            //Obtenemos los implementos del carrito de una persona para añadir sus datos al codigo HTML
-            string tablaImplementosHTML = "";
+                        
+            //Obtenemos cada implemento para ponerlos en la tabla
             foreach (KeyValuePair<Entidad, int> aux in elCarrito.ListaImplemento)
             {
-                //Casteamos la entidad como un implemento y anexamos los valores que se desean
+                //Casteamos la entidad como un implemento
                 Implemento item = aux.Key as Implemento;
-                tablaImplementosHTML += M16_Recursointerfaz.ABRIR_TR + '"' + item.Id_Implemento.ToString() + '"' + ">";
-                tablaImplementosHTML += M16_Recursointerfaz.ABRIR_TD + item.Nombre_Implemento
-                    + M16_Recursointerfaz.CERRAR_TD;
-                tablaImplementosHTML += M16_Recursointerfaz.ABRIR_TD + aux.Value.ToString()
-                    + M16_Recursointerfaz.CERRAR_TD;
-                tablaImplementosHTML += M16_Recursointerfaz.ABRIR_TD + item.Precio_Implemento.ToString()
-                    + M16_Recursointerfaz.CERRAR_TD;
+                
+                //Creamos la nueva fila que ira en la tabla
+                TableRow fila = new TableRow();
 
-                //Botones ARREGLAR!!!
-                tablaImplementosHTML += M16_Recursointerfaz.ABRIR_TD;
+                //Nueva celda que tendra el nombre del implemento
+                TableCell celda = new TableCell();
+                celda.Text = item.Nombre_Implemento;
 
-                tablaImplementosHTML += M16_Recursointerfaz.BOTON_INFO_PRODUCTO + item.Id_Implemento.ToString()
-                    + M16_Recursointerfaz.BOTON_CERRAR;
-                tablaImplementosHTML += M16_Recursointerfaz.BOTON_AGREGAR_IMPLEMENTO_CARRITO_2
-                    + item.Id_Implemento.ToString() + "_" + item.Precio_Implemento + M16_Recursointerfaz.BOTON_CERRAR;
-                tablaImplementosHTML += M16_Recursointerfaz.BOTON_ELIMINAR_ACCION_IMPLEMENTO
-                    + item.Id_Implemento + M16_Recursointerfaz.BOTON_CERRAR;
+                //Agrego la Celda a la fila
+                fila.Cells.Add(celda);
 
-                tablaImplementosHTML += M16_Recursointerfaz.CERRAR_TD;
-                tablaImplementosHTML += M16_Recursointerfaz.CERRAR_TR;
+                //Nueva celda que tendra el costo del implemento
+                celda = new TableCell();
+                celda.Text = item.Precio_Implemento.ToString();
+
+                //Agrego la celda a la fila
+                fila.Cells.Add(celda);
+
+                //Nueva celda que tendra el textbox para poner la cantidad del implemento
+                celda = new TableCell();
+                TextBox texto = new TextBox();
+                texto.Text = aux.Value.ToString();
+                celda.Controls.Add(texto);
+
+                //Agrego la celda a la fila
+                fila.Cells.Add(celda);    
+            
+                //Celda que tendra los botones de Detallar, Modificar y Eliminar
+                celda = new TableCell();
+                Button boton = new Button();
+                boton.Click += Modificar_Carrito;
+                boton.CssClass = "btn btn-success glyphicon glyphicon-shopping-cart";
+                boton.ID = "Implemento-" + item.Id_Implemento.ToString();
+                celda.Controls.Add(boton);
+
+                //Boton informacion
+                boton = new Button();
+                boton.CssClass = "btn btn-primary glyphicon glyphicon-info-sign";
+                boton.ID = "Informacion-" + item.Id_Implemento.ToString();
+
+                //Aqui agregamos atributos para que pueda hacer la llamada de cargar los modales
+                boton.Attributes.Add("data-toggle","modal");
+                boton.Attributes.Add("data-target", "#modal-info1");
+
+                //Se modifica para que el boton no haga postback
+                boton.OnClientClick = "return false;";
+                boton.UseSubmitBehavior = false;
+                celda.Controls.Add(boton);
+
+                //Agrego la celda a la fila
+                fila.Cells.Add(celda);
+
+                //Agrego la fila a la tabla
+                this.laVista.tablaImplemento.Rows.Add(fila);
+               
             }
-            laVista.tablaImplemento.Text = tablaImplementosHTML;
+            
 /*
             //Obtenemos los eventos del carrito de una persona para añadir sus datos al codigo HTML
             string tablaEventosHTML = "";
@@ -129,6 +166,68 @@ namespace Presentadores.Modulo16
         }
 
         /// <summary>
+        /// Metodo del presentador que modifica la cantidad de un item determinado en el carrito de una persona
+        /// </summary>
+        /// <param name="sender">El boton que manda la accion</param>
+        /// <param name="e">El evento</param>
+        public void Modificar_Carrito(object sender, EventArgs e)
+        {
+            //Persona que eventualmente la buscaremos por el session
+            Entidad persona = FabricaEntidades.ObtenerPersona();
+            persona.Id = 11;
+
+            //Transformo el boton y obtengo la informacion de que item quiero agregar y su ID
+            Button aux = (Button)sender;
+            String[] datos = aux.ID.Split('-');    
+        
+            //Cantidad Deseada nueva por el usuario
+            int cantidad = 0;
+            
+            //Si se trata de un implemento, me voy a la tabla correspondiente
+            if (datos[0] == "Implemento")
+            {
+                //Recorro cada fila para saber a cual me refiero y obtener la cantidad a modificar
+                foreach(TableRow aux2 in this.laVista.tablaImplemento.Rows)
+                {
+                    //Si la fila no es de tipo Header puedo comenzar a buscar
+                    if ((aux2 is TableHeaderRow) != true)
+                    {
+                        //En la celda 3 siempre estaran los botones, casteo el boton
+                        Button aux3 = aux2.Cells[3].Controls[0] as Button;
+
+                        //Si el ID del boton en la fila actual corresponde con el ID del boton que realizo la accion
+                        //Obtenemos el numero del textbox que el usuario desea
+                        if (aux3.ID == aux.ID)
+                        {
+                            //En la celda 2 siempre estara el textbox, lo obtengo y agarro la cantidad que el usuario desea
+                            TextBox eltexto = aux2.Cells[2].Controls[0] as TextBox;
+                            cantidad = int.Parse(eltexto.Text);
+                            break;
+                        }
+                    }
+                }
+
+                //Decimos que se trata de un implemento
+                int TipoObjeto = 1;
+
+                //Creo el implemento y le pasamos el ID que vino del boton
+                Implemento objeto = (Implemento)FabricaEntidades.ObtenerImplemento();
+                objeto.Id = int.Parse(datos[1]);
+
+                //Instancio el comando para Registrar un Pago y obtengo el exito o fallo del proceso
+                Comando<bool> ModificarCarrito = FabricaComandos.CrearComandoModificarCarrito(persona, objeto, TipoObjeto, cantidad);
+                bool respuesta = ModificarCarrito.Ejecutar();
+
+                //Obtenemos la respuesta y redireccionamos para mostrar el exito o fallo
+                if (respuesta)
+                    HttpContext.Current.Response.Redirect("M16_VerCarrito.aspx?accion=1&exito=1");
+                else
+                    HttpContext.Current.Response.Redirect("M16_VerCarrito.aspx?accion=1&exito=0");
+            }            
+                        
+        }      
+
+        /// <summary>
         /// Metodo del presentador que registra el pago de los productos que hay en el carrito de una persona
         /// </summary>
         /// <param name="persona">La persona que desea comprar los productos</param>
@@ -144,6 +243,7 @@ namespace Presentadores.Modulo16
             return respuesta;
         }
 
+        /*
         /// <summary>
         /// Metodo del presentador que modifica la cantidad de un item determinado en el carrito de una persona
         /// </summary>
@@ -160,7 +260,7 @@ namespace Presentadores.Modulo16
 
             //Retorno la respuesta
             return respuesta;
-        }
+        }*/
         #endregion
     }
 }

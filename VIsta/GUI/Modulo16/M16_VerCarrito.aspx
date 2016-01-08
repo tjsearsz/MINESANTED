@@ -44,17 +44,17 @@
         </div><!-- /.box-header -->
 
     <div class="box-body table-responsive">
-       <asp:Table ID="Table1" runat="server" CssClass="table table-bordered table-striped dataTable">
+       <asp:Table ID="TablaImplemento" runat="server" CssClass="table table-bordered table-striped dataTable">
            <asp:TableHeaderRow>
                <asp:TableHeaderCell>
                    Producto
                </asp:TableHeaderCell>
                <asp:TableHeaderCell>
-                   Cantidad
-               </asp:TableHeaderCell>
-               <asp:TableHeaderCell>
                    Precio
                </asp:TableHeaderCell>
+               <asp:TableHeaderCell>
+                   Cantidad
+               </asp:TableHeaderCell>               
                <asp:TableHeaderCell>
                    Acciones
                </asp:TableHeaderCell>
@@ -656,6 +656,19 @@
 
            });
 
-        </script>--%>
+        </script>--%>          
+    <script type="text/javascript">
+        debugger;
 
+         
+            $(document).ready(function () {
+                // Carga el modal con la informacion del IMPLEMENTO de acuerdo al id
+                $('#modal-info1').on('show.bs.modal', function (e) {
+                });
+
+            });
+        
+    </script>
+
+    
 </asp:Content>
