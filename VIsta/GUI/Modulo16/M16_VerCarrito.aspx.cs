@@ -82,7 +82,34 @@ namespace templateApp.GUI.Modulo16
                             " aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>" +
                             "No existe tal cantidad en el inventario</div>";
                     }
-                    break;            }
+                    break;
+            
+                //Si se viene de un Registrar Pago obtenemos esta alerta
+                case "2":
+                    //Obtenemos el exito o fallo del proceso
+                    String exito2 = Request.QueryString["exito"];
+
+                    if (exito2.Equals("1"))
+                    {
+                        //Si el RegistrarPago fue exitoso mostramos esta alerta
+                        alert.Attributes["class"] = "alert alert-success alert-dismissible";
+                        alert.Attributes["role"] = "alert";
+                        alert.InnerHtml = "<div><button type=\"button\" class=\"close\" data-dismiss=\"alert\"" +
+                            " aria-la" + "bel=\"Close\"><span aria-hidden=\"true\">&times;</span></button>" +
+                            "Se ha procesado el pago exitosamente, ¡Que disfrute sus productos!</div>";
+                    }
+                    else
+                    {
+                        //Si el RegistarPago fue fallido mostramos esta alerta
+                        alert.Attributes["class"] = "alert alert-success alert-dismissible";
+                        alert.Attributes["role"] = "alert";
+                        alert.InnerHtml = "<div><button type=\"button\" class=\"close\" data-dismiss=\"alert\"" +
+                            " aria-la" + "bel=\"Close\"><span aria-hidden=\"true\">&times;</span></button>" +
+                            "Su compra no ha podido ser procesada, no existe esa cantidad de implementos" +
+                            "Disponibles </div>";
+                    }
+                    break;
+            }
 
             /*
             Button boton = new Button();
@@ -154,6 +181,49 @@ namespace templateApp.GUI.Modulo16
             //Verificamos si estamos ingresando a la pagina web sin ser redireccionamiento a ella misma
             // if (!IsPostBack)
 
+        }
+
+        /// <summary>
+        /// Metodo que ejecuta el evento de Registrar el Pago de un Carrito en la base de Datos
+        /// </summary>
+        /// <param name="sender">El objeto que ejecuta el evento</param>
+        /// <param name="e">El tipo de evento que se esta ejecutando</param>
+        protected void RegistrarPago(object sender, EventArgs e)
+        {
+            Entidad persona = FabricaEntidades.ObtenerPersona();
+            persona.Id = 11;
+
+            //Valor que esta seleccionado en el combobox del tipo de pago
+            String pago = DropDownList1.Value;
+
+            //Obtengo el Valor del combobox y le añado su correspondiente tipo de pago
+            switch(pago)
+            {
+                case "1":
+                    pago = "Tarjeta";
+                    break;
+
+                case "2":
+                    pago = "Deposito";
+                    break;
+
+                case "3":
+                    pago = "Transferencia";
+                    break;
+                
+                //Lanzo una excepcion sino es ninguna de las opciones anteriores
+                default: throw new ExcepcionesSKD.ExceptionSKD();
+
+            }
+
+            //Obtengo el exito o fallo del proceso
+            bool respuesta = this.elPresentador.RegistrarPago(persona, pago);
+
+            //Obtenemos la respuesta y redireccionamos para mostrar el exito o fallo
+            if (respuesta)
+                HttpContext.Current.Response.Redirect("M16_VerCarrito.aspx?accion=2&exito=1");
+            else
+                HttpContext.Current.Response.Redirect("M16_VerCarrito.aspx?accion=2&exito=0");
         }
 
         /*

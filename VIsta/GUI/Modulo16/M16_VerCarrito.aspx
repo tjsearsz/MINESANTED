@@ -198,7 +198,7 @@
 <!--MODAL DE PAGO-->
     <div class="box-footer">
          &nbsp;&nbsp;&nbsp;&nbsp
-         <button id="btn-agregarComp" style="align-content:flex-end" class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-info"">Pagar</button>
+         <button id="btn-agregarComp" style="align-content:flex-end" class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-info">Pagar</button>
           &nbsp;&nbsp
          
          
@@ -260,7 +260,7 @@
                   </div>
             </div>
         </div>
-        <h4 class="modal-title">Tarjeta Credito/Debito</h4>
+     <%--   <h4 class="modal-title">Tarjeta Credito/Debito</h4>
         <div class="form-group">
 	        <div id="div_usuao" class="col-sm-10 col-md-10 col-lg-10">
 		        <input id="Text1" Disabled="disabled" type="text" placeholder="Numero de la Tarjeta" class="form-control" name="Text1" runat="server"/>
@@ -319,16 +319,22 @@
 			<div id="div_respuess" class="col-sm-5 col-md-5 col-lg-5">
 				<input id="Text10" Disabled="disabled" type="text" placeholder="Monto" class="form-control" name="Text10"  runat="server"/>
 			</div>
-		</div>
+		</div> --%>
 
          <div class="form-group">
 		    <div class="box-footer">
 			<%--<button id="Boton1" style="align-content:flex-end" runat="server" Disabled="disabled" class="btn btn-primary" type="button" onclick="$('#modal-info').modal('hide'); $('#prueba1').show(); $('#example').DataTable().clear().draw(); " >Registrar Pago</button>--%>
                <%--  <asp:Button id="Boton1" style="align-content:flex-end" OnClick="registrarPago" runat="server" Disabled="disabled" class="btn btn-primary" Text="Registrar Pago" type ="submit" /> --%>
-              <%--  <asp:Button ID="Boton1" runat="server" Text="Procesar Pago" OnClick ="registrarPago" class="btn btn-primary" style="align-content:flex-end"/> --%>
+                <asp:Button ID="BotonPagar" runat="server" Text="Procesar Pago" disabled="true" OnClick ="RegistrarPago" class="btn btn-primary" style="align-content:flex-end"/> 
                 <a class="btn btn-default" href="M16_VerCarrito.aspx">Cancelar</a>
 			</div>
 	    </div>
+        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+       </div>
 
 
      </form>
@@ -447,11 +453,7 @@
         }
 
     </script>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+						
 
 
     <script type="text/javascript">
@@ -661,10 +663,21 @@
         debugger;
 
          
+        function example() {
+            if ($('#<%=DropDownList1.ClientID %>').val() == -1) {
+
+                $('#<%=BotonPagar.ClientID %>').attr("disabled", true);
+            }
+            else
+                $('#<%=BotonPagar.ClientID %>').attr("disabled", false);
+        }
+
             $(document).ready(function () {
                 // Carga el modal con la informacion del IMPLEMENTO de acuerdo al id
                 $('#modal-info1').on('show.bs.modal', function (e) {
                 });
+
+               
 
             });
         
